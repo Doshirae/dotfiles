@@ -1,0 +1,53 @@
+[options]
+scrollback_lines = 10000
+font             = Droid Sans Mono 9
+clickable_url    = true
+browser          = firefox
+allow_bold       = true
+allow_italic     = true
+visible_bell     = false
+mouse_autohide   = true
+audible_bell     = true
+tra
+
+# Gotham color scheme
+
+[colors]
+
+# special
+foreground      = #cdd9e1
+foreground_bold = #cdd9e1
+cursor          = #cdd9e1
+background      = rgba(141,141,141,0.5)
+
+# black
+color0  = #0b0f11
+color8  = #7b7b7b
+
+# red
+color1  = #151a1c
+color9  = #2f81a7
+
+# green
+color2  = #252b2f
+color10 = #64338b
+
+# yellow
+color3  = #862626
+color11 = #8d2860
+
+# blue
+color4  = #56636b
+color12 = #83b046
+
+# magenta
+color5  = #788893
+color13 = #a0c866
+
+# cyan
+color6  = #9fb4c2
+color14 = #3e428e
+
+# white
+color7  = #dbe4e9
+color15 = #b07935
