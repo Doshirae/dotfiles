@@ -8,7 +8,6 @@ allow_italic     = true
 visible_bell     = false
 mouse_autohide   = true
 audible_bell     = true
-tra
 
 # Gotham color scheme
 
@@ -18,7 +17,7 @@ tra
 foreground      = #cdd9e1
 foreground_bold = #cdd9e1
 cursor          = #cdd9e1
-background      = rgba(141,141,141,0.5)
+background      = #000000
 
 # black
 color0  = #0b0f11

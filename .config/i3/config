@@ -3,7 +3,7 @@
 # Bar : 246
 # Autostart applications : 265
 # Theme color : 277
-
+set $Locker ~/dotfiles/.config/i3/lock.sh
 
 # Init
 set $mod Mod4
@@ -19,13 +19,15 @@ new_float pixel 7
 
 # start a terminal
 bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec --no-startup-id termite --class=Termite --geometry=300x30 --name="floating_termite"
+for_window [class="Termite" instance="floating_termite$"] floating toggle
+for_window [class="Termite" instance="floating_termite$"] sticky enable
 
 # kill focused window
 bindsym $mod+Shift+a kill
 
 # Start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run -opacity 80 -bw 0 -separator-style solid -hide-scrollbar -lines 5 -width 100 -location 6
-bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
 
 # Screenshot
@@ -60,7 +62,7 @@ bindsym $mod+F1 exec pidgin
 bindsym $mod+F5 exec terminal -e 'ncmpcpp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+Ctrl+x exec xkill
 
 #Change Focus
@@ -69,10 +71,10 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 # Alternate change focus
-#bindsym $mod+h focus left
-#bindsym $mod+j focus down
-#bindsym $mod+k focus up
-#bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 #Move Focused Window
 bindsym $mod+Shift+Left move left
@@ -80,13 +82,13 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # Alternate move focused window
-#bindsym $mod+Shift+h move left
-#bindsym $mod+Shift+j move down
-#bindsym $mod+Shift+k move up
-#bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+c split h
 # split in vertical orientation
 bindsym $mod+v split v
 
@@ -241,7 +243,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+l exec --no-startup-id blurlock
+bindsym $mod+x exec --no-startup-id $Locker
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
@@ -258,7 +260,7 @@ bar {
 		focused_workspace  #C5D8C4    #C5D8C4    #282B2A
 		active_workspace   #274920    #A4A28D    #FFFFFF
 		inactive_workspace #000000    #000000    #C5D8C4
-		urgent_workspace   #000000    #000000    #ff0000
+		urgent_workspace   #000000    #000000    #274920
 	}
 }
 
@@ -269,10 +271,11 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id compton -b
 exec --no-startup-id conky -c /usr/share/conky/conky_grey
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 10 -locker $Locker
 exec_always feh --bg-scale ~/Images/Wallpapers/Sylvain\ mononoke.jpg
 exec mpd
 exec xrdb ~/.Xresources
+exec dunst &
 
 # Theme colors   Border	 Background Font    ???
 client.focused   #274920 #274920    #000000 #000000
