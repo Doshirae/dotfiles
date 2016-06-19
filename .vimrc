@@ -67,18 +67,6 @@ set diffopt=vertical
 highlight Redundantlines ctermbg=blue guibg=blue
 match Redundantlines /^\(.*\)\(\n\1\)\+$/       
 
-
-" donner des droits d'exécution si le fichier commence par #! et contient /bin/ dans son chemin
-function ModeChange()
-  if getline(1) =~ "^#!"
-    if getline(1) =~ "/bin/"
-      silent !chmod a+x <afile>
-    endif
-  endif
-endfunction
-
-
-
 " Raccourcis
 
 map <C-j>  :tabnew <CR>
@@ -86,5 +74,4 @@ map <C-k> :tabclose <CR>
 nmap <C-l> :tabnext <CR>
 nmap <C-h>  :tabprevious <CR> 
 imap jk <Esc>
-map ,; :!git add %;and git commit -m
 map 2H :w<CR>:!echo "<head><meta charset=\"UTF-8\">" > /tmp/apercu.html;markdown "%" >> /tmp/apercu.html ; cd ~ ; surf "file:///tmp/apercu.html" <CR>
