@@ -3,7 +3,9 @@
 # Bar : 246
 # Autostart applications : 265
 # Theme color : 277
-set $Locker ~/dotfiles/.config/i3/lock.sh
+
+#set $Locker ~/dotfiles/.config/i3/lock.sh
+set $Locker blurlock
 
 # Init
 set $mod Mod4
@@ -32,7 +34,7 @@ bindsym Mod1+Tab exec --no-startup-id rofi -show window
 
 # Screenshot
 bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Screenshots/'"
-bindsym $mod+Shift+m exec "scrot '%Y-%m-%d_%H:%M:%S[Area].png' -z -s -e 'mv $f ~/Screenshots/'"
+bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Screenshots/'"
 bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Screenshots/'"
 
 ################################################################################################
@@ -61,7 +63,7 @@ bindsym $mod+F1 exec pidgin
 # bindsym $mod+F3 exec ranger
 bindsym $mod+F5 exec terminal -e 'ncmpcpp'
 bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
 bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+Ctrl+x exec xkill
 
@@ -198,9 +200,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
 # Set shut down, restart and locking features
 bindsym $mod+i mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
@@ -254,13 +253,13 @@ bar {
 	font pango:Cantarell,Icons 9
 	colors {
 		separator #274920
-		background #000000
+		background #151219
 		statusline #DDDDDD
 		#                  Border     Background Font
 		focused_workspace  #C5D8C4    #C5D8C4    #282B2A
 		active_workspace   #274920    #A4A28D    #FFFFFF
-		inactive_workspace #000000    #000000    #C5D8C4
-		urgent_workspace   #000000    #000000    #274920
+		inactive_workspace #151219    #151219    #C5D8C4
+		urgent_workspace   #151219    #151219    #274920
 	}
 }
 
@@ -269,7 +268,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b --config ~/.config/compton.conf
 exec --no-startup-id conky -c /usr/share/conky/conky_grey
 exec --no-startup-id xautolock -time 10 -locker $Locker
 exec_always feh --bg-scale ~/Images/Wallpapers/Sylvain\ mononoke.jpg

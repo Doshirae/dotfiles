@@ -37,7 +37,6 @@ let g:airline_section_a = airline#section#create(['mode'])
 let g:airline_section_b = airline#section#create(['branch', 'hunks'])
 let g:airline_section_z = airline#section#create(['%B', '@', '%l', ':', '%c'])
 
-
 """ VIM SETTINGS """
 
 syntax on
@@ -86,6 +85,6 @@ map <C-j>  :tabnew <CR>
 map <C-k> :tabclose <CR>
 nmap <C-l> :tabnext <CR>
 nmap <C-h>  :tabprevious <CR> 
-imap hj <Esc>
+imap jk <Esc>
 map ,; :!git add %;and git commit -m
 map 2H :w<CR>:!echo "<head><meta charset=\"UTF-8\">" > /tmp/apercu.html;markdown "%" >> /tmp/apercu.html ; cd ~ ; surf "file:///tmp/apercu.html" <CR>

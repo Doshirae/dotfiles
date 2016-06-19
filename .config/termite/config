@@ -7,46 +7,29 @@ allow_bold       = true
 allow_italic     = true
 visible_bell     = false
 mouse_autohide   = true
-audible_bell     = true
-
-# Gotham color scheme
 
 [colors]
 
 # special
 foreground      = #cdd9e1
 foreground_bold = #cdd9e1
-cursor          = #cdd9e1
-background      = #000000
+cursor          = #274920
+background      = #151219
 
-# black
-color0  = #0b0f11
-color8  = #7b7b7b
+r0 = #020202
+color1 = #13190d
+color2 = #242e21
+color3 = #2d4335
+color4 = #4d625d
+color5 = #5f7f70
+color6 = #344b59
+color7 = #556984
+color8 = #68928e
+color9 = #84aba8
+color10 = #a2c4c5
+color11 = #7b80a0
+color12 = #92a0c4
+color13 = #435641
+color14 = #47814e
+color15 = #4d6f32
 
-# red
-color1  = #151a1c
-color9  = #2f81a7
-
-# green
-color2  = #252b2f
-color10 = #64338b
-
-# yellow
-color3  = #862626
-color11 = #8d2860
-
-# blue
-color4  = #56636b
-color12 = #83b046
-
-# magenta
-color5  = #788893
-color13 = #a0c866
-
-# cyan
-color6  = #9fb4c2
-color14 = #3e428e
-
-# white
-color7  = #dbe4e9
-color15 = #b07935
