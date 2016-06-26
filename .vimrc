@@ -36,6 +36,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_a = airline#section#create(['mode'])
 let g:airline_section_b = airline#section#create(['branch', 'hunks'])
 let g:airline_section_z = airline#section#create(['%B', '@', '%l', ':', '%c'])
+let g:airline_theme ='base16_atelierforest'
 
 """ VIM SETTINGS """
 

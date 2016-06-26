@@ -2,7 +2,7 @@
 scrollback_lines = 10000
 font             = Droid Sans Mono 9
 clickable_url    = true
-browser          = firefox
+browser          = w3m
 allow_bold       = true
 allow_italic     = true
 visible_bell     = false
@@ -11,25 +11,26 @@ mouse_autohide   = true
 [colors]
 
 # special
-foreground      = #cdd9e1
-foreground_bold = #cdd9e1
-cursor          = #274920
-background      = #151219
+foreground      = #B9E6E9
+foreground_bold = #B9E6E9
+cursor          = #8EB345
+background      = #000615
 
 r0 = #020202
-color1 = #274920
-color2 = #242e21
-color3 = #2d4335
-color4 = #4d625d
-color5 = #5f7f70
-color6 = #344b59
-color7 = #556984
-color8 = #68928e
-color9 = #84aba8
-color10 = #a2c4c5
-color11 = #7b80a0
-color12 = #92a0c4
-color13 = #435641
-color14 = #47814e
-color15 = #4d6f32
+color0 = #44454b
+color1 = #CC9D4D
+color2 = #121826
+color3 = #9ba0a8
+color4 = #808186
+color5 = #acb6b7
+color6 = #626b66
+color7 = #1c4152
+color8 = #315c62
+color9 = #065957
+color10 = #003744
+color11 = #adcfd3
+color12 = #1A6978
+color13 = #377f83
+color14 = #252a3b
+color15 = #c9d897
 

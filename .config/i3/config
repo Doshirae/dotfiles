@@ -1,8 +1,16 @@
 # Line numbers
-# Screenshot : 31
-# Bar : 246
-# Autostart applications : 265
-# Theme color : 277
+# Bar colors : 263
+# Autostart applications : 274
+# Theme color : 289
+
+# Set colors
+
+set $blue #1A6978
+set $black #000615
+set $orange #CC9D4D
+set $green #8EB345
+set $clearblue #B9E6E9
+set $white #FDFDF3
 
 #set $Locker ~/dotfiles/.config/i3/lock.sh
 set $Locker blurlock
@@ -44,8 +52,8 @@ bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Sc
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+#exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+v exec pavucontrol
 
 ################################################################################################
 
@@ -252,14 +260,14 @@ bar {
 #	wheel_down_cmd nop
 	font pango:Cantarell,Icons 9
 	colors {
-		separator #274920
-		background #151219
-		statusline #DDDDDD
+		separator $orange
+		background $white
+		statusline $blue
 		#                  Border     Background Font
-		focused_workspace  #C5D8C4    #C5D8C4    #282B2A
-		active_workspace   #274920    #A4A28D    #FFFFFF
-		inactive_workspace #151219    #151219    #C5D8C4
-		urgent_workspace   #151219    #151219    #274920
+		focused_workspace  $clearblue $clearblue $black
+		active_workspace   $blue      $blue      $black
+		inactive_workspace $white     $white     $blue
+		urgent_workspace   $white     $white     $orange
 	}
 }
 
@@ -269,17 +277,17 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
-exec --no-startup-id conky -c /usr/share/conky/conky_grey
+exec_always --no-startup-id conky -c /usr/share/conky/conky_grey
 exec --no-startup-id xautolock -time 10 -locker $Locker
-exec_always feh --bg-scale ~/Images/Wallpapers/Sylvain\ mononoke.jpg
+exec_always feh --bg-scale ~/Images/Wallpapers/Deer.jpg
 exec mpd
 exec xrdb ~/.Xresources
 exec dunst &
 
 # Theme colors   Border	 Background Font    ???
-client.focused   #274920 #274920    #000000 #000000
-client.unfocused #000000 #000000    #274920 #000000
-client.urgent    #000000 #000000    #FFFFFF #000000
+client.focused   $green  $green     $black  #000000
+client.unfocused $black  $black     $green  #000000
+client.urgent    #151219 #151219    #FFFFFF #000000
 
 #############################
 ### settings for i3-gaps: ###
