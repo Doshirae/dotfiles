@@ -1,3 +1,12 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #8eb345, #8eb345, #b8e6e9
+rofi.color-normal: #8eb345, #fdfdf3, #8eb345, #b8e6e9, #000615
+rofi.color-active: #8eb345, #fdfdf3, #8eb345, #1a6978, #fdfdf3
+rofi.color-urgent: #8eb345, #fdfdf3, #8eb345, #cc9d4d, #fdfdf3
+
 URxvt.font: xft:Droid Sans Mono:size=9
 Xft.dpi: 96
 Xft.antialias: true
@@ -151,12 +160,3 @@ URxvt*saveLines:                      5000
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
 
-
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: #274920, #274920, #c5d8c4
-rofi.color-normal: #274920, #c5d8c4, #274920, #c5d8c4, #282b2a
-rofi.color-active: #274920, #171218, #274920, #171218, #c5d8c4
-rofi.color-urgent: #274920, #dc322f, #274920, #dc322f, #c5d8c4
