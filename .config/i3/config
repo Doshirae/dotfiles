@@ -278,7 +278,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 exec_always --no-startup-id conky -c /usr/share/conky/conky_grey
-exec --no-startup-id xautolock -time 10 -locker $Locker
+#exec --no-startup-id xautolock -time 10 -locker $Locker
 exec_always feh --bg-scale ~/Images/Wallpapers/Deer.jpg
 exec mpd
 exec xrdb ~/.Xresources
