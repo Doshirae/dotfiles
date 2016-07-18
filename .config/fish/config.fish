@@ -1,6 +1,6 @@
 alias ls="ls --group-directories-first --color=auto"
-alias s1="xinit i3"
-alias s2="xinit xfce"
+alias s1="startx ~/dotfiles/.xinitrc i3"
+alias s2="startx ~/dotfiles/.xinitrc xfce"
 alias wttr='curl wttr.in/"la grande motte"'
 alias area="sleep 1; and scrot '%Y-%m-%d_%H:%M:%S[Area].png' -z -s -e 'mv $f ~/Screenshots/'"
 alias vfish="vim ~/dotfiles/.config/fish/config.fish"
