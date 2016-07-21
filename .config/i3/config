@@ -28,10 +28,7 @@ new_float pixel 7
 #hide_edge_borders none
 
 # start a terminal
-bindsym $mod+Return exec termite
-bindsym $mod+Shift+Return exec --no-startup-id termite --class=Termite --geometry=300x30 --name="floating_termite"
-for_window [class="Termite" instance="floating_termite$"] floating toggle
-for_window [class="Termite" instance="floating_termite$"] sticky enable
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -168,7 +165,8 @@ bindsym $mod+Ctrl+8 move container to workspace number 8; workspace $WS7
 
 # Open applications on specific workspaces
  assign [class="Firefox"] $WS1
- assign [class="Termite"] $WS2
+ assign [class="Terminator"] $WS2
+ assign [class="terminator"] $WS2
  assign [class="Pcmanfm"] $WS3
  assign [class="Skype"] $WS4
  assign [class="Pidgin"] $WS4

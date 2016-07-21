@@ -55,7 +55,7 @@ set statusline=%<%f%m\ %r\ %h\ %w%=%l,%c\ %p%%\ [%{strftime('%a\ %d/%m/%y\ %H:%M
 set wrap
 set mouse=a
 set t_Co=256
-"colorsche mustang
+colorsche mustang
 set diffopt=vertical
 " Activer le correcteur orthographique sur les fichiers markdown
 "

@@ -7,6 +7,9 @@ rofi.color-normal: #8eb345, #fdfdf3, #8eb345, #b8e6e9, #000615
 rofi.color-active: #8eb345, #fdfdf3, #8eb345, #1a6978, #fdfdf3
 rofi.color-urgent: #8eb345, #fdfdf3, #8eb345, #cc9d4d, #fdfdf3
 
+! ------------------------------------------------------------------------------
+! URXVT Settings
+! ------------------------------------------------------------------------------
 URxvt.font: xft:Droid Sans Mono:size=9
 Xft.dpi: 96
 Xft.antialias: true
@@ -18,12 +21,11 @@ Xft.lcdfilter: lcddefault
 Xcursor.theme: Chameleon-Pearl-Regular-0.5
 Xcursor.size:  0
 URxvt.depth: 32
-URxvt.background: [62]#000000
 URxvt*scrollBar:                      false
 URxvt*mouseWheelScrollPage:           false
 URxvt*cursorBlink:                    true
-URxvt*background:                     black
-URxvt*foreground:                     white
+URxvt*background:                     #000615
+URxvt*foreground:                     #B9E6E9
 URxvt*saveLines:                      5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
@@ -66,22 +68,22 @@ URxvt*saveLines:                      5000
 ! URxvt*insecure:                       boolean
 ! URxvt*cursorUnderline:                boolean
 ! URxvt*pointerBlank:                   boolean
-! URxvt*color0:                         color
-! URxvt*color1:                         color
-! URxvt*color2:                         color
-! URxvt*color3:                         color
-! URxvt*color4:                         color
-! URxvt*color5:                         color
-! URxvt*color6:                         color
-! URxvt*color7:                         color
-! URxvt*color8:                         color
-! URxvt*color9:                         color
-! URxvt*color10:                        color
-! URxvt*color11:                        color
-! URxvt*color12:                        color
-! URxvt*color13:                        color
-! URxvt*color14:                        color
-! URxvt*color15:                        color
+URxvt*color0:                         #44454B
+URxvt*color1:                         #B9E6E9
+URxvt*color2:                         #8EB345
+URxvt*color3:                         #9BA0A8
+URxvt*color4:                         #808186
+URxvt*color5:                         #ACB6B7
+URxvt*color6:                         #626B66
+URxvt*color7:                         #B9E6E9
+URxvt*color8:                         #315C62
+URxvt*color9:                         #CC9D4D
+URxvt*color10:                        #1A6978
+URxvt*color11:                        #ADCFD3
+URxvt*color12:                        #1A6978
+URxvt*color13:                        #377F83
+URxvt*color14:                        #8EB345
+URxvt*color15:                        #C9D987
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
@@ -91,7 +93,7 @@ URxvt*saveLines:                      5000
 ! URxvt*troughColor:                    color
 ! URxvt*highlightColor:                 color
 ! URxvt*highlightTextColor:             color
-! URxvt*cursorColor:                    color
+URxvt*cursorColor:                    #8EB345
 ! URxvt*cursorColor2:                   color
 ! URxvt*pointerColor:                   color
 ! URxvt*pointerColor2:                  color

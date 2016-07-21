@@ -49,7 +49,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux catimg common-aliases dircycle fasd lol nyan sudo web-search wd zsh-autosuggestions)
+plugins=(git zsh-autosuggestions)
 
 # User configuration
 
@@ -80,9 +80,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias vzsh="vim ~/home/doshirae/dotfiles/.zshrc"
+alias vzsh="vim /home/doshirae/dotfiles/.zshrc"
 alias vi3="vim /home/doshirae/dotfiles/.config/i3/config"
 alias vvim="vim /home/doshirae/dotfiles/.vimrc"
-alias la="ls -A"
-alias ll="ls -l"
-alias l="ls -AlhF"
+alias la="ls -A --group-directories-first"
+alias ll="ls -l --group-directories-first"
+alias l="ls -AlhF --group-directories-first"
+alias ls="ls --group-directories-first"
+alias exit='sh ~/.seeyouspacecowboy.sh; sleep 1; exit'
