@@ -28,7 +28,7 @@ new_float pixel 7
 #hide_edge_borders none
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -59,14 +59,14 @@ bindsym $mod+Ctrl+v exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec termite -e 'bmenu'
+bindsym $mod+Ctrl+b exec urxvt -e 'bmenu'
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+F1 exec pidgin
 
 # bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec terminal -e 'ncmpcpp'
+bindsym $mod+F5 exec urxvt -e 'ncmpcpp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
 bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -165,8 +165,8 @@ bindsym $mod+Ctrl+8 move container to workspace number 8; workspace $WS7
 
 # Open applications on specific workspaces
  assign [class="Firefox"] $WS1
- assign [class="Terminator"] $WS2
- assign [class="terminator"] $WS2
+ assign [class="urxvt"] $WS2
+ assign [class="Urxvt"] $WS2
  assign [class="Pcmanfm"] $WS3
  assign [class="Skype"] $WS4
  assign [class="Pidgin"] $WS4

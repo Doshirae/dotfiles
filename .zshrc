@@ -83,8 +83,10 @@ source $ZSH/oh-my-zsh.sh
 alias vzsh="vim /home/doshirae/dotfiles/.zshrc"
 alias vi3="vim /home/doshirae/dotfiles/.config/i3/config"
 alias vvim="vim /home/doshirae/dotfiles/.vimrc"
-alias la="ls -A --group-directories-first"
-alias ll="ls -l --group-directories-first"
-alias l="ls -AlhF --group-directories-first"
-alias ls="ls --group-directories-first"
-alias exit='sh ~/.seeyouspacecowboy.sh; sleep 1; exit'
+alias la="ls -A --color=auto --group-directories-first"
+alias ll="ls -l --color=auto --group-directories-first"
+alias l="ls -AlhF --color=auto --group-directories-first"
+alias ls="ls --color=auto --group-directories-first"
+alias exit='sh ~/.seeyouspacecowboy.sh; sleep .5; exit'
+alias s="startx"
+alias xfce="xinit xfce"
