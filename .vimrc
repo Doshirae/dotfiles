@@ -8,10 +8,11 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,7 +56,6 @@ set statusline=%<%f%m\ %r\ %h\ %w%=%l,%c\ %p%%\ [%{strftime('%a\ %d/%m/%y\ %H:%M
 set wrap
 set mouse=a
 set t_Co=256
-colorsche mustang
 set diffopt=vertical
 " Activer le correcteur orthographique sur les fichiers markdown
 "

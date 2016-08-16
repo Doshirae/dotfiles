@@ -24,8 +24,8 @@ URxvt.depth: 32
 URxvt*scrollBar:                      false
 URxvt*mouseWheelScrollPage:           false
 URxvt*cursorBlink:                    true
-URxvt*background:                     #000615
-URxvt*foreground:                     #B9E6E9
+URxvt*background:                     #0a0519
+URxvt*foreground:                     #fefefe
 URxvt*saveLines:                      5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
@@ -68,22 +68,22 @@ URxvt*saveLines:                      5000
 ! URxvt*insecure:                       boolean
 ! URxvt*cursorUnderline:                boolean
 ! URxvt*pointerBlank:                   boolean
-URxvt*color0:                         #44454B
-URxvt*color1:                         #B9E6E9
-URxvt*color2:                         #8EB345
-URxvt*color3:                         #9BA0A8
-URxvt*color4:                         #808186
-URxvt*color5:                         #ACB6B7
-URxvt*color6:                         #626B66
-URxvt*color7:                         #B9E6E9
-URxvt*color8:                         #315C62
-URxvt*color9:                         #CC9D4D
-URxvt*color10:                        #1A6978
-URxvt*color11:                        #ADCFD3
-URxvt*color12:                        #1A6978
-URxvt*color13:                        #377F83
-URxvt*color14:                        #8EB345
-URxvt*color15:                        #C9D987
+URxvt*color0:                         #1b1918
+URxvt*color1:                         #d83240
+URxvt*color2:                         #39d43c
+URxvt*color3:                         #fdd03f
+URxvt*color4:                         #3f3f3f
+URxvt*color5:                         #8d334f
+URxvt*color6:                         #815288
+URxvt*color7:                         #3F3F3F
+URxvt*color8:                         #3F3F3F
+URxvt*color9:                         #f22c40
+URxvt*color10:                        #5ab738
+URxvt*color11:                        #d5911a
+URxvt*color12:                        #68a3e9
+URxvt*color13:                        #6666ea
+URxvt*color14:                        #3F3F3F
+URxvt*color15:                        #3F3F3F
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
@@ -93,7 +93,7 @@ URxvt*color15:                        #C9D987
 ! URxvt*troughColor:                    color
 ! URxvt*highlightColor:                 color
 ! URxvt*highlightTextColor:             color
-URxvt*cursorColor:                    #8EB345
+URxvt*cursorColor:                    #815288
 ! URxvt*cursorColor2:                   color
 ! URxvt*pointerColor:                   color
 ! URxvt*pointerColor2:                  color

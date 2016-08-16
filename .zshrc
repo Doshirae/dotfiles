@@ -74,18 +74,24 @@ source $ZSH/oh-my-zsh.sh
 # ssh
  export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Set editor to vim
+
+export VISUAL="/usr/bin/vim"
+export EDITOR="/usr/bin/vim"
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
 alias vzsh="vim /home/doshirae/dotfiles/.zshrc"
 alias vi3="vim /home/doshirae/dotfiles/.config/i3/config"
 alias vvim="vim /home/doshirae/dotfiles/.vimrc"
-alias la="ls -A --color=auto --group-directories-first"
-alias ll="ls -l --color=auto --group-directories-first"
-alias l="ls -AlhF --color=auto --group-directories-first"
+alias vterm="vim /home/doshirae/dotfiles/.Xresources"
+alias vtmux="vim /home/doshirae/dotfiles/.tmux.conf"
+alias grep="grep --color=auto"
+alias la="ls -A"
+alias ll="ls -l"
+alias l="ls -AlhF"
 alias ls="ls --color=auto --group-directories-first"
 alias exit='sh ~/.seeyouspacecowboy.sh; sleep .5; exit'
 alias s="startx"

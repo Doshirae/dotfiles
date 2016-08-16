@@ -5,12 +5,18 @@
 
 # Set colors
 
-set $blue #1A6978
-set $black #000615
-set $orange #CC9D4D
-set $green #8EB345
-set $clearblue #B9E6E9
-set $white #FDFDF3
+set $white #FEFEFE
+set $red #D83240
+set $orange #EC7C3A
+set $yellow #FDD03F
+set $green #39D43C
+set $cleargreen #B4D23D
+set $blue #2A7CE0
+set $clearblue #68A3E9
+set $purple #815288
+set $weirdpurple #8D334F
+set $gray #3F3F3F
+set $black #0A0519
 
 #set $Locker ~/dotfiles/.config/i3/lock.sh
 set $Locker blurlock
@@ -19,7 +25,7 @@ set $Locker blurlock
 set $mod Mod4
 font pango:Cantarell 9
 floating_modifier $mod
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no 
 # Borders
 new_window pixel 7
 new_float pixel 7
@@ -28,7 +34,7 @@ new_float pixel 7
 #hide_edge_borders none
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -e tmux; workspace $WS2
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -126,6 +132,8 @@ set $WS3 3· Files
 set $WS4 4· Social
 set $WS5 5· Misc
 set $WS6 6· Music
+set $WS9 9· Torrent
+
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -136,6 +144,7 @@ bindsym $mod+5 workspace $WS5
 bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -151,7 +160,6 @@ bindsym $mod+Shift+6 move container to workspace $WS6
 bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
-bindsym $mod+Shift+0 move container to workspace $WS10
 
 # Move to workspace with focused container
 bindsym $mod+Ctrl+1 move container to workspace number 1; workspace $WS1
@@ -160,17 +168,18 @@ bindsym $mod+Ctrl+3 move container to workspace number 3; workspace $WS3
 bindsym $mod+Ctrl+4 move container to workspace number 4; workspace $WS4
 bindsym $mod+Ctrl+5 move container to workspace number 5; workspace $WS5
 bindsym $mod+Ctrl+6 move container to workspace number 6; workspace $WS6
-bindsym $mod+Ctrl+7 move container to workspace number 7; workspace $WS6
-bindsym $mod+Ctrl+8 move container to workspace number 8; workspace $WS7
+bindsym $mod+Ctrl+7 move container to workspace number 7; workspace $WS7
+bindsym $mod+Ctrl+8 move container to workspace number 8; workspace $WS8
+bindsym $mod+Ctrl+9 move container to workspace number 9; workspace $WS9
 
 # Open applications on specific workspaces
  assign [class="Firefox"] $WS1
- assign [class="urxvt"] $WS2
- assign [class="Urxvt"] $WS2
+ assign [title="tmux"] $WS2
  assign [class="Pcmanfm"] $WS3
  assign [class="Skype"] $WS4
  assign [class="Pidgin"] $WS4
  assign [class="Thunderbird"] $WS4
+ assign [class="Transmission"] $WS9
  
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 2
@@ -258,19 +267,19 @@ bar {
 #	wheel_down_cmd nop
 	font pango:Cantarell,Icons 9
 	colors {
-		separator $orange
-		background $white
-		statusline $blue
-		#                  Border     Background Font
-		focused_workspace  $clearblue $clearblue $black
-		active_workspace   $blue      $blue      $black
-		inactive_workspace $white     $white     $blue
-		urgent_workspace   $white     $white     $orange
+		separator $gray
+		background $black
+		statusline $purple
+		#                  Border        Background    Font
+		focused_workspace  $black        $black        $green
+		active_workspace   $black        $black        $green
+		inactive_workspace $black        $black        $red
+		urgent_workspace   $black        $black        $yellow
 	}
 }
 
 # Autostart applications
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id gnome-keyring-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -278,15 +287,15 @@ exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 exec_always --no-startup-id conky -c /usr/share/conky/conky_grey
 #exec --no-startup-id xautolock -time 10 -locker $Locker
-exec_always feh --bg-scale ~/Images/Wallpapers/Deer.jpg
+exec_always feh --bg-scale ~/Images/Wallpapers/"Pink Floyd eeveelutions.jpg"
 exec mpd
 exec xrdb ~/.Xresources
 exec dunst &
 
 # Theme colors   Border	 Background Font    ???
-client.focused   $green  $green     $black  #000000
-client.unfocused $black  $black     $green  #000000
-client.urgent    #151219 #151219    #FFFFFF #000000
+client.focused   $purple $purple    $black  #000000
+client.unfocused $black  $black     $purple #000000
+client.urgent    #151219 #151219    $black #000000
 
 #############################
 ### settings for i3-gaps: ###
