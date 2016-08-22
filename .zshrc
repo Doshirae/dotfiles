@@ -27,7 +27,7 @@ ZSH_THEME="spaceship"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -97,3 +97,7 @@ alias ls="ls --color=auto --group-directories-first"
 alias exit='sh ~/.seeyouspacecowboy.sh; sleep .5; exit'
 alias s="startx"
 alias xfce="xinit xfce"
+
+bindkey -v
+export KEYTIMEOUT=1
+eval "$(thefuck --alias)"

@@ -291,6 +291,7 @@ exec_always feh --bg-scale ~/Images/Wallpapers/"Pink Floyd eeveelutions.jpg"
 exec mpd
 exec xrdb ~/.Xresources
 exec dunst &
+exec pidgin
 
 # Theme colors   Border	 Background Font    ???
 client.focused   $purple $purple    $black  #000000
