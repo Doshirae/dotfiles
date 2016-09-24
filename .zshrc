@@ -96,8 +96,6 @@ alias l="ls -AlhF"
 alias ls="ls --color=auto --group-directories-first"
 alias exit='sh ~/.seeyouspacecowboy.sh; sleep .5; exit'
 alias s="startx"
-alias xfce="xinit xfce"
 
 bindkey -v
 export KEYTIMEOUT=1
-eval "$(thefuck --alias)"

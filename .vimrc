@@ -10,8 +10,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -28,17 +26,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-""" VIM-AIRLINE """
-set noshowmode
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_a = airline#section#create(['mode'])
-let g:airline_section_b = airline#section#create(['branch', 'hunks'])
-let g:airline_section_z = airline#section#create(['%B', '@', '%l', ':', '%c'])
-let g:airline_theme ='base16_atelierforest'
-
 """ VIM SETTINGS """
 
 syntax on
@@ -52,7 +39,6 @@ set incsearch
 set hlsearch
 set title
 set ruler
-set statusline=%<%f%m\ %r\ %h\ %w%=%l,%c\ %p%%\ [%{strftime('%a\ %d/%m/%y\ %H:%M:%S')}]
 set wrap
 set mouse=a
 set t_Co=256
@@ -75,4 +61,3 @@ map <C-k> :tabclose <CR>
 nmap <C-l> :tabnext <CR>
 nmap <C-h>  :tabprevious <CR> 
 imap jk <Esc>
-map 2H :w<CR>:!echo "<head><meta charset=\"UTF-8\">" > /tmp/apercu.html;markdown "%" >> /tmp/apercu.html ; cd ~ ; surf "file:///tmp/apercu.html" <CR>
