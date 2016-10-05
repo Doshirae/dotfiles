@@ -1,3 +1,4 @@
+" Plugin Manager {{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -10,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
+Bundle 'godlygeek/tabular'
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -26,13 +28,20 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-""" VIM SETTINGS """
+" }}}
 
-syntax on
-" Casse minuscule -> osef de la casse, une majuscules -> casse stricte
-set smartcase
+" Colors{{{
 set background=dark
-" Numéros de ligne dans la marge
+"colorscheme molokai
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+" }}}
+
+" Sets {{{
+" Casse minuscule -> osef de la casse, une majuscules -> casse stricte
+syntax on
+set smartcase
 set nu
 set relativenumber
 set incsearch
@@ -41,23 +50,48 @@ set title
 set ruler
 set wrap
 set mouse=a
-set t_Co=256
 set diffopt=vertical
-" Activer le correcteur orthographique sur les fichiers markdown
-"
-" Corriger un mot : mettre le curseur sur le mot, puis taper z=
-" Définir un mot comme juste : zg
-" Définir un mot comme non-juste : zug
-" Prochain mot faux : ]s 
-"au BufNewFile,BufRead *.md set spell
-"au BufNewFile,BufRead *.md setlocal spell spelllang=fr
+set showcmd
+set cursorline
+set wildmenu
+set lazyredraw
+" }}}
+
+" Tabs {{{
+set tabstop=4
+set shiftwidth=4
+" }}}
+
+" Folds {{{
+set foldenable 
+set foldlevelstart=10
+set foldnestmax=10 
+set foldmethod=indent
+set modelines=1
+" }}}
+
+" Highlight {{{
 highlight Redundantlines ctermbg=blue guibg=blue
 match Redundantlines /^\(.*\)\(\n\1\)\+$/       
+" }}}
 
-" Raccourcis
+" Mapping {{{
 
+imap jk <Esc>
+nnoremap j gj
+nnoremap k gk
 map <C-j>  :tabnew <CR>
 map <C-k> :tabclose <CR>
 nmap <C-l> :tabnext <CR>
 nmap <C-h>  :tabprevious <CR> 
-imap jk <Esc>
+
+nnoremap <leader><space> :nohlsearch<CR>
+let mapleader=","       " leader is comma
+
+nnoremap <leader>ev :vsp ~/dotfiles/.vimrc<CR>
+nnoremap <leader>ez :vsp ~/dotfiles/.zshrc<CR>
+nnoremap <leader>ei :vsp ~/dotfiles/.config/i3/config<CR>
+nnoremap <leader>sv :source ~/dotfiles/.vimrc<CR>
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0

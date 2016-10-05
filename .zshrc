@@ -96,6 +96,7 @@ alias l="ls -AlhF"
 alias ls="ls --color=auto --group-directories-first"
 alias exit='sh ~/.seeyouspacecowboy.sh; sleep .5; exit'
 alias s="startx"
+FTPIUT="ftpinfo.iutmontp.univ-montp2.fr"
 
 bindkey -v
 export KEYTIMEOUT=1
