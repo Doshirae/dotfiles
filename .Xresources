@@ -1,11 +1,11 @@
-! ------------------------------------------------------------------------------
+!------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #8eb345, #8eb345, #b8e6e9
-rofi.color-normal: #8eb345, #fdfdf3, #8eb345, #b8e6e9, #000615
-rofi.color-active: #8eb345, #fdfdf3, #8eb345, #1a6978, #fdfdf3
-rofi.color-urgent: #8eb345, #fdfdf3, #8eb345, #cc9d4d, #fdfdf3
+rofi.color-window: #393939, #393939, #393939
+rofi.color-normal: #393939, #adbac0, #393939, #749253, #adbac0
+rofi.color-active: #393939, #adbac0, #393939, #607b8c, #adbac0
+rofi.color-urgent: #393939, #adbac0, #393939, #6f694d, #adbac0
 
 ! ------------------------------------------------------------------------------
 ! URXVT Settings
@@ -68,7 +68,7 @@ URxvt*cursorBlink:                    true
 *color11:       #b2bb50
 
 ! Blue
-*color4:        #607b8c
+*color4:        #9E9E9E
 *color12:       #607b8c
 
 ! Magenta

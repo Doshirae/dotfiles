@@ -9,9 +9,13 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'godlygeek/tabular'
+Plugin 'wincent/command-t'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/syntastic'
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -32,8 +36,10 @@ filetype plugin indent on    " required
 
 " Colors{{{
 set background=dark
-"colorscheme molokai
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
+colorscheme distinguished
+set t_Co=256
+
+"hi CursorLine   cterm=NONE ctermbg=black
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 " }}}
@@ -41,6 +47,7 @@ hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
 " Sets {{{
 " Casse minuscule -> osef de la casse, une majuscules -> casse stricte
 syntax on
+set omnifunc=syntaxcomplete#Complete
 set smartcase
 set nu
 set relativenumber
@@ -52,14 +59,16 @@ set wrap
 set mouse=a
 set diffopt=vertical
 set showcmd
-set cursorline
+"set cursorline
 set wildmenu
+set splitright
 set lazyredraw
 " }}}
 
 " Tabs {{{
 set tabstop=4
 set shiftwidth=4
+"set expandtab
 " }}}
 
 " Folds {{{
@@ -68,11 +77,6 @@ set foldlevelstart=10
 set foldnestmax=10 
 set foldmethod=indent
 set modelines=1
-" }}}
-
-" Highlight {{{
-highlight Redundantlines ctermbg=blue guibg=blue
-match Redundantlines /^\(.*\)\(\n\1\)\+$/       
 " }}}
 
 " Mapping {{{
@@ -85,13 +89,50 @@ map <C-k> :tabclose <CR>
 nmap <C-l> :tabnext <CR>
 nmap <C-h>  :tabprevious <CR> 
 
+let mapleader=";"       " leader is semicolon
 nnoremap <leader><space> :nohlsearch<CR>
-let mapleader=","       " leader is comma
-
 nnoremap <leader>ev :vsp ~/dotfiles/.vimrc<CR>
 nnoremap <leader>ez :vsp ~/dotfiles/.zshrc<CR>
 nnoremap <leader>ei :vsp ~/dotfiles/.config/i3/config<CR>
 nnoremap <leader>sv :source ~/dotfiles/.vimrc<CR>
 " }}}
+
+" No_plugins{{{
+set path+=** "Activer la recherche récursive
+command! MakeTags !ctags -R . 
+" ↑↑↑
+"^] pour aller à la def du tag sous le curseur
+"g^] quand c'est ambigu
+"^t pour retourner au tag où on était
+
+" Autocompletion
+" ^n/^p
+" ^x^f pour un fichier
+
+" File browsing
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+"Snippets
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+nnoremap ,reveal :-1read $HOME/.vim/.skeleton.reveal.html<CR>4jwf>a
+nnoremap ,dosh :e scp://doshirae@www.doshirae.fr//data/www/index.html<CR>
+
+"}}}
+
+" Syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
 
 " vim:foldmethod=marker:foldlevel=0

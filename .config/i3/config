@@ -32,7 +32,7 @@ new_float pixel 4
 #hide_edge_borders none
 
 # start a terminal
-bindsym $mod+Return exec urxvtc -e tmux; workspace $WS2
+bindsym $mod+Return exec urxvtc -e tmux -2; workspace $WS2
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -64,7 +64,7 @@ bindsym $mod+Ctrl+v exec pavucontrol
 
 # Start Applications
 bindsym $mod+Ctrl+b exec urxvtc -e 'bmenu'
-bindsym $mod+Shift+f exec chromium
+bindsym $mod+Shift+f exec chromium --process-per-site
 bindsym $mod+F3 exec thunar
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+F1 exec pidgin
@@ -172,6 +172,7 @@ bindsym $mod+Ctrl+9 move container to workspace number 9; workspace $WS9
 
 # Open applications on specific workspaces
  assign [class="chromium"] $WS1
+ assign [class="Chromium"] $WS1
  assign [title="tmux"] $WS2
  assign [class="Thunar"] $WS3
  assign [class="Skype"] $WS4
