@@ -1,5 +1,7 @@
 #!/bin/bash
-
-scrot /tmp/screenshot.png
-convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png
-i3lock -fti /tmp/screenshot.png
+ICON=$HOME/dotfiles/.config/i3/anonymous-stop.png
+TMPBG=/tmp/screen.png
+scrot /tmp/screen.png
+convert $TMPBG -scale 10% -scale 1000% $TMPBG
+convert $TMPBG $ICON -gravity center -composite -matte $TMPBG
+i3lock -u -i $TMPBG
