@@ -16,8 +16,8 @@ set $gray #393939
 set $black #5E5E5E
 set $background #393939
 
-#set $Locker ~/dotfiles/.config/i3/lock.sh
-set $Locker blurlock
+set $Locker ~/dotfiles/.config/i3/lock.sh
+# set $Locker blurlock
 
 # Init
 set $mod Mod4
