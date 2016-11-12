@@ -16,7 +16,7 @@ set $gray #393939
 set $black #5E5E5E
 set $background #393939
 
-set $Locker ~/dotfiles/.config/i3/lock.sh
+set $Locker ~/.dotfiles/i3/lock.sh
 # set $Locker blurlock
 
 # Init
@@ -289,7 +289,7 @@ exec_always feh --bg-scale ~/Pictures/Wallpapers/jngsk.jpg
 exec mpd
 exec xrdb ~/.Xresources
 exec dunst &
-exec pidgin
+# exec pidgin
 exec --no-startup-id urxvtd -q -o -f
 
 # Theme colors   Border	 Background Font    ???

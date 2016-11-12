@@ -83,12 +83,12 @@ export EDITOR="/usr/bin/vim"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias vzsh="vim /home/doshirae/dotfiles/zshrc"
-alias vi3="vim /home/doshirae/dotfiles/i3/config"
-alias vvim="vim /home/doshirae/dotfiles/vimrc"
-alias vterm="vim /home/doshirae/dotfiles/Xresources"
-alias vtmux="vim /home/doshirae/dotfiles/tmux.conf"
-alias virc="vim /home/doshirae/dotfiles/irssi.conf"
+alias vzsh="vim /home/doshirae/.dotfiles/zshrc"
+alias vi3="vim /home/doshirae/.dotfiles/i3/config"
+alias vvim="vim /home/doshirae/.dotfiles/vimrc"
+alias vterm="vim /home/doshirae/.dotfiles/Xresources"
+alias vtmux="vim /home/doshirae/.dotfiles/tmux.conf"
+alias virc="vim /home/doshirae/.dotfiles/irssi.conf"
 alias grep="grep --color=auto"
 alias la="ls -A"
 alias ll="ls -l"
