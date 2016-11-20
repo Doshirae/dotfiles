@@ -91,10 +91,10 @@ nmap <C-h>  :tabprevious <CR>
 
 let mapleader=";"       " leader is semicolon
 nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>ev :vsp ~/dotfiles/.vimrc<CR>
-nnoremap <leader>ez :vsp ~/dotfiles/.zshrc<CR>
-nnoremap <leader>ei :vsp ~/dotfiles/.config/i3/config<CR>
-nnoremap <leader>sv :source ~/dotfiles/.vimrc<CR>
+nnoremap <leader>ev :vsp ~/.dotfiles/vimrc<CR>
+nnoremap <leader>ez :vsp ~/.dotfiles/zshrc<CR>
+nnoremap <leader>ei :vsp ~/.dotfiles/i3/config<CR>
+nnoremap <leader>sv :source ~/.dotfiles/vimrc<CR>
 " }}}
 
 " No_plugins{{{
@@ -120,7 +120,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 "Snippets
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 nnoremap ,reveal :-1read $HOME/.vim/.skeleton.reveal.html<CR>4jwf>a
-nnoremap ,dosh :e scp://doshirae@www.doshirae.fr//data/www/index.html<CR>
+nnoremap ,dosh :e scp://doshirae@www.doshirae.fr//home/doshirae/web/index.html<CR>
 
 "}}}
 
