@@ -12,11 +12,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'godlygeek/tabular'
 Plugin 'wincent/command-t'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'dhruvasagar/vim-table-mode'
+"Plugin 'chriskempson/base16-vim' " base16 colorscheme
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,6 +53,7 @@ set t_Co=256
 syntax on
 set omnifunc=syntaxcomplete#Complete
 set smartcase
+set ignorecase
 set nu
 set relativenumber
 set incsearch
@@ -63,6 +68,7 @@ set showcmd
 set wildmenu
 set splitright
 set lazyredraw
+:set list lcs=tab:\|\ " put | to see indent level
 " }}}
 
 " Tabs {{{
@@ -95,6 +101,16 @@ nnoremap <leader>ev :vsp ~/.dotfiles/vimrc<CR>
 nnoremap <leader>ez :vsp ~/.dotfiles/zshrc<CR>
 nnoremap <leader>ei :vsp ~/.dotfiles/i3/config<CR>
 nnoremap <leader>sv :source ~/.dotfiles/vimrc<CR>
+
+" Multi cursor plugin
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" Nerdtree plugin
+map <leader>n :NERDTreeToggle<CR>
 " }}}
 
 " No_plugins{{{
@@ -120,7 +136,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 "Snippets
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 nnoremap ,reveal :-1read $HOME/.vim/.skeleton.reveal.html<CR>4jwf>a
-nnoremap ,dosh :e scp://doshirae@www.doshirae.fr//home/doshirae/web/index.html<CR>
+nnoremap ,dosh :e scp://pi@www.doshirae.fr//home/doshirae/web/index.html<CR>
 
 "}}}
 
@@ -134,5 +150,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "}}}
+
+" Lightline {{{
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+set laststatus=2 " bug where line appeared only on vsp
+" }}}
+
 
 " vim:foldmethod=marker:foldlevel=0
