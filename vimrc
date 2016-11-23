@@ -68,7 +68,7 @@ set showcmd
 set wildmenu
 set splitright
 set lazyredraw
-:set list lcs=tab:\|\ " put | to see indent level
+set list lcs=tab:\|\ " put | to see indent level
 " }}}
 
 " Tabs {{{
