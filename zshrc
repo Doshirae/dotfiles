@@ -97,6 +97,29 @@ alias ls="ls --color=auto --group-directories-first"
 alias exit='sh ~/.seeyouspacecowboy.sh; sleep .5; exit'
 alias s="startx"
 alias ftpiut="sftp chaixr@ftpinfo.iutmontp.univ-montp2.fr"
+alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
+alias flic="nmap -v -Pn -A"
+
+ex (){
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' ne peut etre extrait par ex()" ;;
+    esac
+  else
+    echo "'$1' fichier invalide"
+  fi
+}
 
 bindkey -v
 export KEYTIMEOUT=1
