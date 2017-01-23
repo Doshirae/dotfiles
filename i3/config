@@ -33,6 +33,7 @@ new_float pixel 4
 
 # start a terminal
 bindsym $mod+Return exec urxvtc -e tmux -2; workspace $WS2
+bindsym $mod+Shift+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -64,7 +65,8 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 
 # Start Applications
 bindsym $mod+Ctrl+b exec urxvtc -e 'bmenu'
-bindsym $mod+Shift+f exec chromium --process-per-site
+# bindsym $mod+Shift+f exec chromium --process-per-site
+bindsym $mod+Shift+f exec firefox
 bindsym $mod+F3 exec thunar
 bindsym $mod+Shift+t exec thunderbird
 bindsym $mod+F1 exec pidgin
@@ -173,6 +175,8 @@ bindsym $mod+Ctrl+9 move container to workspace number 9; workspace $WS9
 # Open applications on specific workspaces
  assign [class="chromium"] $WS1
  assign [class="Chromium"] $WS1
+ assign [class="Firefox"] $WS1
+ assign [class="firefox"] $WS1
  assign [title="tmux"] $WS2
  assign [class="Thunar"] $WS3
  assign [class="Skype"] $WS4
@@ -264,7 +268,7 @@ bar {
 	position top
 	separator_symbol " "
 	workspace_buttons yes
-    tray_output             none
+    tray_output             primary
 #	wheel_up_cmd nop
 #	wheel_down_cmd nop
 	font pango:Cantarell,Icons 9
@@ -289,7 +293,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 #exec --no-startup-id xautolock -time 10 -locker $Locker
-exec_always feh --bg-scale ~/Pictures/Wallpapers/jngsk.jpg
+exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
 exec mpd
 exec xrdb ~/.Xresources
 exec dunst &

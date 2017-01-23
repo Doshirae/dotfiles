@@ -1,4 +1,4 @@
-" Plugin Manager {{{
+" Plugin Manager ==>
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -12,14 +12,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'wincent/command-t'
 Plugin 'scrooloose/syntastic'
-Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'dhruvasagar/vim-table-mode'
-"Plugin 'chriskempson/base16-vim' " base16 colorscheme
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,21 +36,22 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" }}}
+" <==
 
-" Colors{{{
+" Colors ==>
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-colorscheme distinguished
-set t_Co=256
+colorscheme molokai
+" set t_Co=256
 
 "hi CursorLine   cterm=NONE ctermbg=black
 "let g:molokai_original = 1
 "let g:rehash256 = 1
-" }}}
+" <==
 
-" Sets {{{
+"  Sets ==>
 " Casse minuscule -> osef de la casse, une majuscules -> casse stricte
-syntax on
+syntax enable
 set omnifunc=syntaxcomplete#Complete
 set smartcase
 set ignorecase
@@ -68,32 +69,35 @@ set showcmd
 set wildmenu
 set splitright
 set lazyredraw
-set list lcs=tab:\|\ " put | to see indent level
-" }}}
+" set list lcs=tab:\|\ " put | to see indent level
+set listchars=tab:»·,trail:·
+set ttyfast
+" let g:indentLine_char = '.'
+" <==
 
-" Tabs {{{
+" Tabs ==>
 set tabstop=4
 set shiftwidth=4
 "set expandtab
-" }}}
+" <==
 
-" Folds {{{
+" Folds ==>
 set foldenable 
 set foldlevelstart=10
 set foldnestmax=10 
 set foldmethod=indent
 set modelines=1
-" }}}
+" <==
 
-" Mapping {{{
+" Mapping ==>
 
 imap jk <Esc>
 nnoremap j gj
 nnoremap k gk
 map <C-j>  :tabnew <CR>
 map <C-k> :tabclose <CR>
-nmap <C-l> :tabnext <CR>
-nmap <C-h>  :tabprevious <CR> 
+nmap <Tab> :tabnext <CR>
+nmap <S-Tab>  :tabprevious <CR> 
 
 let mapleader=";"       " leader is semicolon
 nnoremap <leader><space> :nohlsearch<CR>
@@ -111,9 +115,28 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Nerdtree plugin
 map <leader>n :NERDTreeToggle<CR>
-" }}}
 
-" No_plugins{{{
+
+map qq :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'java'
+		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r"
+	elseif &filetype == 'sh'
+		exec "!time bash %"
+	elseif &filetype == 'html'
+		exec "!surf % &"
+	elseif &filetype == 'c'
+		exec "!gcc % -o %<"
+		exec "!time ./%<"
+	endif
+endfunc
+" <==
+
+" No_plugins ==>
 set path+=** "Activer la recherche récursive
 command! MakeTags !ctags -R . 
 " ↑↑↑
@@ -138,26 +161,30 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 nnoremap ,reveal :-1read $HOME/.vim/.skeleton.reveal.html<CR>4jwf>a
 nnoremap ,dosh :e scp://pi@www.doshirae.fr//home/doshirae/web/index.html<CR>
 
-"}}}
+"<==
 
-" Syntastic {{{
+" Syntastic ==>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list = -1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"}}}
+"<==
 
-" Lightline {{{
+" Lightline ==>
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 set laststatus=2 " bug where line appeared only on vsp
-" }}}
+" <==
+
+let delimitMate_expand_cr=1
+let delimitMate_jump_expansion=1
+set clipboard=unnamedplus
 
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
