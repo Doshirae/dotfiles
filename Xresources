@@ -28,23 +28,6 @@ URxvt*cursorBlink:                    true
 !URxvt*foreground:                     #fefefe
 !URxvt*saveLines:                      5000
 
-!URxvt*color0:                         #1b1918
-!URxvt*color1:                         #d83240
-!URxvt*color2:                         #39d43c
-!URxvt*color3:                         #fdd03f
-!URxvt*color4:                         #3f3f3f
-!URxvt*color5:                         #8d334f
-!URxvt*color6:                         #815288
-!URxvt*color7:                         #3F3F3F
-!URxvt*color8:                         #3F3F3F
-!URxvt*color9:                         #f22c40
-!URxvt*color10:                        #5ab738
-!URxvt*color11:                        #d5911a
-!URxvt*color12:                        #68a3e9
-!URxvt*color13:                        #6666ea
-!URxvt*color14:                        #3F3F3F
-!URxvt*color15:                        #3F3F3F
-
 ! color theme: jngsk
 *.borderColor: #393939
 *.background: #393939
