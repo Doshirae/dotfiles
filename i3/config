@@ -43,9 +43,9 @@ bindsym $mod+d exec --no-startup-id rofi -show run -opacity 80 -bw 0 -separator-
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
 
 # Screenshot
-bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Screenshots/'"
-bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Screenshots/'"
-bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Screenshots/'"
+bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -263,6 +263,10 @@ mode "resize" {
 bindsym $mod+x exec --no-startup-id $Locker
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
+
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
 bar {
 	status_command i3status
 	position top
