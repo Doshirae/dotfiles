@@ -100,10 +100,10 @@ nmap <S-Tab>  :tabprevious <CR>
 
 let mapleader=";"       " leader is semicolon
 nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>ev :tabnew ~/.dotfiles/nvim/init.vim<CR>
+nnoremap <leader>ev :tabnew ~/.dotfiles/vimrc<CR>
 nnoremap <leader>ez :tabnew ~/.dotfiles/zshrc<CR>
 nnoremap <leader>ei :tabnew ~/.dotfiles/i3/config<CR>
-nnoremap <leader>sv :source ~/.dotfiles/nvim/init.vim<CR>
+nnoremap <leader>sv :source ~/.dotfiles/vimrc<CR>
 nnoremap <leader>cc :%s/\(\l\)\(\u\)/\1_\l\2/g<CR>
 nnoremap <leader>CC :%s/\(\l\)_\(\l\)/\1\u\2/g<CR>
 
