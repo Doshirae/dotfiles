@@ -15,7 +15,7 @@ export EDITOR="/usr/bin/vim"
 #
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
-alias vvim="vim ~/.dotfiles/nvim/init.vim"
+alias vvim="vim ~/.dotfiles/vimrc"
 alias vterm="vim ~/.dotfiles/Xresources"
 alias vtmux="vim ~/.dotfiles/tmux.conf"
 alias virc="vim ~/.dotfiles/irssi.conf"

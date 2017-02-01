@@ -4,19 +4,20 @@
 " Modified by: Steve Losh <steve@stevelosh.com>
 "
 " Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant 
+" by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
 "
 
 hi clear
 
 set background=dark
-let g:colors_name="molokai"
+set cursorline
+let g:colors_name="molokaiyophp"
 
 " Basic Layout {{{
 hi Normal          guifg=#F8F8F2 guibg=#1B1E1F
 hi Folded          guifg=#666666 guibg=bg
-hi CursorLine                    guibg=#232728
+hi CursorLine                    guibg=#232728 cterm=none
 hi CursorColumn                  guibg=#232728
 hi ColorColumn                   guibg=#232728
 hi LineNr          guifg=#AAAAAA guibg=bg
@@ -26,18 +27,18 @@ hi Search          guifg=#000000 guibg=#E4E500
 hi IncSearch       guibg=#000000 guifg=#FF8D00
 " }}}
 " Syntax {{{
-hi Boolean         guifg=#AE81FF
+hi Boolean         guifg=#FFFFFF
 hi Comment         guifg=#5c7176
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
 hi String          guifg=#E6DB74
 hi Conditional     guifg=#F92672               gui=bold
-hi Constant        guifg=#AE81FF               gui=bold
+hi Constant        guifg=#FFFFFF               gui=bold
 hi Debug           guifg=#BCA3A3               gui=bold
 hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
-hi Float           guifg=#AE81FF
-hi Function        guifg=#A6E22E
+hi Float           guifg=#FFFFFF
+hi Function        guifg=#FFFFFF
 hi Identifier      guifg=#FD971F
 hi Builtin         guifg=#AE81FF               gui=bold
 " }}}
@@ -64,7 +65,7 @@ hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#A6E22E               gui=bold
 hi Ignore          guifg=#808080 guibg=bg
 
-hi Keyword         guifg=#F92672               gui=bold
+hi Keyword         guifg=#FFFFFF               gui=bold
 hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
 hi SpecialKey      guifg=#66D9EF               gui=italic
@@ -79,10 +80,13 @@ hi MoreMsg         guifg=#E6DB74
 hi Operator        guifg=#F92672
 
 " Completion Menu {{{
-hi Pmenu           guifg=#cccccc guibg=#232728
-hi PmenuSel        guifg=#000000 guibg=#AAF412
-hi PmenuSbar                     guibg=#131414
-hi PmenuThumb      guifg=#777777
+highlight Pmenu ctermfg=white ctermbg=darkblue guifg=darkblue guibg=darkblue
+highlight PmenuSel   ctermfg=black      ctermbg=white
+
+"hi Pmenu           guifg=#cccccc guibg=#232728
+"hi PmenuSel        guifg=#000000 guibg=#AAF412
+"hi PmenuSbar                     guibg=#131414
+"hi PmenuThumb      guifg=#777777
 " }}}
 
 hi PreCondit       guifg=#A6E22E               gui=bold
@@ -162,12 +166,14 @@ if &t_Co > 255
    hi Float           ctermfg=135
    hi FoldColumn      ctermfg=67  ctermbg=233
    hi Folded          ctermfg=67  ctermbg=233
-   hi Function        ctermfg=118
+   hi Function        ctermfg=74
+   hi phpFunctions    ctermfg=74
+   hi phpContBreak    ctermfg=74
    hi Identifier      ctermfg=208
    hi Ignore          ctermfg=244 ctermbg=232
    hi IncSearch       ctermfg=193 ctermbg=16
 
-   hi Keyword         ctermfg=161               cterm=bold
+   hi Keyword         ctermfg=16               cterm=bold
    hi Label           ctermfg=229               cterm=none
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
@@ -180,13 +186,13 @@ if &t_Co > 255
    hi Operator        ctermfg=161
 
    " complete menu
-   hi Pmenu           ctermfg=81  ctermbg=16
-   hi PmenuSel                    ctermbg=244
-   hi PmenuSbar                   ctermbg=232
-   hi PmenuThumb      ctermfg=81
+   "hi Pmenu           ctermfg=81  ctermbg=16
+   "hi PmenuSel                    ctermbg=244
+   "hi PmenuSbar                   ctermbg=232
+   "hi PmenuThumb      ctermfg=81
 
    hi PreCondit       ctermfg=118               cterm=bold
-   hi PreProc         ctermfg=118
+   hi PreProc         ctermfg=118  cterm=bold
    hi Question        ctermfg=81
    hi Repeat          ctermfg=161               cterm=bold
    hi Search          ctermfg=253 ctermbg=66
@@ -199,6 +205,8 @@ if &t_Co > 255
    hi SpecialKey      ctermfg=245
 
    hi Statement       ctermfg=161               cterm=bold
+   hi phpStatement       ctermfg=161               cterm=bold
+   hi StatementTryCatch   ctermfg=190
    hi StatusLine      ctermfg=238 ctermbg=253
    hi StatusLineNC    ctermfg=244 ctermbg=232
    hi StorageClass    ctermfg=208
@@ -213,7 +221,7 @@ if &t_Co > 255
 
    " NOTE: @pfdevilliers added this shit
    " Not sure if this color with underlined was defined already
-   " but I added it for the definition of a class that is a 
+   " but I added it for the definition of a class that is a
    " subclass.
    hi InheritUnderlined      ctermfg=118               cterm=underline
 
@@ -224,14 +232,20 @@ if &t_Co > 255
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Normal          ctermfg=252 ctermbg=233
-   hi Comment         ctermfg=59
-   hi CursorLine                  ctermbg=234   cterm=none
+   hi Comment         ctermfg=59   cterm=bold
+   hi CursorLine                  ctermbg=235   cterm=none
+
    hi CursorColumn                ctermbg=234
    hi ColorColumn                 ctermbg=234
    hi LineNr          ctermfg=250 ctermbg=233
    hi NonText         ctermfg=240 ctermbg=233
 end " }}}
 
-highlight Comment cterm=bold
 hi Visual term=reverse cterm=reverse guibg=Grey
 
+"I like it when extra unnecessary whitespace at the end is highlighted
+highlight ExtraWhitespace ctermbg=24 guibg=red
+"match ExtraWhitespace /\s\+$\| \+\ze\t/            "this one includes blank lines as well. sucky.
+"match ExtraWhitespace /\S\zs\s\+$\| \+\ze\t/       "this one doesn't include blank lines, better
+match ExtraWhitespace /\S\zs\s\{2,}$\| \+\ze\t/     "this one matches ending with 2 or more whitespace, best.
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=24 guibg=red
