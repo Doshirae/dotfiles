@@ -1,6 +1,6 @@
 source "$HOME/.slimzsh/slim.zsh"
 # User configuration
-export PATH="/usr/bin"
+export PATH="/usr/bin:/home/doshirae/.gem/ruby/2.4.0/bin"
 
 # ssh
  export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -55,3 +55,5 @@ ex (){
 
 export KEYTIMEOUT=1
 export GTK_IM_MODULE="xim"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

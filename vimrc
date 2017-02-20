@@ -23,6 +23,8 @@ Plugin 'rainbow_parentheses.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'w0rp/ale'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'majutsushi/tagbar'
+Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,6 +76,9 @@ set splitright
 set lazyredraw
 "set list lcs=tab:\|\ " put | to see indent level
 set list lcs=tab:»·,trail:·
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 " <==
 
 " Tabs ==>
@@ -122,7 +127,7 @@ map <leader>n :NERDTreeToggle<CR>
 map éé :call CompileRunGcc()<CR>
 
 func! CompileRunGcc()
-" exec "w"
+exec "w"
 if &filetype == 'cpp'
     exec "!g++ % -o %<"
     exec "!./%<"
@@ -130,6 +135,10 @@ elseif &filetype == 'java'
     exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r"
 elseif &filetype == 'sh'
     exec "!bash %"
+elseif &filetype == 'rb'
+    exec "!ruby %"
+elseif &filetype == 'py'
+    exec "!python3 %"
 elseif &filetype == 'html'
     exec "!surf % &"
 elseif &filetype == 'c'
@@ -194,5 +203,6 @@ let g:AutoPairsMapBS=0
 let delimitMate_expand_cr=1
 let delimitMate_jump_expansion=1
 set clipboard=unnamedplus
+autocmd BufEnter *.md set expandtab
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
