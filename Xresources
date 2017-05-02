@@ -10,8 +10,9 @@ rofi.color-urgent: #393939, #adbac0, #393939, #6f694d, #adbac0
 ! ------------------------------------------------------------------------------
 ! URXVT Settings
 ! ------------------------------------------------------------------------------
-!URxvt.font: xft:Droid Sans Mono:size=9
-URxvt.font: xft:Terminus:size=10
+! URxvt.font: xft:Terminus:size=10
+URxvt.font: xft:mononoki-regular:size=11
+URxvt.letterSpace: -1
 Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true

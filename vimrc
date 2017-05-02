@@ -25,6 +25,7 @@ Plugin 'w0rp/ale'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'majutsushi/tagbar'
 Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,8 +75,8 @@ set showcmd
 set wildmenu
 set splitright
 set lazyredraw
-"set list lcs=tab:\|\ " put | to see indent level
-set list lcs=tab:»·,trail:·
+set list lcs=tab:\|\ " put | to see indent level
+" set list lcs=tab:»·,trail:·
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
@@ -84,7 +85,7 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 " Tabs ==>
 set tabstop=4
 set shiftwidth=4
-"set expandtab
+autocmd Filetype *.hs set expandtab
 " <==
 
 " Folds ==>
@@ -105,6 +106,9 @@ inoremap µ \
 nmap <Tab> :tabnext <CR>
 nmap <S-Tab>  :tabprevious <CR> 
 
+
+map <F8> :TagbarToggle<CR>
+
 let mapleader=";"       " leader is semicolon
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>ev :tabnew ~/.dotfiles/vimrc<CR>
@@ -113,6 +117,9 @@ nnoremap <leader>ei :tabnew ~/.dotfiles/i3/config<CR>
 nnoremap <leader>sv :source ~/.dotfiles/vimrc<CR>
 nnoremap <leader>cc :%s/\(\l\)\(\u\)/\1_\l\2/g<CR>
 nnoremap <leader>CC :%s/\(\l\)_\(\l\)/\1\u\2/g<CR>
+
+" TAble mode 
+let g:table_mode_corner='|'
 
 " Multi cursor plugin
 let g:multi_cursor_use_default_mapping=0
@@ -141,6 +148,8 @@ elseif &filetype == 'py'
     exec "!python3 %"
 elseif &filetype == 'html'
     exec "!surf % &"
+elseif &filetype == 'md'
+    exec "!markdown % | lynx -stdin"
 elseif &filetype == 'c'
     exec "!gcc % -o %<"
     exec "!./%<"
@@ -202,7 +211,7 @@ let g:AutoPairsMapBS=0
 
 let delimitMate_expand_cr=1
 let delimitMate_jump_expansion=1
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 autocmd BufEnter *.md set expandtab
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

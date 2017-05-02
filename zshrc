@@ -55,5 +55,3 @@ ex (){
 
 export KEYTIMEOUT=1
 export GTK_IM_MODULE="xim"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

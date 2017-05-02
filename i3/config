@@ -69,7 +69,6 @@ bindsym $mod+Ctrl+b exec urxvtc -e 'bmenu'
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+F3 exec thunar
 bindsym $mod+Shift+t exec thunderbird
-bindsym $mod+F1 exec pidgin
 
 # bindsym $mod+F3 exec ranger
 bindsym $mod+F5 exec urxvtc -e 'ncmpcpp'
@@ -133,6 +132,7 @@ set $WS4 4·  Social
 set $WS5 5·  Misc
 set $WS6 6·  Music
 set $WS9 9·  Torrent
+set $WS11 11⋅  Games
 
 
 # switch to workspace
@@ -145,6 +145,7 @@ bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
+bindsym $mod+² workspace $WS11
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -188,6 +189,7 @@ bindsym $mod+Ctrl+9 move container to workspace number 9; workspace $WS9
 for_window [title="alsamixer"] floating enable border pixel 2
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
+for_window [class=" "] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 2
 for_window [class="GParted"] floating enable border normal
@@ -279,7 +281,7 @@ bar {
 	colors {
 		separator $black
 		background $background
-		statusline $red
+		statusline #b5429c
 		#                  Border        Background    Font
 		focused_workspace  $background        $background        $green
 		active_workspace   $background        $background        $green
@@ -297,12 +299,14 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 #exec --no-startup-id xautolock -time 10 -locker $Locker
-exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
+#exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
+exec_always feh --bg-scale ~/Pictures/Wallpapers/FunkyPandaGood.png
 exec mpd
 exec xrdb ~/.Xresources
 exec dunst &
 # exec pidgin
 exec --no-startup-id urxvtd -q -o -f
+exec autocutsel
 
 # Theme colors   Border	 Background Font    ???
 client.focused   $red $red    $background  #000000
