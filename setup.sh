@@ -17,7 +17,7 @@ if [ ! -d $HOME/.config ]; then
   fi
 fi
 
-ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim/
+ln -s $HOME/.dotfiles/vim $HOME/.vim/
 
 ln -s $HOME/.dotfiles/compton.conf $HOME/.config/compton.conf
 ln -s $HOME/.dotfiles/dunstrc  $HOME/.config/dunst/dunstrc
