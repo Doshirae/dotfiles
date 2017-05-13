@@ -22,7 +22,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'w0rp/ale'
-Plugin 'vim-ruby/vim-ruby'
+Bundle 'vim-ruby/vim-ruby'
 Plugin 'majutsushi/tagbar'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'godlygeek/tabular'
@@ -62,7 +62,7 @@ set omnifunc=syntaxcomplete#Complete
 set smartcase
 set ignorecase
 set nu
-set relativenumber
+" set relativenumber
 set incsearch
 set hlsearch
 set title
@@ -99,12 +99,15 @@ set modelines=1
 " Mapping ==>
 
 imap jk <Esc>
+imap <C-Space>    <CR><CR>end<Esc>-cc
 nnoremap j gj
 nnoremap k gk
 inoremap µ \
 " inoremap µ ||<Left>
 nmap <Tab> :tabnext <CR>
 nmap <S-Tab>  :tabprevious <CR> 
+
+nmap 2H :!pandoc % -o tmp.pdf && mupdf tmp.pdf & <CR>
 
 
 map <F8> :TagbarToggle<CR>
