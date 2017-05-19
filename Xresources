@@ -24,46 +24,28 @@ Xcursor.theme: Chameleon-Pearl-Regular-0.5
 Xcursor.size:  0
 URxvt.depth: 32
 URxvt*scrollBar:                      false
-URxvt*mouseWheelScrollPage:           false
+!URxvt*mouseWheelScrollPage:           false
 URxvt*cursorBlink:                    true
 !URxvt*background:                     #121212
 !URxvt*foreground:                     #fefefe
 !URxvt*saveLines:                      5000
 
-! color theme: jngsk
-*.borderColor: #393939
-*.background: #393939
-*.foreground: #adbac0
-*.cursorColor: #cccccc
-
-! Black
-*color0:        #5e5e5e
-*color8:        #5e5e5e
-
-! Red
-*color1:        #6f694d
-*color9:        #6f694d
-
-! Green
-*color2:        #749253
-*color10:       #749253
-
-! Yellow
-*color3:        #b2bb50
-*color11:       #b2bb50
-
-! Blue
-*color4:        #9E9E9E
-*color12:       #607b8c
-
-! Magenta
-*color5:        #42623d
-*color13:       #42623d
-
-! Cyan
-*color6:        #669972
-*color14:       #669972
-
-! White
-*color7:        #adbac0
-*color15:       #adbac0
+! Molokai theme
+URxvt*background: #101010
+URxvt*foreground: #d0d0d0
+URxvt*color0: #101010
+URxvt*color1: #960050
+URxvt*color2: #66aa11
+URxvt*color3: #c47f2c
+URxvt*color4: #30309b
+URxvt*color5: #7e40a5
+URxvt*color6: #3579a8
+URxvt*color7: #9999aa
+URxvt*color8: #303030
+URxvt*color9: #ff0090
+URxvt*color10: #80ff00
+URxvt*color11: #ffba68
+URxvt*color12: #5f5fee
+URxvt*color13: #bb88dd
+URxvt*color14: #4eb4fa
+URxvt*color15: #d0d0d0

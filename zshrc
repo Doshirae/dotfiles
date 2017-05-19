@@ -1,6 +1,6 @@
 source "$HOME/.slimzsh/slim.zsh"
 # User configuration
-export PATH="/usr/bin:/home/doshirae/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:/usr/bin:/home/doshirae/.gem/ruby/2.4.0/bin"
 
 # ssh
  export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -26,7 +26,9 @@ alias ll="ls -l"
 alias l="ls -AlhF"
 alias ls="ls --color=auto --group-directories-first"
 alias exit='sh ~/.dotfiles/seeyouspacecowboy.sh; sleep .5; exit'
+alias :wq="exit"
 alias ftpiut="sftp chaixr@ftpinfo.iutmontp.univ-montp2.fr"
+alias marvin="ssh pi@www.doshirae.fr"
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 alias flic="nmap -v -Pn -A"
 alias pull="git pull origin master"

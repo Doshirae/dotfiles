@@ -26,6 +26,7 @@ Bundle 'vim-ruby/vim-ruby'
 Plugin 'majutsushi/tagbar'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -216,5 +217,6 @@ let delimitMate_expand_cr=1
 let delimitMate_jump_expansion=1
 set clipboard+=unnamedplus
 autocmd BufEnter *.md set expandtab
+autocmd Filetype *.md set conceallevel=2
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
