@@ -1,11 +1,4 @@
-#
-# Line numbers
-# Bar colors : 263
-# Autostart applications : 274
-# Theme color : 289
-
-# Set colors
-
+# Set colors ==>
 set $white #ADBAC0
 set $red #6F694D
 set $yellow #B2BB50
@@ -14,10 +7,9 @@ set $cyan #669972
 set $blue #607B8C
 set $gray #393939
 set $black #5E5E5E
-set $background #393939
+set $background #121212
+# <==
 
-set $Locker ~/.dotfiles/i3/lock.sh
-# set $Locker blurlock
 
 # Init
 set $mod Mod4
@@ -27,6 +19,7 @@ workspace_auto_back_and_forth no
 # Borders
 new_window pixel 4
 new_float pixel 4
+set $Locker ~/.dotfiles/i3/lock.sh
 
 # Hide borders
 #hide_edge_borders none
@@ -46,6 +39,7 @@ bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/S
 bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
 bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
 
+# Sound section, do not edit ==>
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -57,6 +51,7 @@ exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+v exec pavucontrol
 
 ################################################################################################
+# <==
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
@@ -76,6 +71,7 @@ bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.c
 bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym $mod+Ctrl+x exec xkill
 
+# Moving through windows ==>
 #Change Focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -97,33 +93,30 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+# <==
 
+# Miscellaneous stuff ==>
 # split in horizontal orientation
 bindsym $mod+c split h
 # split in vertical orientation
 bindsym $mod+v split v
-
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
+# <==
 
-# Workspace names
+# Workspace names ==>
 set $WS1 1·  Browser
 set $WS2 2·  Terminals
 set $WS3 3·  Files
@@ -132,8 +125,10 @@ set $WS5 5·  Misc
 set $WS6 6·  Music
 set $WS9 9·  Torrent
 set $WS11 11⋅  Games
+# <==
 
 
+# Moving through workspaces ==>
 # switch to workspace
 bindsym $mod+1 workspace $WS1
 bindsym $mod+2 workspace $WS2
@@ -171,20 +166,22 @@ bindsym $mod+Ctrl+6 move container to workspace number 6; workspace $WS6
 bindsym $mod+Ctrl+7 move container to workspace number 7; workspace $WS7
 bindsym $mod+Ctrl+8 move container to workspace number 8; workspace $WS8
 bindsym $mod+Ctrl+9 move container to workspace number 9; workspace $WS9
+# <==
 
-# Open applications on specific workspaces
- assign [class="chromium"] $WS1
- assign [class="Chromium"] $WS1
- assign [class="Firefox"] $WS1
- assign [class="firefox"] $WS1
- assign [title="tmux"] $WS2
- assign [class="Thunar"] $WS3
- assign [class="Skype"] $WS4
- assign [class="Pidgin"] $WS4
- assign [class="Thunderbird"] $WS4
- assign [class="Transmission"] $WS9
- 
-# Open specific applications in floating mode
+# Open applications on specific workspaces ==>
+assign [class="chromium"] $WS1
+assign [class="Chromium"] $WS1
+assign [class="Firefox"] $WS1
+assign [class="firefox"] $WS1
+assign [title="tmux"] $WS2
+assign [class="Thunar"] $WS3
+assign [class="Skype"] $WS4
+assign [class="Pidgin"] $WS4
+assign [class="Thunderbird"] $WS4
+assign [class="Transmission"] $WS9
+# <==
+
+# Open specific applications in floating mode ==>
 for_window [title="alsamixer"] floating enable border pixel 2
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -209,6 +206,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable bporder normal
 for_window [class="gpick"] floating enable
+# <==
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -219,7 +217,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Set shut down, restart and locking features
+# Set shut down, restart and locking features ==>
 bindsym $mod+i mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
@@ -235,8 +233,9 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+# <==
 
-# Resize window (you can also use the mouse for that)
+# Resize window (you can also use the mouse for that) ==>
 bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -259,15 +258,16 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+# <==
 
 # Lock screen
 bindsym $mod+x exec --no-startup-id $Locker
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
+# bar ==>
 bar {
 	status_command i3status
 	position top
@@ -289,29 +289,34 @@ bar {
 		binding_mode $red $red $green
 	}
 }
+# <==
 
-# Autostart applications
+# Autostart applications ==>
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id gnome-keyring-daemon
 exec --no-startup-id nm-applet
-#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 #exec --no-startup-id xautolock -time 10 -locker $Locker
 #exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
 exec_always ~/.dotfiles/wallpaper.sh
 exec mpd
-exec xrdb ~/.Xresources
+exec_always xrdb ~/.Xresources
 exec dunst &
 # exec pidgin
 exec --no-startup-id urxvtd -q -o -f
 exec autocutsel
+# <==
 
+# Theme colours ==>
 # Theme colors   Border	 Background Font    ???
 client.focused   $red $red    $background  #000000
 client.unfocused $background  $background     $red #000000
 client.urgent    #151219 #151219    $background #000000
+# <==
 
+# i3-gaps ==>
 #############################
 ### settings for i3-gaps: ###
 #############################
@@ -330,6 +335,7 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
+# Gap Mode ==>
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -366,3 +372,7 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+# <==
+# <==
+
+# vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

@@ -1,9 +1,9 @@
 source "$HOME/.slimzsh/slim.zsh"
 # User configuration
-export PATH="$PATH:/usr/bin:/home/doshirae/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:/usr/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.bin"
 
 # ssh
- export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set editor to vim
 export VISUAL="/usr/bin/vim"
@@ -35,25 +35,31 @@ alias pull="git pull origin master"
 alias push="git push origin master"
 
 ex (){
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' ne peut etre extrait par ex()" ;;
-    esac
-  else
-    echo "'$1' fichier invalide"
-  fi
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)   tar xjf $1   ;;
+			*.tar.gz)    tar xzf $1   ;;
+			*.bz2)       bunzip2 $1   ;;
+			*.rar)       unrar x $1     ;;
+			*.gz)        gunzip $1    ;;
+			*.tar)       tar xf $1    ;;
+			*.tbz2)      tar xjf $1   ;;
+			*.tgz)       tar xzf $1   ;;
+			*.zip)       unzip $1     ;;
+			*.Z)         uncompress $1;;
+			*.7z)        7z x $1      ;;
+			*)           echo "'$1' ne peut etre extrait par ex()" ;;
+		esac
+	else
+		echo "'$1' fichier invalide"
+	fi
 }
 
 export KEYTIMEOUT=1
 export GTK_IM_MODULE="xim"
+export rvm_ignore_gemrc_issues=1
+
+
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+	. ~/.config/exercism/exercism_completion.zsh
+fi

@@ -1,11 +1,11 @@
-!------------------------------------------------------------------------------
+! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #393939, #393939, #393939
-rofi.color-normal: #393939, #adbac0, #393939, #749253, #adbac0
-rofi.color-active: #393939, #adbac0, #393939, #607b8c, #adbac0
-rofi.color-urgent: #393939, #adbac0, #393939, #6f694d, #adbac0
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! ------------------------------------------------------------------------------
 ! URXVT Settings
@@ -31,9 +31,9 @@ URxvt*cursorBlink:                    true
 !URxvt*saveLines:                      5000
 
 ! Molokai theme
-URxvt*background: #101010
+URxvt*background: #121212
 URxvt*foreground: #d0d0d0
-URxvt*color0: #101010
+URxvt*color0: #121212
 URxvt*color1: #960050
 URxvt*color2: #66aa11
 URxvt*color3: #c47f2c

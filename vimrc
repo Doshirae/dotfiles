@@ -217,6 +217,7 @@ let delimitMate_expand_cr=1
 let delimitMate_jump_expansion=1
 set clipboard+=unnamedplus
 autocmd BufEnter *.md set expandtab
+autocmd BufEnter *.hs set expandtab
 autocmd Filetype *.md set conceallevel=2
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
