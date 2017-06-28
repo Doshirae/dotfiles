@@ -27,6 +27,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-endwise'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,7 +88,6 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 " Tabs ==>
 set tabstop=4
 set shiftwidth=4
-autocmd Filetype *.hs set expandtab
 " <==
 
 " Folds ==>
@@ -107,9 +108,6 @@ inoremap µ \
 " inoremap µ ||<Left>
 nmap <Tab> :tabnext <CR>
 nmap <S-Tab>  :tabprevious <CR> 
-
-nmap 2H :!pandoc % -o tmp.pdf && mupdf tmp.pdf & <CR>
-
 
 map <F8> :TagbarToggle<CR>
 
@@ -135,25 +133,20 @@ let g:multi_cursor_quit_key='<Esc>'
 " Nerdtree plugin
 map <leader>n :NERDTreeToggle<CR>
 "binding key to compiel to the java files
-map éé :call CompileRunGcc()<CR>
+map éé :call CompileKinda()<CR>
 
-func! CompileRunGcc()
+func! CompileKinda()
 exec "w"
-if &filetype == 'cpp'
-    exec "!g++ % -o %<"
-    exec "!./%<"
-elseif &filetype == 'java'
+if &filetype == 'java'
     exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r"
 elseif &filetype == 'sh'
     exec "!bash %"
-elseif &filetype == 'rb'
+elseif &filetype == 'ruby'
     exec "!ruby %"
-elseif &filetype == 'py'
-    exec "!python3 %"
 elseif &filetype == 'html'
     exec "!surf % &"
-elseif &filetype == 'md'
-    exec "!markdown % | lynx -stdin"
+elseif &filetype == 'markdown'
+    exec "!pandoc --latex-engine=xelatex % -o %.pdf && mupdf %.pdf"
 elseif &filetype == 'c'
     exec "!gcc % -o %<"
     exec "!./%<"
@@ -184,7 +177,7 @@ command! MakeTags !ctags -R .
 "Snippets
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 nnoremap ,reveal :-1read $HOME/.vim/.skeleton.reveal.html<CR>4jwf>a
-nnoremap ,dosh :e scp://pi@www.doshirae.fr//home/doshirae/web/index.html<CR>
+nnoremap ,dosh :e scp://pi@www.doshirae.fr//home/pi/index.html<CR>
 
 "<==
 

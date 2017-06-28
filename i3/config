@@ -25,7 +25,8 @@ set $Locker ~/.dotfiles/i3/lock.sh
 #hide_edge_borders none
 
 # start a terminal
-bindsym $mod+Return exec urxvtc -e tmux -2; workspace $WS2
+bindsym $mod+Return exec urxvtc ; workspace $WS2
+bindsym $mod+Mod1+Return exec urxvtc -e tmux -2; workspace $WS2
 bindsym $mod+Shift+Return exec xfce4-terminal
 
 # kill focused window
@@ -174,6 +175,7 @@ assign [class="Chromium"] $WS1
 assign [class="Firefox"] $WS1
 assign [class="firefox"] $WS1
 assign [title="tmux"] $WS2
+assign [title="urxvt"] $WS2
 assign [class="Thunar"] $WS3
 assign [class="Skype"] $WS4
 assign [class="Pidgin"] $WS4
