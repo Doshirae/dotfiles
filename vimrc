@@ -9,26 +9,31 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-" Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'dhruvasagar/vim-table-mode'
+" Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'tpope/vim-surround' " Changing surround parenthesis 
+Plugin 'tpope/vim-commentary' " Comment quickly lines
+" Plugin 'scrooloose/syntastic' " Syntactic linting
+Plugin 'w0rp/ale' " Syntactic linting
+Plugin 'itchyny/lightline.vim' " The line
+Plugin 'scrooloose/nerdtree' " NerdTree
+" Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-repeat'
-Plugin 'rainbow_parentheses.vim'
-Plugin 'lilydjwg/colorizer'
-Plugin 'w0rp/ale'
+Plugin 'tpope/vim-repeat' " enhanced '.'
+Plugin 'rainbow_parentheses.vim' " Dunno
+Plugin 'lilydjwg/colorizer' " Dunno either
 Bundle 'vim-ruby/vim-ruby'
-Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar' " Have tags in a split with F8
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-endwise'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'johngrib/vim-game-code-break'
+Plugin 'kovisoft/slimv'
+Plugin 'flazz/vim-colorschemes'
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -62,6 +67,11 @@ set t_Co=256
 " Casse minuscule -> osef de la casse, une majuscules -> casse stricte
 syntax on
 set omnifunc=syntaxcomplete#Complete
+
+autocmd Filetype ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd Filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd Filetype ruby,eruby let g:rubycomplete_classes_in_global=1
+autocmd Filetype ruby,eruby let g:rubycomplete_rails = 1
 set smartcase
 set ignorecase
 set nu
@@ -78,6 +88,8 @@ set showcmd
 set wildmenu
 set splitright
 set lazyredraw
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 set list lcs=tab:\|\ " put | to see indent level
 " set list lcs=tab:»·,trail:·
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -94,8 +106,9 @@ set shiftwidth=4
 set foldenable 
 set foldlevelstart=10
 set foldnestmax=10 
-set foldmethod=indent
 set modelines=1
+set foldmethod=marker
+set foldmarker=\=\=>,<\=\=:foldlevel=0
 " <==
 
 " Mapping ==>
@@ -143,13 +156,15 @@ elseif &filetype == 'sh'
     exec "!bash %"
 elseif &filetype == 'ruby'
     exec "!ruby %"
+elseif &filetype == 'python'
+    exec "!python3 %"
 elseif &filetype == 'html'
     exec "!surf % &"
 elseif &filetype == 'markdown'
     exec "!pandoc --latex-engine=xelatex % -o %.pdf && mupdf %.pdf"
 elseif &filetype == 'c'
-    exec "!gcc % -o %<"
-    exec "!./%<"
+	exec "!gcc % -o %<"
+	exec "!./%<"
 endif
 endfunc
 " <==
@@ -205,6 +220,9 @@ let g:AutoPairsMultilineClose=0
 let g:AutoPairsMapBS=0
 " <==
 
+" Ultisnips ==>
+let g:UltiSnipsExpandTrigger="<tab>"
+" <==
 
 let delimitMate_expand_cr=1
 let delimitMate_jump_expansion=1
@@ -212,5 +230,23 @@ set clipboard+=unnamedplus
 autocmd BufEnter *.md set expandtab
 autocmd BufEnter *.hs set expandtab
 autocmd Filetype *.md set conceallevel=2
+
+" highlight trailing spaces in annoying red
+highlight ExtraWhitespace ctermbg=1 guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+
+" Rainbow Parentheses ==>
+
+" Always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" <==
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

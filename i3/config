@@ -55,8 +55,8 @@ bindsym $mod+Ctrl+v exec pavucontrol
 # <==
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym $mod+F5 exec "xbacklight -dec 5"
+bindsym $mod+F6 exec "xbacklight -inc 5"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec urxvtc -e 'bmenu'
@@ -66,7 +66,6 @@ bindsym $mod+F3 exec thunar
 bindsym $mod+Shift+t exec thunderbird
 
 # bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec urxvtc -e 'ncmpcpp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
 bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"

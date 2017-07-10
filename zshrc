@@ -33,6 +33,7 @@ alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m
 alias flic="nmap -v -Pn -A"
 alias pull="git pull origin master"
 alias push="git push origin master"
+alias backup="rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA EXT/"
 
 ex (){
 	if [ -f $1 ] ; then
@@ -64,6 +65,12 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 	. ~/.config/exercism/exercism_completion.zsh
 fi
 
+# Always work in a tmux session if tmux is installed
+# if which tmux 2>&1 >/dev/null; then
+#   if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+#     tmux attach -t hack || tmux new -s hack; exit
+#   fi
+# fi
 
 disa() { 
 	echo -n "ಠ_ಠ\nಠᴗಠ\n(¬_¬)\n(¬▂¬)\n（＞д＜）\n(ノಠ益ಠ)ノ\n(^._.^)ﾉ\n(∩_∩)\n(✿◠‿◠)\n┌(° ͜ʖ͡°)┘\n(⁎❛ᴗ❛⁎)\n(☞ಠ_ಠ)☞\n(｡◕‿‿◕｡)\n◔‿◔\n(•_•)\n(/ﾟДﾟ)/\n（；¬＿¬)\n(」゜ロ゜)」\n(╯°□°）╯︵ ┻━┻\nщ(ಠ益ಠщ)\nರ◡ರ\nಠಿ_ಠ\n눈_눈\nʘ︵ʘ\n͡° ͜ʖ ͡°\n(；一_一)\nʕ•ᴥ•ʔ\n¯\_(ツ)_/¯\nಥ╭╮ಥ\n٩(^ᴗ^)۶\n(⋋▂⋌)\n♥‿♥\n•‿•\n( ¯◡◡¯)\n(*￣m￣)\nಠ╭╮ಠ\nಠ▃ಠ\n┻━┻ ︵ヽ(\`Д´)ﾉ︵ ┻━┻\n┬─┬ノ( º _ ºノ)\n(ノಠ益ಠ)ノ彡┻━┻\n😶\…\n|¯느¯|\n╰[ ◕ ᗜ ◕]╯\n"
