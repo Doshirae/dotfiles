@@ -89,7 +89,7 @@ set wildmenu
 set splitright
 set lazyredraw
 set undofile " Maintain undo history between sessions
-set undodir=~/.vim/undodir
+set undodir=/tmp/vim-undo
 set list lcs=tab:\|\ " put | to see indent level
 " set list lcs=tab:»·,trail:·
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -98,8 +98,8 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 " <==
 
 " Tabs ==>
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 " <==
 
 " Folds ==>
@@ -165,6 +165,8 @@ elseif &filetype == 'markdown'
 elseif &filetype == 'c'
 	exec "!gcc % -o %<"
 	exec "!./%<"
+elseif &filetype == 'lisp'
+	exec "!clisp %"
 endif
 endfunc
 " <==
@@ -190,9 +192,9 @@ command! MakeTags !ctags -R .
 " let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 "Snippets
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-nnoremap ,reveal :-1read $HOME/.vim/.skeleton.reveal.html<CR>4jwf>a
-nnoremap ,dosh :e scp://pi@www.doshirae.fr//home/pi/index.html<CR>
+nnoremap ,bash :-1read $HOME/.dotfiles/snippets/bash.snippet<CR>3jwf>a
+autocmd BufEnter *.sh :-1read $HOME/.dotfiles/snippets/bash.snippet
+
 
 "<==
 

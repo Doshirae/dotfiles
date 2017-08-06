@@ -36,9 +36,9 @@ bindsym $mod+Shift+a kill
 bindsym $mod+d exec --no-startup-id rofi -show run -opacity 80 -bw 0 -separator-style solid -hide-scrollbar -lines 5 -width 100 -location 6
 
 # Screenshot
-bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
-bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
-bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f /home/doshirae/Pictures/Screenshots/'"
+bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f /home/doshirae/Pictures/Screenshots/'"
+bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f /home/doshirae/Pictures/Screenshots/'"
 
 # Sound section, do not edit ==>
 ################################################################################################
@@ -123,8 +123,9 @@ set $WS3 3·  Files
 set $WS4 4·  Social
 set $WS5 5·  Misc
 set $WS6 6·  Music
+set $WS8 8·  RSS
 set $WS9 9·  Torrent
-set $WS11 11⋅  Games
+set $WS10 10⋅  Games
 # <==
 
 
@@ -139,7 +140,7 @@ bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
-bindsym $mod+² workspace $WS11
+bindsym $mod+0 workspace $WS10
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -180,6 +181,8 @@ assign [class="Skype"] $WS4
 assign [class="Pidgin"] $WS4
 assign [class="Thunderbird"] $WS4
 assign [class="Transmission"] $WS9
+assign [class="Liferea"] $WS8
+assign [class="liferea"] $WS8
 # <==
 
 # Open specific applications in floating mode ==>
@@ -308,6 +311,7 @@ exec dunst &
 # exec pidgin
 exec --no-startup-id urxvtd -q -o -f
 exec autocutsel
+exec liferea
 # <==
 
 # Theme colours ==>

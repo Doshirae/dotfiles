@@ -33,7 +33,7 @@ alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m
 alias flic="nmap -v -Pn -A"
 alias pull="git pull origin master"
 alias push="git push origin master"
-alias backup="rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA EXT/"
+alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 
 ex (){
 	if [ -f $1 ] ; then
