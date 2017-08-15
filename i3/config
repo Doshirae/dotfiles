@@ -27,7 +27,6 @@ set $Locker ~/.dotfiles/i3/lock.sh
 # start a terminal
 bindsym $mod+Return exec urxvtc ; workspace $WS2
 bindsym $mod+Mod1+Return exec urxvtc -e tmux -2; workspace $WS2
-bindsym $mod+Shift+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+a kill
@@ -45,7 +44,7 @@ bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f /hom
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec -no-startup-id volumeicon
+#exec -no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 exec --no-startup-id pa-applet
@@ -55,15 +54,21 @@ bindsym $mod+Ctrl+v exec pavucontrol
 # <==
 
 # Screen brightness controls
-bindsym $mod+F5 exec "xbacklight -dec 5"
-bindsym $mod+F6 exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+# Sound control
+bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+"
+bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%-"
+bindsym XF86AudioMute exec "amixer -q sset Master toggle"
+
+
 
 # Start Applications
 bindsym $mod+Ctrl+b exec urxvtc -e 'bmenu'
 # bindsym $mod+Shift+f exec chromium --process-per-site
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+F3 exec thunar
-bindsym $mod+Shift+t exec thunderbird
+bindsym $mod+Shift+t exec claws-mail
 
 # bindsym $mod+F3 exec ranger
 bindsym $mod+t exec --no-startup-id pkill compton
@@ -177,9 +182,9 @@ assign [class="firefox"] $WS1
 assign [title="tmux"] $WS2
 assign [title="urxvt"] $WS2
 assign [class="Thunar"] $WS3
-assign [class="Skype"] $WS4
 assign [class="Pidgin"] $WS4
 assign [class="Thunderbird"] $WS4
+assign [class="Claws-mail"] $WS4
 assign [class="Transmission"] $WS9
 assign [class="Liferea"] $WS8
 assign [class="liferea"] $WS8
@@ -225,13 +230,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+i mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh lock, mode "default"
+    bindsym s exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh suspend, mode "default"
+    bindsym u exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh switch_user, mode "default"
+    bindsym e exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh logout, mode "default"
+    bindsym h exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -299,12 +304,12 @@ bar {
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id gnome-keyring-daemon
 exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 #exec --no-startup-id xautolock -time 10 -locker $Locker
-#exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
-exec_always ~/.dotfiles/wallpaper.sh
+exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
+# exec_always ~/.dotfiles/wallpaper.sh
 exec mpd
 exec_always xrdb ~/.Xresources
 exec dunst &

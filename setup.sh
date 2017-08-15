@@ -1,31 +1,21 @@
 #!/usr/bin/env bash
 
-if [ ! -d $HOME/.config ]; then
-  mkdir $HOME/.config 
-  cd $HOME/.config
-  if [ ! -d dunst/ ]; then
-    mkdir dunst/ 
-  fi
-  if [ ! -d i3/ ]; then
-    mkdir i3/ 
-  fi
-  if [ ! -d i3status/ ]; then
-    mkdir i3status/ 
-  fi
-  if [ ! -d nvim/ ]; then
-    mkdir nvim/ 
-  fi
-fi
+yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings claws-mail evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer
+yaourt -S ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools
 
-ln -s $HOME/.dotfiles/vim $HOME/.vim/
-
-ln -s $HOME/.dotfiles/compton.conf $HOME/.config/compton.conf
-ln -s $HOME/.dotfiles/dunstrc  $HOME/.config/dunst/dunstrc
-
-ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
-ln -s $HOME/.dotfiles/Xresources $HOME/.Xresources
-ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
+ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 
 
-ln -s $HOME/.dotfiles/i3/config $HOME/.config/i3/config
-ln -s $HOME/.dotfiles/i3/i3status.conf $HOME/.config/i3status/config
+git clone --recursive https://github.com/changs/slimzsh.git ~/.slimzsh
+ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
+
+ln -sf /home/doshirae/.dotfiles/tmux.conf /home/doshirae/.tmux.conf
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+ln -sf /home/doshirae/.dotfiles/vim /home/doshirae/vim
+ln -sf /home/doshirae/.dotfiles/vimrc /home/doshirae/.vimrc
+ln -sf /home/doshirae/.dotfiles/muttrc /home/doshirae/.muttrc
+
+ln -sf /home/doshirae/.dotfiles/xinitrc /home/doshirae/.xinitrc

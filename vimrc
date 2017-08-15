@@ -193,7 +193,7 @@ command! MakeTags !ctags -R .
 
 "Snippets
 nnoremap ,bash :-1read $HOME/.dotfiles/snippets/bash.snippet<CR>3jwf>a
-autocmd BufEnter *.sh :-1read $HOME/.dotfiles/snippets/bash.snippet
+autocmd BufNewFile *.sh :-1read $HOME/.dotfiles/snippets/bash.snippet
 
 
 "<==
