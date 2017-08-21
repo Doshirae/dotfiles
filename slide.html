@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta charset="utf-8">
+		<style>
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body { font-family: 'Droid Serif'; }
+h1, h2, h3 {
+	font-family: 'Yanone Kaffeesatz';
+	font-weight: normal;
+}
+			.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+
+			class: center, middle
+
+			# Title
+
+			---
+
+			class:  center
+
+			# Agenda
+
+			1. Introduction
+			2. Deep-dive
+			3. ...
+
+			---
+
+			class: center, middle
+
+			# Introduction
+
+			.left[Left-aligned text]
+
+			Centered text
+
+			.right[Right-aligned text]
+
+		</textarea>
+		<!-- <script src="https://remarkjs.com/downloads/remark-latest.min.js"> -->
+			<!-- </script> -->
+		<script src="/home/doshirae/remark.js">
+		</script>
+		<script>
+			var slideshow = remark.create({
+				// Set the slideshow display ratio
+				// Default: '4:3'
+				// Alternatives: '16:9', ...
+				ratio: '16:9',
+
+				// Navigation options
+				navigation: {
+					// Enable or disable navigating using scroll
+					// Default: true
+					// Alternatives: false
+					scroll: true,
+
+					// Enable or disable navigation using touch
+					// Default: true
+					// Alternatives: false
+					touch: true,
+
+					// Enable or disable navigation using click
+					// Default: false
+					// Alternatives: true
+					click: true
+				},
+
+				// Customize slide number label, either using a format string..
+				slideNumberFormat: '%current%/%total%',
+				// .. or by using a format function
+				//slideNumberFormat: function (current, total) {
+				//	return 'Slide ' + current + ' of ' + total;
+				//},
+
+				// Enable or disable counting of incremental slides in the slide counting
+				countIncrementalSlides: true
+			});
+		</script>
+	</body>
+</html>
