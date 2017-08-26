@@ -19,3 +19,4 @@ ln -sf /home/doshirae/.dotfiles/vimrc /home/doshirae/.vimrc
 ln -sf /home/doshirae/.dotfiles/muttrc /home/doshirae/.muttrc
 
 ln -sf /home/doshirae/.dotfiles/xinitrc /home/doshirae/.xinitrc
+ln -sf /home/doshirae/.dotfiles/dunstrc ~/.config/dunst/dunstrc

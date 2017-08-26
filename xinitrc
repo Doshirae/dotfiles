@@ -1,3 +1,3 @@
 exec i3
-setxkbmap -layout fr -variant oss
+setxkbmap fr oss
 

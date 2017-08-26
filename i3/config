@@ -54,8 +54,9 @@ bindsym $mod+Ctrl+v exec pavucontrol
 # <==
 
 # Screen brightness controls
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+exec xbacklight -set 100
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
 # Sound control
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%-"
@@ -285,7 +286,7 @@ bar {
     tray_output             primary
 #	wheel_up_cmd nop
 #	wheel_down_cmd nop
-	font pango:Cantarell,Icons 9
+	font pango:DejaVuSerif,Icons 10
 	colors {
 		separator $black
 		background $background

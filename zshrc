@@ -5,7 +5,7 @@ export PATH="$PATH:/usr/lib/ccache/bin/:/usr/bin:/usr/local/bin:.:$HOME/.gem/rub
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
-eval $(ssh-agent -s)
+# eval $(ssh-agent -s)
 
 zstyle ':completion:*:rm:*' ignore-line yes
 zstyle ':completion:*:mv:*' ignore-line yes
