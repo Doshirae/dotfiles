@@ -195,12 +195,12 @@ for_window [title="alsamixer"] floating enable border pixel 2
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [class=" "] floating enable
+for_window [class="pinentry"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 2
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="manjaro-settings-manager-gui"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
@@ -308,8 +308,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 #exec --no-startup-id compton -b --config ~/.config/compton.conf
 #exec --no-startup-id xautolock -time 10 -locker $Locker
-exec_always feh --bg-scale ~/Pictures/Wallpapers/SP001.jpg
-# exec_always ~/.dotfiles/wallpaper.sh
+exec_always ~/.dotfiles/scripts/wallpaper.sh
 exec mpd
 exec_always xrdb ~/.Xresources
 exec dunst &

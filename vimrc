@@ -193,7 +193,7 @@ command! MakeTags !ctags -R .
 
 "Snippets
 nnoremap ,bash :-1read $HOME/.dotfiles/snippets/bash.snippet<CR>3jwf>a
-autocmd BufNewFile *.sh :-1read $HOME/.dotfiles/snippets/bash.snippet
+autocmd BufNewFile *.sh :-1read /home/doshirae/.dotfiles/templates/bash-template.sh
 
 
 "<==
@@ -250,5 +250,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " <==
+
+func CompileSlide()
+	exec !~/.dotfiles/scripts/diapo.sh
+endfunc
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
