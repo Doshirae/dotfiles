@@ -17,9 +17,10 @@ Plugin 'w0rp/ale' " Syntactic linting
 Plugin 'itchyny/lightline.vim' " The line
 Plugin 'scrooloose/nerdtree' " NerdTree
 " Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'Raimondi/delimitMate'
+Plugin 'cohama/lexima.vim'
 Plugin 'tpope/vim-repeat' " enhanced '.'
-Plugin 'rainbow_parentheses.vim' " Dunno
+" Plugin 'rainbow_parentheses.vim' " Dunno
+Plugin 'luochen1990/rainbow'
 Plugin 'lilydjwg/colorizer' " Dunno either
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'majutsushi/tagbar' " Have tags in a split with F8
@@ -32,6 +33,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'johngrib/vim-game-code-break'
 Plugin 'kovisoft/slimv'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'http://git.foldling.org/vim-scheme.git'
 
 
 
@@ -149,25 +152,27 @@ map <leader>n :NERDTreeToggle<CR>
 map éé :call CompileKinda()<CR>
 
 func! CompileKinda()
-exec "w"
-if &filetype == 'java'
-    exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r"
-elseif &filetype == 'sh'
-    exec "!bash %"
-elseif &filetype == 'ruby'
-    exec "!ruby %"
-elseif &filetype == 'python'
-    exec "!python3 %"
-elseif &filetype == 'html'
-    exec "!surf % &"
-elseif &filetype == 'markdown'
-    exec "!pandoc --latex-engine=xelatex % -o %.pdf && mupdf %.pdf"
-elseif &filetype == 'c'
-	exec "!gcc % -o %<"
-	exec "!./%<"
-elseif &filetype == 'lisp'
-	exec "!clisp %"
-endif
+	exec "w"
+	if &filetype == 'java'
+		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r"
+	elseif &filetype == 'sh'
+		exec "!bash %"
+	elseif &filetype == 'ruby'
+		exec "!ruby %"
+	elseif &filetype == 'python'
+		exec "!python3 %"
+	elseif &filetype == 'html'
+		exec "!surf % &"
+	elseif &filetype == 'markdown'
+		exec "!pandoc --latex-engine=xelatex % -o %.pdf && mupdf %.pdf"
+	elseif &filetype == 'scheme'
+		exec "!csi -script %"
+	elseif &filetype == 'c'
+		exec "!gcc % -o %<"
+		exec "!./%<"
+	elseif &filetype == 'lisp'
+		exec "!clisp %"
+	endif
 endfunc
 " <==
 
@@ -212,8 +217,8 @@ autocmd BufNewFile *.sh :-1read /home/doshirae/.dotfiles/templates/bash-template
 " Lightline ==>
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+			\ 'colorscheme': 'wombat',
+			\ }
 set laststatus=2 " bug where line appeared only on vsp
 " <==
 
@@ -244,15 +249,127 @@ autocmd BufWinLeave * call clearmatches()
 
 " Rainbow Parentheses ==>
 
-" Always on
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+let g:rainbow_conf = {
+	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+	\	'ctermfgs': ['blue', 'yellow', 'cyan', 'magenta', 'red'],
+	\	'operators': '_,_',
+	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\	'separately': {
+	\		'*': {},
+	\		'tex': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+	\		},
+	\		'lisp': {
+	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+	\		},
+	\		'vim': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+	\		},
+	\		'html': {
+	\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+	\		},
+	\		'css': 0,
+	\	}
+	\}
 " <==
 
-func CompileSlide()
-	exec !~/.dotfiles/scripts/diapo.sh
-endfunc
+" func CompileSlide! ()
+" 	exec ~/.dotfiles/scripts/diapo.sh
+" endfunc
+
+" VimSh (copied from CHICKEN wiki) ==>
+let g:vimsh_sh="/bin/bash"
+let g:vimsh_pty_prompt_override=0
+let g:vimsh_show_workaround_msgs=0
+
+function! VimShRedraw()
+	redraw
+endf
+
+function! VimShNew()
+	if ! exists("g:vimsh_loaded_python_file")
+		pyfile ~/.vim/vimsh.py
+		let g:vimsh_loaded_python_file=1
+	endif
+	python spawn_buf('_vimsh_')
+endf
+
+function! VimShRun(text)
+	" Called on a string or on a list of lines
+	" Executes the lines in the VimSh window, one by one
+	" (to allow for secondary prompts and/or incremental evaluation)
+
+	" Parse argument
+	let t = type(a:text)
+	if t == 1
+		let lines = split(a:text, '\n')
+	elseif t == 3
+		let lines = a:text
+	else
+		echoerr 'Argument is neither a list nor a string'
+		return
+	endif
+
+	" Find VimSh window
+	let win = bufwinnr('_vimsh_')
+	if win == -1
+		echohl WarningMsg
+		echomsg 'Cannot find vimsh window'
+		echohl None
+		return
+	endif
+
+	" Execute commands
+	exec win . 'wincmd w'
+	for line in lines
+		call setline('$', getline('$') . line)
+		python lookup_buf('_vimsh_').execute_cmd()
+		redraw
+		sleep 1m "why do I need a sleep to apply the redraw?
+	endfor
+	stopinsert
+	wincmd p
+	echo
+endf
+
+function! VimShRunOp(type, ...)
+	" Helper function (copied verbatim from Vim help)
+
+	let sel_save = &selection
+	let &selection = "inclusive"
+	let reg_save = @@
+
+	if a:0
+		silent exe "normal! `<" . a:type . "`>y"
+	elseif a:type == 'line'
+		silent exe "normal! '[V']y"
+	elseif a:type == 'block'
+		silent exe "normal! `[\<C-V>`]y"
+	else
+		silent exe "normal! `[v`]y"
+	endif
+
+	call VimShRun(@@)
+
+	let &selection = sel_save
+	let @@ = reg_save
+endf
+
+nmap Sn :call VimShNew()<CR>
+nnoremap S  :set opfunc=VimShRunOp<CR>g@
+vnoremap S  :<C-U>call VimShRunOp(visualmode(), 1)<CR>
+nnoremap SS :call VimShRun(getline('.'))<CR>
+nnoremap Sf :call VimShRun(getline(1,'$'))<CR>
+nmap St :norm 99[(<CR>vabS
+" <==
+
+au Filetype scheme call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
+au Filetype scheme call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
 
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

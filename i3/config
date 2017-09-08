@@ -15,7 +15,7 @@ set $background #121212
 set $mod Mod4
 font pango:Cantarell 9
 floating_modifier $mod
-workspace_auto_back_and_forth no 
+workspace_auto_back_and_forth no
 # Borders
 new_window pixel 4
 new_float pixel 4
@@ -55,8 +55,10 @@ bindsym $mod+Ctrl+v exec pavucontrol
 
 # Screen brightness controls
 exec xbacklight -set 100
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
+bindsym XF86MonBrightnessDown exec xbacklight -dec # 5 
+#&& notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 
+#&& notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
 # Sound control
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%-"
@@ -120,10 +122,11 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+s sticky toggle
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+z focus child
 # <==
 
 # Workspace names ==>
-set $WS1 1·  Browser
+set $WS1 1·  Browser
 set $WS2 2·  Terminals
 set $WS3 3·  Files
 set $WS4 4·  Social
@@ -232,11 +235,11 @@ bindsym $mod+i mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh lock, mode "default"
-    bindsym s exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh suspend, mode "default"
-    bindsym u exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh switch_user, mode "default"
-    bindsym e exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh logout, mode "default"
-    bindsym h exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id /home/doshirae/.dotfiles/i./i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh suspend, mode "default"
+    bindsym u exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh switch_user, mode "default"
+    bindsym e exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh logout, mode "default"
+    bindsym h exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh reboot, mode "default"
     bindsym Shift+s exec --no-startup-id /home/doshirae/.dotfiles/i3/i3exit.sh shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
@@ -278,27 +281,28 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # bar ==>
-bar {
-	status_command i3status
-	position top
-	separator_symbol " "
-	workspace_buttons yes
-    tray_output             primary
-#	wheel_up_cmd nop
-#	wheel_down_cmd nop
-	font pango:DejaVuSerif,Icons 10
-	colors {
-		separator $black
-		background $background
-		statusline #b5429c
-		#                  Border        Background    Font
-		focused_workspace  $background        $background        $green
-		active_workspace   $background        $background        $green
-		inactive_workspace $background        $background        $red
-		urgent_workspace   $background        $background        $yellow
-		binding_mode $red $red $green
-	}
-}
+# bar toggle, hide or show 
+# bar {
+# 	status_command i3status
+# 	position top
+# 	separator_symbol " "
+# 	workspace_buttons yes
+#     tray_output             primary
+# #	wheel_up_cmd nop
+# #	wheel_down_cmd nop
+# 	font pango:DejaVuSerif,Icons 10
+# 	colors {
+# 		separator $black
+# 		background #222222
+# 		statusline #b5429c
+# 		#                  Border        Background    Font
+# 		focused_workspace  #222222        #222222        $green
+# 		active_workspace   #222222        #222222        $green
+# 		inactive_workspace #222222        #222222        $red
+# 		urgent_workspace   #222222        #222222        $yellow
+# 		binding_mode $red $red $green
+# 	}
+# }
 # <==
 
 # Autostart applications ==>
@@ -317,6 +321,7 @@ exec dunst &
 exec --no-startup-id urxvtd -q -o -f
 exec autocutsel
 exec liferea
+exec setxkbmap fr oss -option compose:menu
 # <==
 
 # Theme colours ==>
@@ -385,4 +390,5 @@ mode "$mode_gaps_outer" {
 # <==
 # <==
 
-# vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
+exec_always "killall polybar; polybar -r top | tee -a ~/bar.log"
+# vim:filetype=i3:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

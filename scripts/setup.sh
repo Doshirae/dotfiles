@@ -20,3 +20,5 @@ ln -sf /home/doshirae/.dotfiles/muttrc /home/doshirae/.muttrc
 
 ln -sf /home/doshirae/.dotfiles/xinitrc /home/doshirae/.xinitrc
 ln -sf /home/doshirae/.dotfiles/dunstrc ~/.config/dunst/dunstrc
+ln -sf /home/doshirae/.dotfiles/i3/polybar.conf /home/doshirae/.config/polybar/config
+

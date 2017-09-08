@@ -28,7 +28,7 @@ alias vvim="vim ~/.dotfiles/vimrc"
 alias vterm="vim ~/.dotfiles/Xresources"
 alias vtmux="vim ~/.dotfiles/tmux.conf"
 alias virc="vim ~/.dotfiles/irssi.conf"
-alias vblock="vim ~/.dotfiles/i3/i3blocks.conf"
+alias vbar="vim ~/.dotfiles/i3/polybar.conf"
 alias grep="grep --color=auto"
 alias la="ls -A"
 alias ll="ls -l"
@@ -45,6 +45,14 @@ alias push="git push origin master"
 alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 alias fucking="sudo"
 alias t="trans -s ru -d en"
+alias cs="csi -script"
+# chicken-func(){
+# if [ -z $1 ]; then
+# 	csi
+# else
+# 	csi -script $1
+# fi
+# }
 
 ex (){
 	if [ -f $1 ] ; then
