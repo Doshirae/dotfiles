@@ -10,27 +10,23 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'tpope/vim-fugitive' " Git wrapper
-Plugin 'tpope/vim-surround' " Changing surround parenthesis 
+Plugin 'tpope/vim-surround' " Changing surround parenthesis
 Plugin 'tpope/vim-commentary' " Comment quickly lines
 " Plugin 'scrooloose/syntastic' " Syntactic linting
 Plugin 'w0rp/ale' " Syntactic linting
 Plugin 'itchyny/lightline.vim' " The line
 Plugin 'scrooloose/nerdtree' " NerdTree
-" Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'cohama/lexima.vim'
-Plugin 'tpope/vim-repeat' " enhanced '.'
-" Plugin 'rainbow_parentheses.vim' " Dunno
+"Plugin 'tpope/vim-repeat' " enhanced '.'
 Plugin 'luochen1990/rainbow'
-Plugin 'lilydjwg/colorizer' " Dunno either
 Bundle 'vim-ruby/vim-ruby'
-Plugin 'majutsushi/tagbar' " Have tags in a split with F8
+" Plugin 'majutsushi/tagbar' " Have tags in a split with F8
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-endwise'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'johngrib/vim-game-code-break'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kovisoft/slimv'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'PotatoesMaster/i3-vim-syntax'
@@ -198,7 +194,7 @@ command! MakeTags !ctags -R .
 
 "Snippets
 nnoremap ,bash :-1read $HOME/.dotfiles/snippets/bash.snippet<CR>3jwf>a
-autocmd BufNewFile *.sh :-1read /home/doshirae/.dotfiles/templates/bash-template.sh
+" autocmd BufNewFile *.sh :-1read /home/doshirae/.dotfiles/templates/bash-template.sh
 
 
 "<==

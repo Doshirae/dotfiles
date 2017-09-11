@@ -47,7 +47,7 @@ bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f /hom
 #exec -no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-exec --no-startup-id pa-applet
+# exec --no-startup-id pa-applet # Volume tray
 bindsym $mod+Ctrl+v exec pavucontrol
 
 ################################################################################################
@@ -55,9 +55,9 @@ bindsym $mod+Ctrl+v exec pavucontrol
 
 # Screen brightness controls
 exec xbacklight -set 100
-bindsym XF86MonBrightnessDown exec xbacklight -dec # 5 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 #&& notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 #&& notify-send "Luminosité : $(printf \"%.0f\" $(xbacklight))%"
 # Sound control
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+"
@@ -391,4 +391,5 @@ mode "$mode_gaps_outer" {
 # <==
 
 exec_always "killall polybar; polybar -r top | tee -a ~/bar.log"
+# exec_always "killall polybar; polybar -r bot | tee -a ~/bar.log"
 # vim:filetype=i3:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
