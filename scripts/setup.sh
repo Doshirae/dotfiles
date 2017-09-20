@@ -2,6 +2,8 @@
 
 yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings claws-mail evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer
 yaourt -S ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools
+yaourt -S rxvt-unicode zsh dunst feh rofi
+yaourt -S claws-mail firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps
 
 ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources

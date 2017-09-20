@@ -166,8 +166,8 @@ func! CompileKinda()
 	elseif &filetype == 'c'
 		exec "!gcc % -o %<"
 		exec "!./%<"
-	elseif &filetype == 'lisp'
-		exec "!clisp %"
+	elseif &filetype == 'go'
+		exec "!go run %"
 	endif
 endfunc
 " <==

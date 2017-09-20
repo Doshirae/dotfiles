@@ -183,10 +183,10 @@ assign [class="chromium"] $WS1
 assign [class="Chromium"] $WS1
 assign [class="Firefox"] $WS1
 assign [class="firefox"] $WS1
+assign [class="qutebrowser"] $WS1
 assign [title="tmux"] $WS2
 assign [title="urxvt"] $WS2
 assign [class="Thunar"] $WS3
-assign [class="Pidgin"] $WS4
 assign [class="Thunderbird"] $WS4
 assign [class="Claws-mail"] $WS4
 assign [class="Transmission"] $WS9
@@ -196,25 +196,17 @@ assign [class="liferea"] $WS8
 
 # Open specific applications in floating mode ==>
 for_window [title="alsamixer"] floating enable border pixel 2
-for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
-for_window [class=" "] floating enable
 for_window [class="pinentry"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 2
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pamac-updater"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
 for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable bporder normal
@@ -319,7 +311,6 @@ exec_always xrdb ~/.Xresources
 exec dunst &
 # exec pidgin
 exec --no-startup-id urxvtd -q -o -f
-exec autocutsel
 exec liferea
 exec setxkbmap fr oss -option compose:menu
 # <==
@@ -390,6 +381,6 @@ mode "$mode_gaps_outer" {
 # <==
 # <==
 
-exec_always "killall polybar; polybar -r top | tee -a ~/bar.log"
+exec_always "killall polybar || polybar -r top"
 # exec_always "killall polybar; polybar -r bot | tee -a ~/bar.log"
 # vim:filetype=i3:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

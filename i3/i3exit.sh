@@ -1,6 +1,6 @@
 #!/bin/sh
 lock() {
-    i3lock
+    /home/doshirae/.dotfiles/i3/lock.sh
 }
 
 case "$1" in
@@ -20,7 +20,7 @@ case "$1" in
         systemctl reboot
         ;;
     shutdown)
-        systemctl poweroff
+        poweroff
         ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
