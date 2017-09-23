@@ -89,7 +89,7 @@ set splitright
 set lazyredraw
 set undofile " Maintain undo history between sessions
 set undodir=/tmp/vim-undo
-set list lcs=tab:\|\ " put | to see indent level
+" set list lcs=tab:\|\ " put | to see indent level
 " set list lcs=tab:»·,trail:·
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
@@ -102,9 +102,9 @@ set shiftwidth=2
 " <==
 
 " Folds ==>
-set foldenable 
+set foldenable
 set foldlevelstart=10
-set foldnestmax=10 
+set foldnestmax=10
 set modelines=1
 set foldmethod=marker
 set foldmarker=\=\=>,<\=\=:foldlevel=0
@@ -120,8 +120,6 @@ inoremap µ \
 " inoremap µ ||<Left>
 nmap <Tab> :tabnext <CR>
 nmap <S-Tab>  :tabprevious <CR> 
-
-map <F8> :TagbarToggle<CR>
 
 let mapleader=";"       " leader is semicolon
 nnoremap <leader><space> :nohlsearch<CR>
@@ -168,6 +166,8 @@ func! CompileKinda()
 		exec "!./%<"
 	elseif &filetype == 'go'
 		exec "!go run %"
+	elseif &filetype == 'tex'
+		exec "!xelatex % -o %.pdf && mupdf %.pdf"
 	endif
 endfunc
 " <==
@@ -196,20 +196,6 @@ command! MakeTags !ctags -R .
 nnoremap ,bash :-1read $HOME/.dotfiles/snippets/bash.snippet<CR>3jwf>a
 " autocmd BufNewFile *.sh :-1read /home/doshirae/.dotfiles/templates/bash-template.sh
 
-
-"<==
-
-" Syntastic ==>
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-"<==
-
 " Lightline ==>
 
 let g:lightline = {
@@ -223,12 +209,7 @@ let g:AutoPairsMultilineClose=0
 let g:AutoPairsMapBS=0
 " <==
 
-" Ultisnips ==>
-let g:UltiSnipsExpandTrigger="<tab>"
-" <==
 
-let delimitMate_expand_cr=1
-let delimitMate_jump_expansion=1
 set clipboard+=unnamedplus
 autocmd BufEnter *.md set expandtab
 autocmd BufEnter *.hs set expandtab
@@ -245,8 +226,7 @@ autocmd BufWinLeave * call clearmatches()
 
 " Rainbow Parentheses ==>
 
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
+" au VimEnter * RainbowParenthesesToggle " au Syntax * RainbowParenthesesLoadRound
 " au Syntax * RainbowParenthesesLoadSquare
 " au Syntax * RainbowParenthesesLoadBraces
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
@@ -275,9 +255,6 @@ let g:rainbow_conf = {
 	\}
 " <==
 
-" func CompileSlide! ()
-" 	exec ~/.dotfiles/scripts/diapo.sh
-" endfunc
 
 " VimSh (copied from CHICKEN wiki) ==>
 let g:vimsh_sh="/bin/bash"
@@ -363,6 +340,7 @@ vnoremap S  :<C-U>call VimShRunOp(visualmode(), 1)<CR>
 nnoremap SS :call VimShRun(getline('.'))<CR>
 nnoremap Sf :call VimShRun(getline(1,'$'))<CR>
 nmap St :norm 99[(<CR>vabS
+" <==
 " <==
 
 au Filetype scheme call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
