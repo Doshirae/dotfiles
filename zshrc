@@ -1,6 +1,8 @@
 source "$HOME/.dotfiles/zsh/slimzsh/slim.zsh"
 source "$HOME/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "/home/doshirae/.dotfiles/zsh/zsh-history-substring.zsh"
+
+
 # User configuration
 export PATH="$PATH:/usr/lib/ccache/bin/:/usr/bin:/usr/local/bin:.:$HOME/.gem/ruby/2.4.0/bin:$HOME/.bin:$HOME/.dotfiles/scripts/"
 export KEYTIMEOUT=1

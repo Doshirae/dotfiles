@@ -1,3 +1,7 @@
+coul=( "Dred" "Dblue" "Dcyan" "Dpurple" "Dyellow" "Dgreen" )
+rand=$(( $RANDOM % ${#coul[*]} )) # random number between 0 and length of coul
+border="${coul[$rand]}" # Pick one random color
+echo "
 ! Gruvbox
 #define Dblack    #282828
 #define Lblack 		#928374
@@ -23,10 +27,10 @@
 ! -----------------------------------------------------------!
 rofi.color-enabled: true
 !                  bg       border  separator
-rofi.color-window: bg, 			Dred, 	Dred
+rofi.color-window: bg, 			$border, 	$border
 
 !                  bg       fg      bg-alt   	hl-bg    	hl-fg
-rofi.color-normal: bg, 			fg, 		bg, 			bg, 			Dred
+rofi.color-normal: bg, 			fg, 		bg, 			bg, 			$border
 rofi.color-active: Dyellow, bg, 		Dyellow, 	Lyellow, 	bg
 rofi.color-urgent: Dred, 		bg, 		Dred, 		Lred, 		bg
 
@@ -92,4 +96,4 @@ URxvt.url-launcher: 	/usr/bin/qutebrowser
 *color6:  		Dcyan
 *color14: 		Lcyan
 *color7:  		Dgrey
-*color15: 		Lgrey
+*color15: 		Lgrey" > $HOME/.Xresources

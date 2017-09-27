@@ -31,6 +31,7 @@ Plugin 'kovisoft/slimv'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'http://git.foldling.org/vim-scheme.git'
+" Plugin 'bhurlow/vim-parinfer'
 
 
 
@@ -53,7 +54,8 @@ filetype plugin indent on    " required
 
 " Colors==>
 set background=dark
-colorscheme molokai
+colorscheme gruvbox
+" Gruvbox est vraiment bien
 "let g:molokai_original = 1
 set t_Co=256
 
@@ -199,7 +201,7 @@ nnoremap ,bash :-1read $HOME/.dotfiles/snippets/bash.snippet<CR>3jwf>a
 " Lightline ==>
 
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
+			\ 'colorscheme': 'jellybeans',
 			\ }
 set laststatus=2 " bug where line appeared only on vsp
 " <==
@@ -346,4 +348,11 @@ nmap St :norm 99[(<CR>vabS
 au Filetype scheme call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
 au Filetype scheme call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
 
+function! Synctex()
+        " remove 'silent' for debugging
+        execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+endfunction
+map <C-enter> :call Synctex()<cr>
+
+" set termguicolors
 " vim:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0

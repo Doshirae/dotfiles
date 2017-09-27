@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
-yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings claws-mail evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer
-yaourt -S ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools
-yaourt -S rxvt-unicode zsh dunst feh rofi
-yaourt -S claws-mail firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps
+case `uname -r` in
+	*ARCH)
+		sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings claws-mail evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura
+		;;
+	*gentoo*)
+		# TODO: figure out USE flags
+		sudo emerge -q pass i3 rxvt-unicode zsh dunst feh rofi firefox qutebrowser tmux liferea thunar i3lock nm-applet zathura
+esac
+
 
 ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 
 
-git clone --recursive https://github.com/changs/slimzsh.git ~/.slimzsh
+git clone --recursive https://github.com/changs/slimzsh.git ~/.dotfiles/zsh/
 ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
 
 ln -sf /home/doshirae/.dotfiles/tmux.conf /home/doshirae/.tmux.conf
