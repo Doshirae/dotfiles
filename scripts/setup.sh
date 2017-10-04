@@ -9,6 +9,7 @@ case `uname -r` in
 		sudo emerge -q pass i3 rxvt-unicode zsh dunst feh rofi firefox qutebrowser tmux liferea thunar i3lock nm-applet zathura
 esac
 
+mkdir -p $HOME/.config/{i3,dunst,polybar}
 
 ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
@@ -19,13 +20,12 @@ ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
 
 ln -sf /home/doshirae/.dotfiles/tmux.conf /home/doshirae/.tmux.conf
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+curl -fLo ~/.dotfiles/vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 ln -sf /home/doshirae/.dotfiles/vim /home/doshirae/vim
 ln -sf /home/doshirae/.dotfiles/vimrc /home/doshirae/.vimrc
-ln -sf /home/doshirae/.dotfiles/muttrc /home/doshirae/.muttrc
+# ln -sf /home/doshirae/.dotfiles/muttrc /home/doshirae/.muttrc
 
 ln -sf /home/doshirae/.dotfiles/xinitrc /home/doshirae/.xinitrc
 ln -sf /home/doshirae/.dotfiles/dunstrc ~/.config/dunst/dunstrc
 ln -sf /home/doshirae/.dotfiles/i3/polybar/polybar.conf /home/doshirae/.config/polybar/config
-

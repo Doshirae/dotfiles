@@ -20,12 +20,7 @@ zstyle ':completion:*:cp:*' ignore-line yes
 zmodload zsh/complist
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
-# Set editor to vim
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
+# Aliases ==>
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
 alias vvim="vim ~/.dotfiles/vimrc"
@@ -48,15 +43,8 @@ alias pull="git pull origin master"
 alias push="git push origin master"
 alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 alias fucking="sudo"
-alias t="trans -s ru -d en"
 alias cs="csi -script"
-# chicken-func(){
-# if [ -z $1 ]; then
-# 	csi
-# else
-# 	csi -script $1
-# fi
-# }
+# <==
 
 untar (){
 	if [ -f $1 ] ; then
@@ -97,4 +85,5 @@ bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
 smileys() {
-	echo -n "ಠ_ಠ\n ಠᴗಠ\n (¬_¬)\n (¬▂¬)\n （＞д＜）\n (ノಠ益ಠ)ノ\n (^._.^)ﾉ\n (∩_∩)\n (✿◠‿◠)\n ┌(° ͜ʖ͡°)┘\n (⁎❛ᴗ❛⁎)\n (☞ಠ_ಠ)☞\n (｡◕‿‿◕｡)\n ◔‿◔\n (•_•)\n (/ﾟДﾟ)/\n （；¬＿¬)\n (」゜ロ゜)」\n (╯°□°）╯︵ ┻━┻\n щ(ಠ益ಠщ)\n ರ◡ರ\n ಠಿ_ಠ\n 눈_눈\n ʘ︵ʘ\n͡ ° ͜ʖ ͡°\n (；一_一)\n ʕ•ᴥ•ʔ\n ¯\_(ツ)_/¯\n ಥ╭╮ಥ\n ٩(^ᴗ^)۶\n (⋋▂⋌)\n ♥‿♥\n •‿•\n ( ¯◡◡¯)\n (*￣m￣)\n ಠ╭╮ಠ\n ಠ▃ಠ\n ┻━┻ ︵ヽ(\`Д´)ﾉ︵ ┻━┻\n ┬─┬ノ( º _ ºノ)\n (ノಠ益ಠ)ノ彡┻━┻\n 😶\…\n |¯느¯|\n ╰[ ◕ ᗜ ◕]╯\n " }
+	echo -n "ಠ_ಠ\n ಠᴗಠ\n (¬_¬)\n (¬▂¬)\n （＞д＜）\n (ノಠ益ಠ)ノ\n (^._.^)ﾉ\n (∩_∩)\n (✿◠‿◠)\n ┌(° ͜ʖ͡°)┘\n (⁎❛ᴗ❛⁎)\n (☞ಠ_ಠ)☞\n (｡◕‿‿◕｡)\n ◔‿◔\n (•_•)\n (/ﾟДﾟ)/\n （；¬＿¬)\n (」゜ロ゜)」\n (╯°□°）╯︵ ┻━┻\n щ(ಠ益ಠщ)\n ರ◡ರ\n ಠಿ_ಠ\n 눈_눈\n ʘ︵ʘ\n͡ ° ͜ʖ ͡°\n (；一_一)\n ʕ•ᴥ•ʔ\n ¯\_(ツ)_/¯\n ಥ╭╮ಥ\n ٩(^ᴗ^)۶\n (⋋▂⋌)\n ♥‿♥\n •‿•\n ( ¯◡◡¯)\n (*￣m￣)\n ಠ╭╮ಠ\n ಠ▃ಠ\n ┻━┻ ︵ヽ(\`Д´)ﾉ︵ ┻━┻\n ┬─┬ノ( º _ ºノ)\n (ノಠ益ಠ)ノ彡┻━┻\n 😶\…\n |¯느¯|\n ╰[ ◕ ᗜ ◕]╯\n " 
+}

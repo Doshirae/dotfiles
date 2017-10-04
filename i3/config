@@ -1,5 +1,4 @@
 # Set colors ==>
-
 set_from_resource $background i3wm.background #121212
 set_from_resource $black i3wm.color0      #5E5E5E
 set_from_resource $red i3wm.color1 				#6F694D
@@ -41,9 +40,9 @@ bindsym $mod+Shift+a kill
 bindsym $mod+d exec --no-startup-id rofi -show run
 
 # Screenshot
-bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f $HOME/Pictures/Screenshots/'"
-bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f $HOME/Pictures/Screenshots/'"
-bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f $HOME/Pictures/Screenshots/'"
+bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
 
 # Sound section, do not edit ==>
 ################################################################################################
@@ -228,6 +227,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable bporder normal
 for_window [class="gpick"] floating enable
+for_window [title="TK-*"] floating enable
 # <==
 
 # switch to workspace with urgent window automatically
@@ -328,14 +328,14 @@ exec_always xrdb ~/.Xresources
 exec dunst &
 # exec pidgin
 exec --no-startup-id urxvtd -q -o -f
-exec liferea
+# exec liferea
 exec setxkbmap fr oss -option compose:menu
 # <==
 
 # Theme colours ==>
 # Theme colors   Border	 			Background 	Font    			???
-client.focused   $background 	$grey    		$background  	#000000
-client.unfocused $background	$background	$grey 				#000000
+client.focused   $background 	$red	$background  	#000000
+client.unfocused $background	$background	$foreground 				#000000
 client.urgent    #151219 			#151219    	$background		#000000
 # <==
 
@@ -401,7 +401,7 @@ mode "$mode_gaps_outer" {
 exec_always "killall polybar; polybar -r top"
 exec ~/.dotfiles/scripts/xresource.sh
 
-# TODO: Menu browser launcher
+# TODO: mode browser launcher
 
 
 # vim:filetype=i3:foldmethod=marker:foldmarker=\=\=>,<\=\=:foldlevel=0
