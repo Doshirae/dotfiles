@@ -24,8 +24,8 @@ let mapleader = ';'
 set smartcase
 set ignorecase
 set ttyfast " Améliore l'affichage en disant à vim que nous utilisons un terminal rapide
-set backupdir=~/.dotfiles/vim/tmp/ " for the backup files
-set directory=~/.dotfiles/vim/tmp/ " for the swap files
+set backupdir=~/.vim/tmp/ " for the backup files
+set directory=~/.vim/tmp/ " for the swap files
 set omnifunc=syntaxcomplete#Complete
 set backspace=indent,eol,start
 
@@ -43,7 +43,7 @@ set wildmenu
 set splitright
 set lazyredraw
 set undofile " Maintain undo history between sessions
-set undodir=/.dotfiles/vim/undo
+set undodir=~/.vim/undo
 " set list lcs=tab:\|\ " put | to see indent level
 " set list lcs=tab:»·,trail:·
 set path+=** "Activer la recherche récursive
@@ -74,44 +74,46 @@ if has("autocmd")
 endif
 " <==
 " maps ==>
-command! MakeTags !ctags -R .
+nmap <leader>mt :!ctags -R .
 " ↑↑↑
 "^] pour aller à la def du tag sous le curseur
 "g^] quand c'est ambigu
 "^t pour retourner au tag où on était
+
 " Allows to sudo a file to save it when sudo was forgot
 cmap w!! %!sudo tee > /dev/null %
 
 imap jk <Esc>
 nnoremap j gj
 nnoremap k gk
-nmap <silent> <C-l> :tabnext <CR>
-nmap <silent> <C-h> :tabprevious <CR>
+nnoremap <silent> <C-h> :tabprevious <CR>
+nnoremap <silent> <C-l> :tabnext <CR>
 nnoremap <silent> <leader><space> :nohlsearch<CR>
 " Often edit these files
-nnoremap <silent> <leader>ev :tabnew ~/.dotfiles/vimrc<CR>
-nnoremap <silent> <leader>ez :tabnew ~/.dotfiles/zshrc<CR>
-nnoremap <silent> <leader>ei :tabnew ~/.dotfiles/i3/config<CR>
-nnoremap <silent> <leader>eb :tabnew ~/.dotfiles/i3/polybar/polybar.conf<CR>
-" reloads<silent> .vimrc -- making all changes active
-map <silent> <Leader>sv :source ~/.dotfiles/vimrc<CR>:PlugInstall<CR>:PlugClean<CR>:bdelete<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nmap <silent> <leader>ev :tabnew ~/.dotfiles/vimrc<CR>
+nmap <silent> <leader>ez :tabnew ~/.dotfiles/zshrc<CR>
+nmap <silent> <leader>ei :tabnew ~/.dotfiles/i3/config<CR>
+nmap <silent> <leader>eb :tabnew ~/.dotfiles/i3/polybar/polybar.conf<CR>
+nmap <silent> <Leader>sv :source ~/.dotfiles/vimrc<CR>:echo 'vimrc reloaded'<CR>
+
 imap <C-Space> <C-X><C-O> " Remap completion on C-Space
-map éé :call Launch()<CR>
+nmap éé :call Launch()<CR>
+nmap <leader>cs :%s/\s\+$//<CR>
 " <==
 " Colors ==>
-set background=dark
+" set background=dark
 colorscheme gruvbox
 set t_Co=256
-hi Search  term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
 " <==
 " autocmds ==>
 autocmd Filetype ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd Filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd Filetype ruby,eruby let g:rubycomplete_classes_in_global=1
 autocmd Filetype ruby,eruby let g:rubycomplete_rails = 1
-autocmd BufEnter *.md set expandtab
-autocmd BufEnter *.hs set expandtab
-autocmd Filetype *.md set conceallevel=2
+autocmd Filetype haskell set expandtab
+autocmd Filetype markdown set expandtab
+autocmd Filetype python set expandtab
+autocmd Filetype markdown set conceallevel=2
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -128,7 +130,7 @@ au Filetype scheme call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype'
 func! Launch()
 	exec "w"
 	if &filetype == 'java'
-		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r"
+		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r&"
 	elseif &filetype == 'sh'
 		exec "!bash %"
 	elseif &filetype == 'ruby'
@@ -147,7 +149,9 @@ func! Launch()
 	elseif &filetype == 'go'
 		exec "!go run %"
 	elseif &filetype == 'tex'
-		exec "!pdflatex % && mupdf %:r.pdf"
+		exec "!pdflatex % && mupdf %:r.pdf&"
+	elseif &filetype == 'xdefaults'
+		exec "!xrdb %"
 	endif
 endfunc
 " <==

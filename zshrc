@@ -1,6 +1,9 @@
-source "$HOME/.dotfiles/zsh/slimzsh/slim.zsh"
-source "$HOME/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "/home/doshirae/.dotfiles/zsh/zsh-history-substring.zsh"
+source "$HOME/.zsh/slimzsh/slim.zsh"
+source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.zsh/zsh-history-substring-search.zsh"
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+	source ~/.config/exercism/exercism_completion.zsh
+fi
 
 
 # User configuration
@@ -10,8 +13,6 @@ export GTK_IM_MODULE="xim"
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 export VISUAL="/usr/bin/vim"
 export EDITOR="/usr/bin/vim"
-
-# ssh
 
 zstyle ':completion:*:rm:*' ignore-line yes
 zstyle ':completion:*:mv:*' ignore-line yes
@@ -44,8 +45,10 @@ alias push="git push origin master"
 alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 alias fucking="sudo"
 alias cs="csi -script"
+alias cleantex='rm *.{aux,log,toc}'
 # <==
 
+# Fonctions ==>
 untar (){
 	if [ -f $1 ] ; then
 		case $1 in
@@ -68,22 +71,11 @@ untar (){
 	fi
 }
 
-
-
-if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-	. ~/.config/exercism/exercism_completion.zsh
-fi
-
-# Always work in a tmux session if tmux is installed
-# if which tmux 2>&1 >/dev/null; then
-#   if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-#     tmux attach -t hack || tmux new -s hack; exit
-#   fi
-# fi
+smileys() {
+	echo -n "ಠ_ಠ\n ಠᴗಠ\n (¬_¬)\n (¬▂¬)\n （＞д＜）\n (ノಠ益ಠ)ノ\n (^._.^)ﾉ\n (∩_∩)\n (✿◠‿◠)\n ┌(° ͜ʖ͡°)┘\n (⁎❛ᴗ❛⁎)\n (☞ಠ_ಠ)☞\n (｡◕‿‿◕｡)\n ◔‿◔\n (•_•)\n (/ﾟДﾟ)/\n （；¬＿¬)\n (」゜ロ゜)」\n (╯°□°）╯︵ ┻━┻\n щ(ಠ益ಠщ)\n ರ◡ರ\n ಠಿ_ಠ\n 눈_눈\n ʘ︵ʘ\n͡ ° ͜ʖ ͡°\n (；一_一)\n ʕ•ᴥ•ʔ\n ¯\_(ツ)_/¯\n ಥ╭╮ಥ\n ٩(^ᴗ^)۶\n (⋋▂⋌)\n ♥‿♥\n •‿•\n ( ¯◡◡¯)\n (*￣m￣)\n ಠ╭╮ಠ\n ಠ▃ಠ\n ┻━┻ ︵ヽ(\`Д´)ﾉ︵ ┻━┻\n ┬─┬ノ( º _ ºノ)\n (ノಠ益ಠ)ノ彡┻━┻\n 😶\…\n |¯느¯|\n ╰[ ◕ ᗜ ◕]╯\n " 
+}
+# <==
 
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
-smileys() {
-	echo -n "ಠ_ಠ\n ಠᴗಠ\n (¬_¬)\n (¬▂¬)\n （＞д＜）\n (ノಠ益ಠ)ノ\n (^._.^)ﾉ\n (∩_∩)\n (✿◠‿◠)\n ┌(° ͜ʖ͡°)┘\n (⁎❛ᴗ❛⁎)\n (☞ಠ_ಠ)☞\n (｡◕‿‿◕｡)\n ◔‿◔\n (•_•)\n (/ﾟДﾟ)/\n （；¬＿¬)\n (」゜ロ゜)」\n (╯°□°）╯︵ ┻━┻\n щ(ಠ益ಠщ)\n ರ◡ರ\n ಠಿ_ಠ\n 눈_눈\n ʘ︵ʘ\n͡ ° ͜ʖ ͡°\n (；一_一)\n ʕ•ᴥ•ʔ\n ¯\_(ツ)_/¯\n ಥ╭╮ಥ\n ٩(^ᴗ^)۶\n (⋋▂⋌)\n ♥‿♥\n •‿•\n ( ¯◡◡¯)\n (*￣m￣)\n ಠ╭╮ಠ\n ಠ▃ಠ\n ┻━┻ ︵ヽ(\`Д´)ﾉ︵ ┻━┻\n ┬─┬ノ( º _ ºノ)\n (ノಠ益ಠ)ノ彡┻━┻\n 😶\…\n |¯느¯|\n ╰[ ◕ ᗜ ◕]╯\n " 
-}
