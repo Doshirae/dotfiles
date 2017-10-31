@@ -6,14 +6,16 @@ Plug 'itchyny/lightline.vim' " The line
 Plug 'sheerun/vim-polyglot' " Syntax highlighting
 Plug 'w0rp/ale' " Syntactic linting
 Plug 'godlygeek/tabular' " align things
-Plug 'tpope/vim-endwise' " Auto put end in ruby
+" Plug 'tpope/vim-endwise' " Auto put end in ruby
 Plug 'qpkorr/vim-renamer' " Bulk rename files
 Plug 'cohama/lexima.vim' " Auto close parentheses
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'kovisoft/slimv' " Slimv for Lisp
 " Plug 'http://git.foldling.org/vim-scheme.git' " Cool for scheme
 Plug 'junegunn/goyo.vim' " Purify interface
-" Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tpope/vim-repeat'
+Plug 'docunext/closetag.vim'
 call plug#end()
 " <==
 
@@ -72,6 +74,9 @@ if has("autocmd")
     " + activer indent
     filetype plugin indent on
 endif
+" Prevent annoying delay with some custom keymapping
+set ttimeout
+set ttimeoutlen=100
 " <==
 " maps ==>
 nmap <leader>mt :!ctags -R .
@@ -84,6 +89,7 @@ nmap <leader>mt :!ctags -R .
 cmap w!! %!sudo tee > /dev/null %
 
 imap jk <Esc>
+imap <C-c> <Esc>
 nnoremap j gj
 nnoremap k gk
 nnoremap <silent> <C-h> :tabprevious <CR>
@@ -99,10 +105,21 @@ nmap <silent> <Leader>sv :source ~/.dotfiles/vimrc<CR>:echo 'vimrc reloaded'<CR>
 imap <C-Space> <C-X><C-O> " Remap completion on C-Space
 nmap éé :call Launch()<CR>
 nmap <leader>cs :%s/\s\+$//<CR>
+
+" Go fuck yourself man
+nnoremap <Up> :echo "STAHP."<CR>
+nnoremap <Down> :echo "STAHP."<CR>
+nnoremap <Left> :echo "STAHP."<CR>
+nnoremap <Right> :echo "STAHP."<CR>
+inoremap <Up> :echo "STAHP."<CR>
+inoremap <Down> :echo "STAHP."<CR>
+inoremap <Left> :echo "STAHP."<CR>
+inoremap <Right> :echo "STAHP."<CR>
 " <==
 " Colors ==>
 " set background=dark
 colorscheme gruvbox
+set background=dark
 set t_Co=256
 " <==
 " autocmds ==>
@@ -114,6 +131,7 @@ autocmd Filetype haskell set expandtab
 autocmd Filetype markdown set expandtab
 autocmd Filetype python set expandtab
 autocmd Filetype markdown set conceallevel=2
+au Filetype html,xml,xsl source ~/.vim/plugged/closetag.vim/plugin/closetag.vim
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -123,8 +141,13 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-au Filetype scheme call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
-au Filetype scheme call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
+"jjjj
+" Lexima
+call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
+call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 " <==
 " Functions ==>
 func! Launch()
@@ -171,7 +194,7 @@ let g:netrw_altv=1          " open splits to the right
 " <==
 
 " Plugins ==>
-noremap <silent> <Leader>cc :TComment<CR>
+map <silent> <Leader>c :TComment<CR>
 
 " Lightline ==>
 let g:lightline = {'colorscheme': 'jellybeans',}

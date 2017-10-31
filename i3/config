@@ -24,10 +24,27 @@ new_window pixel $bw
 new_float pixel $bw
 # <==
 
+# Sets ==>
+set $mod Mod4
+set $Locker ~/.dotfiles/i3/lock.sh
+set $browser firefox
+set $file thunar
+
+set $WS1 1⋅web
+set $WS2 2⋅term
+set $WS3 3⋅file
+set $WS4 4⋅msg
+set $WS5 5⋅misc
+set $WS6 6⋅music
+set $WS7 7⋅dunno
+set $WS8 8⋅rss
+set $WS9 9⋅dl
+set $WS0 10⋅games
+# sets <==
+
 # Bindsyms ==>
 # Actions ==>
-bindsym $mod+Shift+a kill
-bindsym $mod+x exec --no-startup-id $Locker
+bindsym $mod+x kill
 # Screenshots ==>
 bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
 bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
@@ -43,12 +60,14 @@ bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 # actions <==
 # Applications ==>
 bindsym $mod+Return exec urxvtc; workspace $WS2
+bindsym $mod+less exec urxvtc; workspace $WS2
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+Shift+f exec $browser
 # bindsym $mod+Shift+Return exec xfce4-terminal
-bindsym $mod+F3 exec $file
+bindsym $mod+t exec $file
 # bindsym $mod+F3 exec ranger
-bindsym $mod+Ctrl+x exec xkill
+# bindsym $mod+x exec xkill
+bindsym $mod+n exec passmenu
 # <==
 # Movement ==>
 bindsym $mod+h focus left
@@ -63,16 +82,13 @@ bindsym $mod+Shift+l move right
 # Layout ==>
 bindsym $mod+c split horizontal
 bindsym $mod+v split vertical
-bindsym $mod+t split toggle
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle tabbed splith
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+s sticky toggle
-bindsym $mod+a focus parent
-bindsym $mod+z focus child
+bindsym $mod+p focus parent
+bindsym $mod+o focus child
 # layout <==
 # Workspaces ==>
 bindsym $mod+1 workspace $WS1
@@ -84,7 +100,7 @@ bindsym $mod+6 workspace $WS6
 bindsym $mod+7 workspace $WS7
 bindsym $mod+8 workspace $WS8
 bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace $WS10
+bindsym $mod+twosuperior workspace $WS0
 
 bindsym $mod+Shift+1 move container to workspace $WS1
 bindsym $mod+Shift+2 move container to workspace $WS2
@@ -95,6 +111,7 @@ bindsym $mod+Shift+6 move container to workspace $WS6
 bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+twosuperior move container to workspace $WS0
 
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
@@ -110,25 +127,6 @@ bindsym $mod+b mode "$browser_mode"
 # i3 <==
 # bindsyms <==
 
-# Sets ==>
-set $mod Mod4
-set $Locker ~/.dotfiles/i3/lock.sh
-set $browser firefox
-set $file thunar
-# Workspace names ==>
-set $WS1 1⋅web
-set $WS2 2⋅term
-set $WS3 3⋅file
-set $WS4 4⋅msg
-set $WS5 5⋅misc
-set $WS6 6⋅music
-set $WS7 6⋅dunno
-set $WS8 8⋅rss
-set $WS9 9⋅dl
-set $WS10 10⋅games
-# workspace names <==
-# sets <==
-
 # Assigns ==>
 assign [class="Chromium|Firefox|qutebrowser"] → $WS1
 assign [title="urxvt|tmux"] → $WS2
@@ -140,13 +138,12 @@ assign [class="Transmission"] → $WS9
 
 # For_windows ==>
 for_window [title="alsamixer"] floating enable border pixel 2
-for_window [class="pinentry"] floating enable
+# for_window [class="pinentry"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Pavucontrol"] floating enable
-for_window [class="(?i)virtualbox"] floating enable bporder normal
 for_window [title="TK-*"] floating enable
 
 for_window [urgent=latest] focus
@@ -155,7 +152,7 @@ for_window [class=".*"] title_format "     %title"
 
 # Modes ==>
 # system ==>
-set $system (l)ock, (e)xit, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+set $system Lock | Exit | Suspend | Hibernate | Reboot | Shutdown
 mode "$system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -236,6 +233,7 @@ exec dunst
 exec urxvtd -q -o -f
 exec setxkbmap fr oss -option compose:menu
 exec ~/.dotfiles/scripts/xresource.sh
+exec yaourt -Syy
 
 # exec --no-startup-id liferea
 # exec --no-startup-id compton -b --config ~/.config/compton.conf

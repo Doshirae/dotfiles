@@ -2,11 +2,16 @@
 
 case `uname -r` in
 	*ARCH)
-		sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings claws-mail evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget
+		sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick
 		;;
 	*gentoo*)
 		# TODO: figure out USE flags
-		sudo emerge -q pass i3 rxvt-unicode zsh dunst feh rofi firefox qutebrowser tmux liferea thunar i3lock nm-applet zathura wget
+		# Regarder si c'est bien : sshpass
+		# Pas dispo : mononoki
+		# trouver remplacement : gnome-keyring
+		# USE : libcanberra → pulseaudio, gstreamer
+		# USE : pulseaudio → alsa-plugin
+		sudo emerge -q gnome-base/gvfs app-admin{pass,qtpass} x11-misc/{lightdm-gtk-greeter,dunst,rofi,i3lock,pcmanfm} app-text/{evince,mupdf,zathura{,-pdf-poppler}} media-sound/{pavucontrol,pulseaudio} media-fonts/fontawesome net-analyzer/nmap sys-apps/net-tools x11-terms/rxvt-unicode app-shells/{zsh,gentoo-zsh-completions} media-gfx/{imagemagick,feh} www-client/{firefox,qutebrowser,chromium,surf} x11-wm/i3 app-misc/tmux net-news/liferea xfce-base/thunar gnome-extra/nm-applet lxde-base/lxappearance net-misc/wget
 esac
 
 # XDG config

@@ -22,6 +22,7 @@ zmodload zsh/complist
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # Aliases ==>
+alias tree="tree --dirsfirst"
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
 alias vvim="vim ~/.dotfiles/vimrc"
@@ -64,7 +65,7 @@ untar (){
 			*.zip)       unzip $1     ;;
 			*.Z)         uncompress $1;;
 			*.7z)        7z x $1      ;;
-			*)           echo "'$1' ne peut etre extrait par ex()" ;;
+			*)           echo "'$1' ne peut etre extrait par untar()" ;;
 		esac
 	else
 		echo "'$1' fichier invalide"
@@ -79,3 +80,5 @@ smileys() {
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
