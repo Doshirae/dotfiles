@@ -83,7 +83,7 @@ bindsym $mod+Shift+l move right
 bindsym $mod+c split horizontal
 bindsym $mod+v split vertical
 bindsym $mod+f fullscreen toggle
-bindsym $mod+e layout toggle tabbed splith
+bindsym $mod+w layout toggle tabbed split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+s sticky toggle
@@ -138,7 +138,7 @@ assign [class="Transmission"] → $WS9
 
 # For_windows ==>
 for_window [title="alsamixer"] floating enable border pixel 2
-# for_window [class="pinentry"] floating enable
+for_window [class="pinentry*"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="GParted"] floating enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
@@ -172,6 +172,7 @@ mode "resize" {
         bindsym l resize grow width 5 px or 5 ppt
 
         bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
 # resize <==
 # gap ==>
