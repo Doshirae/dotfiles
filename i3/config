@@ -46,9 +46,9 @@ set $WS0 10⋅games
 # Actions ==>
 bindsym $mod+x kill
 # Screenshots ==>
-bindsym $mod+m exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
-bindsym $mod+Shift+m exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
-bindsym $mod+Mod1+m exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+s exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Shift+s exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+Mod1+s exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
 # screenshots <==
 # Audio & Brightness ==>
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
@@ -60,12 +60,11 @@ bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 # actions <==
 # Applications ==>
 bindsym $mod+Return exec urxvtc; workspace $WS2
-bindsym $mod+less exec urxvtc; workspace $WS2
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+Shift+f exec $browser
-# bindsym $mod+Shift+Return exec xfce4-terminal
-bindsym $mod+t exec $file
-# bindsym $mod+F3 exec ranger
+bindsym $mod+F1 exec firefox
+bindsym $mod+F2 exec thunar
+bindsym $mod+F3 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
+bindsym $mod+F4 exec liferea; workspace $WS8
 # bindsym $mod+x exec xkill
 bindsym $mod+n exec passmenu
 # <==
@@ -86,7 +85,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+w layout toggle tabbed split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 bindsym $mod+p focus parent
 bindsym $mod+o focus child
 # layout <==
@@ -120,7 +119,7 @@ bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym $mod+g mode "$gaps"
+# bindsym $mod+g mode "$gaps"
 bindsym $mod+i mode "$system"
 bindsym $mod+r mode "resize"
 bindsym $mod+b mode "$browser_mode"
@@ -130,7 +129,7 @@ bindsym $mod+b mode "$browser_mode"
 # Assigns ==>
 assign [class="Chromium|Firefox|qutebrowser"] → $WS1
 assign [title="urxvt|tmux"] → $WS2
-assign [class="Thunar"] → $WS3
+assign [title="Thunar|ranger"] → $WS3
 assign [class="Thunderbird|Claws-mail"] → $WS4
 assign [class="Liferea"] → $WS8
 assign [class="Transmission"] → $WS9
@@ -176,39 +175,39 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 # resize <==
-# gap ==>
-set $gaps Gaps: (o) outer, (i) inner
-set $gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-
-mode "$gaps" {
-        bindsym o      mode "$gaps_outer"
-        bindsym i      mode "$gaps_inner"
-        bindsym Escape mode "default"
-}
-mode "$gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Escape mode "default"
-}
-mode "$gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Escape mode "default"
-}
-# <==
+# # gap ==>
+# set $gaps Gaps: (o) outer, (i) inner
+# set $gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# set $gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#
+# mode "$gaps" {
+#         bindsym o      mode "$gaps_outer"
+#         bindsym i      mode "$gaps_inner"
+#         bindsym Escape mode "default"
+# }
+# mode "$gaps_inner" {
+#         bindsym plus  gaps inner current plus 5
+#         bindsym minus gaps inner current minus 5
+#         bindsym 0     gaps inner current set 0
+#
+#         bindsym Shift+plus  gaps inner all plus 5
+#         bindsym Shift+minus gaps inner all minus 5
+#         bindsym Shift+0     gaps inner all set 0
+#
+#         bindsym Escape mode "default"
+# }
+# mode "$gaps_outer" {
+#         bindsym plus  gaps outer current plus 5
+#         bindsym minus gaps outer current minus 5
+#         bindsym 0     gaps outer current set 0
+#
+#         bindsym Shift+plus  gaps outer all plus 5
+#         bindsym Shift+minus gaps outer all minus 5
+#         bindsym Shift+0     gaps outer all set 0
+#
+#         bindsym Escape mode "default"
+# }
+# # <==
 # browser ==>
 set $browser_mode Firefox | Chromium | Qutebrowser | Surf
 mode "$browser_mode" {
