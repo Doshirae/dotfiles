@@ -111,10 +111,10 @@ nnoremap <Up> :echo "STAHP."<CR>
 nnoremap <Down> :echo "STAHP."<CR>
 nnoremap <Left> :echo "STAHP."<CR>
 nnoremap <Right> :echo "STAHP."<CR>
-inoremap <Up> :echo "STAHP."<CR>
-inoremap <Down> :echo "STAHP."<CR>
-inoremap <Left> :echo "STAHP."<CR>
-inoremap <Right> :echo "STAHP."<CR>
+inoremap <Up> <Esc>:echo "STAHP."<CR>
+inoremap <Down> <Esc>:echo "STAHP."<CR>
+inoremap <Left> <Esc>:echo "STAHP."<CR>
+inoremap <Right> <Esc>:echo "STAHP."<CR>
 " <==
 " Colors ==>
 " set background=dark
