@@ -79,6 +79,8 @@ set ttimeout
 set ttimeoutlen=100
 " <==
 " maps ==>
+" Because why not
+noremap Y y$
 nmap <leader>mt :!ctags -R .
 " ↑↑↑
 "^] pour aller à la def du tag sous le curseur

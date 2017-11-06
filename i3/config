@@ -62,9 +62,10 @@ bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 bindsym $mod+Return exec urxvtc; workspace $WS2
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+F1 exec firefox
-bindsym $mod+F2 exec thunar
-bindsym $mod+F3 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
-bindsym $mod+F4 exec liferea; workspace $WS8
+bindsym $mod+F2 exec urxvtc; workspace $WS2
+bindsym $mod+F3 exec thunar
+bindsym $mod+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
+bindsym $mod+F5 exec liferea; workspace $WS8
 # bindsym $mod+x exec xkill
 bindsym $mod+n exec passmenu
 # <==
