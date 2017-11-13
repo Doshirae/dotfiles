@@ -8,7 +8,7 @@ Plug 'w0rp/ale' " Syntactic linting
 Plug 'godlygeek/tabular' " align things
 " Plug 'tpope/vim-endwise' " Auto put end in ruby
 Plug 'qpkorr/vim-renamer' " Bulk rename files
-Plug 'cohama/lexima.vim' " Auto close parentheses
+Plug 'Raimondi/delimitMate' " Auto close parentheses
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'kovisoft/slimv' " Slimv for Lisp
 " Plug 'http://git.foldling.org/vim-scheme.git' " Cool for scheme
@@ -144,12 +144,12 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 "jjjj
-" Lexima
-call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
-call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
-call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
-call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+" " Lexima
+" call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
+" call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
+" call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+" call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+" call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 " <==
 " Functions ==>
 func! Launch()
@@ -165,7 +165,7 @@ func! Launch()
 	elseif &filetype == 'html'
 		exec "!surf % &"
 	elseif &filetype == 'markdown'
-		exec "!pandoc --latex-engine=xelatex % -o %.pdf && mupdf %.pdf"
+		exec "!pandoc --pdf-engine=xelatex % -o %.pdf && mupdf %.pdf"
 	elseif &filetype == 'scheme'
 		exec "!csi -script %"
 	elseif &filetype == 'c'
@@ -177,6 +177,8 @@ func! Launch()
 		exec "!pdflatex % && mupdf %:r.pdf&"
 	elseif &filetype == 'xdefaults'
 		exec "!xrdb %"
+	elseif &filetype == 'elixir'
+		exec "!elixir %"
 	endif
 endfunc
 " <==
@@ -195,7 +197,7 @@ let g:netrw_altv=1          " open splits to the right
 
 " <==
 
-" Plugins ==>
+" Plugin settings ==>
 map <silent> <Leader>c :TComment<CR>
 
 " Lightline ==>
