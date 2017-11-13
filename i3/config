@@ -29,6 +29,7 @@ set $mod Mod4
 set $Locker ~/.dotfiles/i3/lock.sh
 set $browser firefox
 set $file thunar
+set $mail geary
 
 set $WS1 1⋅web
 set $WS2 2⋅term
@@ -133,7 +134,7 @@ assign [title="urxvt|tmux"] → $WS2
 assign [title="*Dofus"] → $WS0
 assign [class="Adl|adl"] → $WS0
 assign [title="Thunar|ranger"] → $WS3
-assign [class="Thunderbird|Claws-mail"] → $WS4
+assign [class="Geary"] → $WS4
 assign [class="Liferea"] → $WS8
 assign [class="Transmission"] → $WS9
 # assigns <==
