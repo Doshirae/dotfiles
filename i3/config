@@ -34,12 +34,12 @@ set $mail geary
 set $WS1 1⋅web
 set $WS2 2⋅term
 set $WS3 3⋅file
-set $WS4 4⋅msg
-set $WS5 5⋅misc
-set $WS6 6⋅music
-set $WS7 7⋅dunno
-set $WS8 8⋅rss
-set $WS9 9⋅dl
+set $WS4 4⋅rss
+set $WS5 5⋅msg
+set $WS6 6⋅dl
+set $WS7 7⋅misc
+set $WS8 8⋅music
+set $WS9 9⋅dunno
 set $WS0 10⋅games
 # sets <==
 
@@ -65,8 +65,10 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec urxvtc; workspace $WS2
 bindsym $mod+F3 exec thunar
-bindsym $mod+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
-bindsym $mod+F5 exec liferea; workspace $WS8
+# bindsym $mod+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
+bindsym $mod+F4 exec liferea; workspace $WS4
+bindsym $mod+F5 exec geary; workspace $WS5
+bindsym $mod+F6 exec transmission-gtk; workspace $WS6
 # bindsym $mod+x exec xkill
 bindsym $mod+n exec passmenu
 # <==
@@ -134,9 +136,9 @@ assign [title="urxvt|tmux"] → $WS2
 assign [title="*Dofus"] → $WS0
 assign [class="Adl|adl"] → $WS0
 assign [title="Thunar|ranger"] → $WS3
-assign [class="Geary"] → $WS4
-assign [class="Liferea"] → $WS8
-assign [class="Transmission"] → $WS9
+assign [class="Liferea"] → $WS4
+assign [class="Geary"] → $WS5
+assign [class="Transmission"] → $WS6
 # assigns <==
 
 # For_windows ==>
