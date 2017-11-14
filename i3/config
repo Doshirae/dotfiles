@@ -86,7 +86,7 @@ bindsym $mod+Shift+l move right
 bindsym $mod+c split horizontal
 bindsym $mod+v split vertical
 bindsym $mod+f fullscreen toggle
-bindsym $mod+w layout toggle tabbed split
+bindsym $mod+e layout toggle tabbed split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # bindsym $mod+Shift+s sticky toggle
@@ -173,9 +173,13 @@ mode "$system" {
 # resize ==>
 mode "resize" {
         bindsym h resize shrink width 5 px or 5 ppt
+        bindsym left resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
+        bindsym down resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
+        bindsym up resize shrink height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
+        bindsym right resize grow width 5 px or 5 ppt
 
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"

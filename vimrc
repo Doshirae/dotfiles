@@ -8,7 +8,7 @@ Plug 'w0rp/ale' " Syntactic linting
 Plug 'godlygeek/tabular' " align things
 " Plug 'tpope/vim-endwise' " Auto put end in ruby
 Plug 'qpkorr/vim-renamer' " Bulk rename files
-Plug 'Raimondi/delimitMate' " Auto close parentheses
+Plug 'jiangmiao/auto-pairs' " Auto close parentheses
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'kovisoft/slimv' " Slimv for Lisp
 " Plug 'http://git.foldling.org/vim-scheme.git' " Cool for scheme
@@ -94,8 +94,8 @@ imap jk <Esc>
 imap <C-c> <Esc>
 nnoremap j gj
 nnoremap k gk
-nnoremap <silent> <C-h> :tabprevious <CR>
-nnoremap <silent> <C-l> :tabnext <CR>
+nnoremap <silent> H :tabprevious <CR>
+nnoremap <silent> L :tabnext <CR>
 nnoremap <silent> <leader><space> :nohlsearch<CR>
 " Often edit these files
 nmap <silent> <leader>ev :tabnew ~/.dotfiles/vimrc<CR>
