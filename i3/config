@@ -133,9 +133,7 @@ bindsym $mod+b mode "$browser_mode"
 # Assigns ==>
 assign [class="Chromium|Firefox|qutebrowser"] → $WS1
 assign [title="urxvt|tmux"] → $WS2
-assign [title="*Dofus"] → $WS0
-assign [class="Adl|adl"] → $WS0
-assign [title="Thunar|ranger"] → $WS3
+assign [class="Thunar|Filezilla"] → $WS3
 assign [class="Liferea"] → $WS4
 assign [class="Geary"] → $WS5
 assign [class="Transmission"] → $WS6
@@ -243,10 +241,8 @@ exec mpd
 exec dunst
 exec urxvtd -q -o -f
 exec setxkbmap fr oss -option compose:menu
-exec ~/.dotfiles/scripts/xresource.sh
 exec yaourt -Syy
 
-# exec --no-startup-id liferea
 # exec --no-startup-id compton -b --config ~/.config/compton.conf
 # exec --no-startup-id gnome-keyring-daemon
 # exec --no-startup-id xautolock -time 10 -locker $Locker

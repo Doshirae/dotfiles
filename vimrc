@@ -6,7 +6,8 @@ Plug 'itchyny/lightline.vim' " The line
 Plug 'sheerun/vim-polyglot' " Syntax highlighting
 Plug 'w0rp/ale' " Syntactic linting
 Plug 'godlygeek/tabular' " align things
-" Plug 'tpope/vim-endwise' " Auto put end in ruby
+Plug 'tpope/vim-endwise' " Auto put end in ruby
+Plug 'flazz/vim-colorschemes'
 Plug 'qpkorr/vim-renamer' " Bulk rename files
 Plug 'jiangmiao/auto-pairs' " Auto close parentheses
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
@@ -16,6 +17,9 @@ Plug 'junegunn/goyo.vim' " Purify interface
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'docunext/closetag.vim'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'shime/vim-livedown'
 call plug#end()
 " <==
 
@@ -106,8 +110,8 @@ nmap <silent> <Leader>sv :source ~/.dotfiles/vimrc<CR>:echo 'vimrc reloaded'<CR>
 
 imap <C-Space> <C-X><C-O> " Remap completion on C-Space
 nmap éé :call Launch()<CR>
-nmap <leader>cs :%s/\s\+$//<CR>
-
+" nmap <leader>cs :%s/\s\+$//<CR>:w<CR>
+nmap <leader>cs ma:%s/\s\+$//<CR>`a
 " Go fuck yourself man
 nnoremap <Up> :echo "STAHP."<CR>
 nnoremap <Down> :echo "STAHP."<CR>
@@ -119,7 +123,6 @@ inoremap <Left> <Esc>:echo "STAHP."<CR>
 inoremap <Right> <Esc>:echo "STAHP."<CR>
 " <==
 " Colors ==>
-" set background=dark
 colorscheme gruvbox
 set background=dark
 set t_Co=256
@@ -129,9 +132,9 @@ autocmd Filetype ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd Filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd Filetype ruby,eruby let g:rubycomplete_classes_in_global=1
 autocmd Filetype ruby,eruby let g:rubycomplete_rails = 1
-autocmd Filetype haskell set expandtab
-autocmd Filetype markdown set expandtab
+autocmd Filetype haskell, markdown, python, ruby set expandtab
 autocmd Filetype python set expandtab
+autocmd Filetype ruby set expandtab
 autocmd Filetype markdown set conceallevel=2
 au Filetype html,xml,xsl source ~/.vim/plugged/closetag.vim/plugin/closetag.vim
 
@@ -171,14 +174,14 @@ func! Launch()
 	elseif &filetype == 'c'
 		exec "!gcc % -o %<"
 		exec "!./%<"
-	elseif &filetype == 'go'
-		exec "!go run %"
 	elseif &filetype == 'tex'
 		exec "!pdflatex % && mupdf %:r.pdf&"
 	elseif &filetype == 'xdefaults'
 		exec "!xrdb %"
 	elseif &filetype == 'elixir'
 		exec "!elixir %"
+	elseif &filetype == 'php'
+		exec "!php %"
 	endif
 endfunc
 " <==
@@ -239,5 +242,15 @@ let g:rainbow_conf = {
 	\		'css': 0,
 	\	}
 	\}
+" <==
+" Livedown ==>
+" should markdown preview get shown automatically upon opening markdown buffer
+let g:livedown_autorun = 1
+" should the browser window pop-up upon previewing
+let g:livedown_open = 1
+" the port on which Livedown server will run
+let g:livedown_port = 1337
+" the browser to use
+let g:livedown_browser = "surf"
 " <==
 " <==

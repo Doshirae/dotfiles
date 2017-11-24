@@ -10,7 +10,9 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # User configuration
-export PATH="$PATH:/usr/lib/ccache/bin/:/usr/bin:/usr/local/bin:.:$HOME/.gem/ruby/2.4.0/bin:$HOME/.bin:$HOME/.dotfiles/scripts/"
+export PATH="$PATH:.:/usr/local/texlive/2017/bin/x86_64-linux:/usr/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin"
+export MANPATH="$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info"
 export KEYTIMEOUT=1
 export GTK_IM_MODULE="xim"
 export SSH_KEY_PATH="~/.ssh/id_rsa"
@@ -99,4 +101,3 @@ bindkey "^[[B" history-substring-search-down
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
