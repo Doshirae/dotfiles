@@ -49,26 +49,29 @@ rofi.location: 0
 !                 URXVT Settings                     !
 ! ---------------------------------------------------!
 ! URxvt.font: xft:75-yes-terminus:size=10
-URxvt.font: xft:mononoki-regular:size=11
-URxvt..cursorColor: Dcyan
-URxvt.letterSpace: -1
-Xft.dpi: 96
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: rgb
-Xft.autohint: false
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
-Xcursor.theme: Chameleon-Pearl-Regular-0.5
-Xcursor.size:  0
-URxvt.depth: 32
-URxvt*scrollBar:                      false
-!URxvt*mouseWheelScrollPage:           false
-URxvt*cursorBlink:                    true
-!URxvt*background:                     #121212
-!URxvt*foreground:                     #fefefe
-!URxvt*saveLines:                      5000
-URxvt.url-launcher:  /usr/bin/qutebrowser
+URxvt.font                  : xft:mononoki-regular:size=11
+URxvt..cursorColor          : Dcyan
+URxvt.letterSpace           : -1
+! Xft.dpi                     : 96
+! Xft.antialias               : true
+! Xft.hinting                 : true
+! Xft.rgba                    : rgb
+! Xft.autohint                : false
+! Xft.hintstyle               : hintslight
+! Xft.lcdfilter               : lcddefault
+Xcursor.theme               : Chameleon-Pearl-Regular-0.5
+Xcursor.size                : 0
+URxvt.depth                 : 32
+URxvt*scrollBar             : false
+URxvt*mouseWheelScrollPage  : true
+URxvt*cursorBlink           : true
+URxvt*scrollWithBuffer: true
+!URxvt*background           : #121212
+!URxvt*foreground           : #fefefe
+!URxvt*saveLines            : 5000
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 ! ----------------------------------------------!
 !                    Colors                     !

@@ -27,6 +27,7 @@ zmodload zsh/complist
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # Aliases ==>
+alias tex-clean="rm *.{aux,log,out,pdf}"
 alias tree="tree --dirsfirst"
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
@@ -93,6 +94,10 @@ test_ex(){
 			echo "Y'a pas ce langage"
 			;;
 	esac
+}
+
+add-feed(){
+	liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$1"
 }
 # <==
 
