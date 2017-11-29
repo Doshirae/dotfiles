@@ -20,6 +20,7 @@ Plug 'docunext/closetag.vim'
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'shime/vim-livedown'
+Plug 'mhinz/vim-startify'
 call plug#end()
 " <==
 
