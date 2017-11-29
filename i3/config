@@ -31,16 +31,16 @@ set $browser firefox
 set $file thunar
 set $mail geary
 
-set $WS1 1⋅web
-set $WS2 2⋅term
-set $WS3 3⋅file
-set $WS4 4⋅rss
-set $WS5 5⋅msg
-set $WS6 6⋅dl
-set $WS7 7⋅misc
-set $WS8 8⋅music
-set $WS9 9⋅dunno
-set $WS0 10⋅games
+set $WS1 1
+set $WS2 2
+set $WS3 3
+set $WS4 4
+set $WS5 5
+set $WS6 6
+set $WS7 7
+set $WS8 8
+set $WS9 9
+set $WS0 10
 # sets <==
 
 # Bindsyms ==>
@@ -127,6 +127,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+i mode "$system"
 bindsym $mod+r mode "resize"
 bindsym $mod+b mode "$browser_mode"
+bindsym $mod+m mode "$mouse_big_mode"
 # i3 <==
 # bindsyms <==
 
@@ -158,29 +159,29 @@ for_window [class=".*"] title_format "     %title"
 # system ==>
 set $system Lock | Exit | Suspend | Hibernate | Reboot | Shutdown
 mode "$system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id poweroff, mode "default"
+	bindsym l exec --no-startup-id $Locker, mode "default"
+		bindsym e exec --no-startup-id i3-msg exit, mode "default"
+		bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+		bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+		bindsym r exec --no-startup-id reboot, mode "default"
+		bindsym Shift+s exec --no-startup-id poweroff, mode "default"
 
-    bindsym Escape mode "default"
+		bindsym Escape mode "default"
 }
 # system <==
 # resize ==>
 mode "resize" {
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym left resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym down resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym up resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-        bindsym right resize grow width 5 px or 5 ppt
+	bindsym h resize shrink width 5 px or 5 ppt
+		bindsym left resize shrink width 5 px or 5 ppt
+		bindsym j resize grow height 5 px or 5 ppt
+		bindsym down resize grow height 5 px or 5 ppt
+		bindsym k resize shrink height 5 px or 5 ppt
+		bindsym up resize shrink height 5 px or 5 ppt
+		bindsym l resize grow width 5 px or 5 ppt
+		bindsym right resize grow width 5 px or 5 ppt
 
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+r mode "default"
 }
 # resize <==
 # # gap ==>
@@ -219,14 +220,79 @@ mode "resize" {
 # browser ==>
 set $browser_mode Firefox | Chromium | Qutebrowser | Surf
 mode "$browser_mode" {
-        bindsym f exec firefox, mode "default"
-        bindsym c exec chromium, mode "default"
-        bindsym q exec qutebrowser, mode "default"
-        bindsym s exec surf, mode "default"
+	bindsym f exec firefox, mode "default"
+		bindsym c exec chromium, mode "default"
+		bindsym q exec qutebrowser, mode "default"
+		bindsym s exec surf, mode "default"
 
-        bindsym Escape mode "default"
+		bindsym Escape mode "default"
 }
 # browser <==
+# mouse ==>
+set $mouse_big_mode big | h - j - k - l | w - x - c - v - b | s
+set $mouse_average_mode average | h - j - k - l | w - x - c - v - b | q - s
+set $mouse_small_mode small | h - j - k - l | w - x - c - v - b | q
+
+# h, j, k, l are for moving (Vim like)
+# w, x, c, v, b are for Left click, middle click, right click, wheel up, wheel down
+# q, s are for bigger movements and smaller movements
+
+mode "$mouse_big_mode" {
+	bindsym h exec xdotool mousemove_relative -- -100 0
+	bindsym j exec xdotool mousemove_relative -- 0 100
+	bindsym k exec xdotool mousemove_relative -- 0 -100
+	bindsym l exec xdotool mousemove_relative -- 100 0
+
+	bindsym w exec xdotool click 1
+	bindsym Shift+w exec xdotool mousedown 1
+	bindsym Shift+x exec xdotool mouseup 1
+	bindsym x exec xdotool click 2
+	bindsym c exec xdotool click 3
+	bindsym v exec xdotool click 3
+	bindsym b exec xdotool click 3
+
+	bindsym s mode "$mouse_average_mode"
+
+	bindsym Escape mode "default"
+}
+mode "$mouse_average_mode" {
+	bindsym h exec xdotool mousemove_relative -- -50 0
+	bindsym j exec xdotool mousemove_relative -- 0 50
+	bindsym k exec xdotool mousemove_relative -- 0 -50
+	bindsym l exec xdotool mousemove_relative -- 50 0
+
+	bindsym w exec xdotool click 1
+	bindsym Shift+w exec xdotool mousedown 1
+	bindsym Shift+x exec xdotool mouseup 1
+	bindsym x exec xdotool click 2
+	bindsym c exec xdotool click 3
+	bindsym v exec xdotool click 3
+	bindsym b exec xdotool click 3
+
+	bindsym q mode "$mouse_big_mode"
+	bindsym s mode "$mouse_small_mode"
+
+	bindsym Escape mode "default"
+}
+mode "$mouse_small_mode" {
+	bindsym h exec xdotool mousemove_relative -- -10 0
+	bindsym j exec xdotool mousemove_relative -- 0 10
+	bindsym k exec xdotool mousemove_relative -- 0 -10
+	bindsym l exec xdotool mousemove_relative -- 10 0
+
+	bindsym w exec xdotool click 1
+	bindsym Shift+w exec xdotool mousedown 1
+	bindsym Shift+x exec xdotool mouseup 1
+	bindsym x exec xdotool click 2
+	bindsym c exec xdotool click 3
+	bindsym v exec xdotool click 3
+	bindsym b exec xdotool click 3
+
+	bindsym q mode "$mouse_average_mode"
+
+	bindsym Escape mode "default"
+}
+# mouse <==
 # modes <==
 
 # Autostart ==>
