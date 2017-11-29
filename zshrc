@@ -44,15 +44,12 @@ alias ls="ls --color=auto --group-directories-first -F"
 alias exit='sh ~/.dotfiles/seeyouspacecowboy.sh; sleep .5; exit'
 alias :wq="exit"
 alias ftpiut="sftp chaixr@ftpinfo.iutmontp.univ-montp2.fr"
-alias marvin="ssh pi@www.doshirae.fr"
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 alias flic="nmap -v -Pn -A"
-alias pull="git pull origin master"
-alias push="git push origin master"
 alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 alias fucking="sudo"
-alias cs="csi -script"
 alias cleantex='rm *.{aux,log,toc}'
+alias howdoi="howdoi -c"
 # <==
 
 # Fonctions ==>
