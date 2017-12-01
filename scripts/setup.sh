@@ -2,7 +2,7 @@
 
 case `uname -r` in
 	*ARCH)
-		sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick xdotool
+		sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick xdotool polybar-git bmenu urxvt-perls
 		;;
 	*gentoo*)
 		# TODO: figure out USE flags
@@ -15,16 +15,21 @@ case `uname -r` in
 esac
 
 # XDG config
-mkdir -p $HOME/.config/{i3,dunst,polybar}
+function install-xdg(){
+mkdir -p $HOME/.config/{i3,dunst,polybar,compton}
 ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
 ln -sf $HOME/.dotfiles/dunstrc $HOME/.config/dunst/dunstrc
 ln -sf $HOME/.dotfiles/i3/polybar/polybar.conf $HOME/.config/polybar/config
+ln -sf $HOME/.dotfiles/i3/compton.conf $HOME/.config/compton.conf
+}
 
 # zsh
+function install-zsh(){
 git clone --recursive https://github.com/changs/slimzsh.git ~/.zsh/slimzsh
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 wget https://raw.githubusercontent.com/zsh-users/zsh-history-substring-search/master/zsh-history-substring-search.zsh -O ~/.zsh/zsh-history-substring-search.zsh
 ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
+}
 
 # vim
 mkdir -p $HOME/.vim/{undo,tmp}
