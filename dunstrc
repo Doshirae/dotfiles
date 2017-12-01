@@ -26,11 +26,11 @@ markup = full
 format = "<b>%s</b>\n%b"
 alignment = left
 show_age_threshold = 60
-word_wrap = yes
-ignore_newline = no
+word_wrap = true
+ignore_newline = false
 stack_duplicates = true
 hide_duplicate_count = true
-show_indicators = yes
+show_indicators = false
 
 # Icons
 icon_position = off

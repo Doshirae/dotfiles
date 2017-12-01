@@ -225,7 +225,7 @@ mode "resize" {
 set $browser_mode Firefox | Chromium | Qutebrowser | Surf
 mode "$browser_mode" {
 	bindsym f exec firefox, mode "default"
-		bindsym c exec chromium, mode "default"
+		bindsym c exec chromium --incognito, mode "default"
 		bindsym q exec qutebrowser, mode "default"
 		bindsym s exec surf, mode "default"
 
