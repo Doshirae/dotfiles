@@ -9,10 +9,10 @@ set_from_resource $purple i3wm.color5     #607B8C
 set_from_resource $cyan i3wm.color6       #669972
 set_from_resource $grey i3wm.color7       #393939
 
-#                Border        Background   Font           ???
-client.focused   $background   $red         $background    #000000
-client.unfocused $background   $background  $foreground    #000000
-client.urgent    #151219       #151219      $background    #000000
+#                Border        Background   Font          ???
+client.focused   $background   $background  $red          #000000
+client.unfocused $background   $background  $foreground   #000000
+client.urgent    #background   $red         $background   #000000
 # colours <==
 
 # Other ==>
@@ -305,8 +305,8 @@ exec_always xrdb ~/.Xresources
 exec_always "killall polybar; polybar -r top"
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec nm-applet
-# exec pamac-tray
+exec nm-applet
+exec pamac-tray
 exec mpd
 exec dunst
 exec compton
