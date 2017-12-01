@@ -19,7 +19,8 @@ client.urgent    #151219       #151219      $background    #000000
 font pango:Cantarell 9
 floating_modifier $mod
 workspace_auto_back_and_forth no
-set_from_resource $bw i3wm.bw 4
+# set_from_resource $bw i3wm.bw 4
+set $bw 0
 new_window pixel $bw
 new_float pixel $bw
 # <==
@@ -71,6 +72,7 @@ bindsym $mod+F5 exec geary; workspace $WS5
 bindsym $mod+F6 exec transmission-gtk; workspace $WS6
 # bindsym $mod+x exec xkill
 bindsym $mod+n exec passmenu
+bindsym $mod+w exec urxvtc -geometry 60x40 -title "nmtui" -e zsh -c "sudo nmtui"
 # <==
 # Movement ==>
 bindsym $mod+h focus left
@@ -143,6 +145,7 @@ assign [class="Transmission"] → $WS6
 # For_windows ==>
 for_window [title="alsamixer"] floating enable border pixel 2
 for_window [class="*pinentry*"] floating enable
+for_window [title="nmtui"] floating enable
 for_window [title="*pinentry*"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="GParted"] floating enable border normal
@@ -172,16 +175,17 @@ mode "$system" {
 # resize ==>
 mode "resize" {
 	bindsym h resize shrink width 5 px or 5 ppt
-		bindsym left resize shrink width 5 px or 5 ppt
-		bindsym j resize grow height 5 px or 5 ppt
-		bindsym down resize grow height 5 px or 5 ppt
-		bindsym k resize shrink height 5 px or 5 ppt
-		bindsym up resize shrink height 5 px or 5 ppt
-		bindsym l resize grow width 5 px or 5 ppt
-		bindsym right resize grow width 5 px or 5 ppt
+	bindsym j resize grow height 5 px or 5 ppt
+	bindsym k resize shrink height 5 px or 5 ppt
+	bindsym l resize grow width 5 px or 5 ppt
 
-		bindsym Escape mode "default"
-		bindsym $mod+r mode "default"
+	bindsym Left resize shrink width 5 px or 5 ppt
+	bindsym Down resize grow height 5 px or 5 ppt
+	bindsym Up resize shrink height 5 px or 5 ppt
+	bindsym Right resize grow width 5 px or 5 ppt
+
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 # resize <==
 # # gap ==>
@@ -229,9 +233,9 @@ mode "$browser_mode" {
 }
 # browser <==
 # mouse ==>
-set $mouse_big_mode big | h - j - k - l | w - x - c - v - b | s
-set $mouse_average_mode average | h - j - k - l | w - x - c - v - b | q - s
-set $mouse_small_mode small | h - j - k - l | w - x - c - v - b | q
+set $mouse_big_mode big | h - j - k - l | w - x - c - J - K | s
+set $mouse_average_mode average | h - j - k - l | w - x - c - J - K | b - s
+set $mouse_small_mode small | h - j - k - l | w - x - c - J - K | b
 
 # h, j, k, l are for moving (Vim like)
 # w, x, c, v, b are for Left click, middle click, right click, wheel up, wheel down
@@ -248,8 +252,8 @@ mode "$mouse_big_mode" {
 	bindsym Shift+x exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym v exec xdotool click 3
-	bindsym b exec xdotool click 3
+	bindsym Shift+k exec xdotool click 4
+	bindsym Shift+j exec xdotool click 5
 
 	bindsym s mode "$mouse_average_mode"
 
@@ -266,10 +270,10 @@ mode "$mouse_average_mode" {
 	bindsym Shift+x exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym v exec xdotool click 3
-	bindsym b exec xdotool click 3
+	bindsym Shift+k exec xdotool click 4
+	bindsym Shift+j exec xdotool click 5
 
-	bindsym q mode "$mouse_big_mode"
+	bindsym b mode "$mouse_big_mode"
 	bindsym s mode "$mouse_small_mode"
 
 	bindsym Escape mode "default"
@@ -285,10 +289,10 @@ mode "$mouse_small_mode" {
 	bindsym Shift+x exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym v exec xdotool click 3
-	bindsym b exec xdotool click 3
+	bindsym Shift+k exec xdotool click 4
+	bindsym Shift+j exec xdotool click 5
 
-	bindsym q mode "$mouse_average_mode"
+	bindsym b mode "$mouse_average_mode"
 
 	bindsym Escape mode "default"
 }
@@ -301,10 +305,11 @@ exec_always xrdb ~/.Xresources
 exec_always "killall polybar; polybar -r top"
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec nm-applet
-exec pamac-tray
+# exec nm-applet
+# exec pamac-tray
 exec mpd
 exec dunst
+exec compton
 exec urxvtd -q -o -f
 exec setxkbmap fr oss -option compose:menu
 exec yaourt -Syy
