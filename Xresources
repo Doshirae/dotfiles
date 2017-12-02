@@ -18,6 +18,7 @@
 #define bg    Dblack
 #define fg    Lgrey
 
+! rofi ==>
 ! -----------------------------------------------------------!
 !                         Rofi                               !
 ! -----------------------------------------------------------!
@@ -39,16 +40,12 @@ rofi.lines: 5
 rofi.width: 40
 rofi.location: 0
 
+! <==
 
-
-
-
-
-
+! urxvt ==>
 ! ---------------------------------------------------!
 !                 URXVT Settings                     !
 ! ---------------------------------------------------!
-! URxvt.font: xft:75-yes-terminus:size=10
 URxvt.font                  : xft:mononoki-regular:size=11
 URxvt..cursorColor          : Dcyan
 URxvt.letterSpace           : -1
@@ -73,6 +70,9 @@ URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
+! <==
+
+! colors ==>
 ! ----------------------------------------------!
 !                    Colors                     !
 ! ----------------------------------------------!
@@ -80,19 +80,20 @@ URxvt.matcher.button: 1
 ! Gruvbox
 *background:  bg
 *foreground:  fg
-*color0:    Dblack
-*color8:    Lblack
-*color1:    Dred
-*color9:    Lred
-*color2:    Dgreen
-*color10:   Lgreen
-*color3:    Dyellow
-*color11:   Lyellow
-*color4:    Dblue
-*color12:   Lblue
-*color5:    Dpurple
-*color13:   Lpurple
-*color6:    Dcyan
-*color14:   Lcyan
-*color7:    Dgrey
-*color15:   Lgrey
+*color0:      Dblack
+*color8:      Lblack
+*color1:      Dred
+*color9:      Lred
+*color2:      Dgreen
+*color10:     Lgreen
+*color3:      Dyellow
+*color11:     Lyellow
+*color4:      Dblue
+*color12:     Lblue
+*color5:      Dpurple
+*color13:     Lpurple
+*color6:      Dcyan
+*color14:     Lcyan
+*color7:      Dgrey
+*color15:     Lgrey
+! <==
