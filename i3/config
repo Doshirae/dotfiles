@@ -27,7 +27,7 @@ new_float pixel $bw
 
 # Sets ==>
 set $mod Mod4
-set $Locker ~/.dotfiles/i3/lock.sh
+set $Locker ~/.dotfiles/scripts/lock.sh
 set $browser firefox
 set $file thunar
 set $mail geary
