@@ -10,9 +10,9 @@ set_from_resource $cyan i3wm.color6       #669972
 set_from_resource $grey i3wm.color7       #393939
 
 #                Border        Background   Font          ???
-client.focused   $background   $background  $red          #000000
+client.focused   $red          $background  $foreground   #000000
 client.unfocused $background   $background  $foreground   #000000
-client.urgent    #background   $red         $background   #000000
+client.urgent    $background   $red         $background   #000000
 # colours <==
 
 # Other ==>
