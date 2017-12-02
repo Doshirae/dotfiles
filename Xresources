@@ -23,12 +23,12 @@
 ! -----------------------------------------------------------!
 rofi.color-enabled: true
 !                  bg       border  separator
-rofi.color-window: bg,    Dred,  Dred
+rofi.color-window: bg,      bg,     bg
 
 !                  bg       fg      bg-alt    hl-bg     hl-fg
-rofi.color-normal: bg,    fg,   bg,    bg,    Dred
-rofi.color-active: Dyellow, bg,   Dyellow,  Lyellow,  bg
-rofi.color-urgent: Dred,   bg,   Dred,   Lred,   bg
+rofi.color-normal: bg,      fg,     bg,       bg,       Dred
+rofi.color-active: Dyellow, bg,     Dyellow,  Lyellow,  bg
+rofi.color-urgent: Dred,    bg,     Dred,     Lred,     bg
 
 rofi.opacity: 30
 !border width

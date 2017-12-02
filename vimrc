@@ -129,7 +129,6 @@ set background=dark
 set t_Co=256
 " <==
 " autocmds ==>
-autocmd Filetype ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd Filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd Filetype ruby,eruby let g:rubycomplete_classes_in_global=1
 autocmd Filetype ruby,eruby let g:rubycomplete_rails = 1
@@ -138,6 +137,12 @@ autocmd Filetype python set expandtab
 autocmd Filetype ruby set expandtab
 autocmd Filetype markdown set conceallevel=2
 au Filetype html,xml,xsl source ~/.vim/plugged/closetag.vim/plugin/closetag.vim
+
+au FileType php setl ofu=phpcomplete#CompletePHP
+au FileType ruby,eruby setl ofu=rubycomplete#Complete
+au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+au FileType c setl ofu=ccomplete#CompleteCpp
+au FileType css setl ofu=csscomplete#CompleteCSS
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
