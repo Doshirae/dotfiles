@@ -11,11 +11,10 @@ indicate_hidden = yes
 shrink = yes
 transparency = 0
 notification_height = 0
-separator_height = 2
+separator_height = 3
 padding = 8
 horizontal_padding = 8
 frame_width = 2
-separator_color = none
 sort = yes
 idle_threshold = 120
 
