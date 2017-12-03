@@ -32,15 +32,13 @@ alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
 alias vvim="vim ~/.dotfiles/vimrc"
 alias vterm="vim ~/.dotfiles/Xresources"
-alias vtmux="vim ~/.dotfiles/tmux.conf"
-alias virc="vim ~/.dotfiles/irssi.conf"
-alias vbar="vim ~/.dotfiles/i3/polybar/polybar.conf"
+alias vbar="vim ~/.dotfiles/i3/polybar.conf"
 alias grep="grep --color=auto"
 alias la="ls -A"
 alias ll="ls -l"
 alias l="ls -AlhF"
 alias ls="ls --color=auto --group-directories-first -F"
-alias exit='sh ~/.dotfiles/seeyouspacecowboy.sh; sleep .5; exit'
+alias exit='sh ~/.dotfiles/scripts/seeyouspacecowboy.sh; sleep .5; exit'
 alias :wq="exit"
 alias ftpiut="sftp chaixr@ftpinfo.iutmontp.univ-montp2.fr"
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
