@@ -16,19 +16,20 @@ esac
 
 # XDG config
 function install-xdg(){
-mkdir -p $HOME/.config/{i3,dunst,polybar,compton}
-ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
-ln -sf $HOME/.dotfiles/dunstrc $HOME/.config/dunst/dunstrc
-ln -sf $HOME/.dotfiles/i3/polybar/polybar.conf $HOME/.config/polybar/config
-ln -sf $HOME/.dotfiles/i3/compton.conf $HOME/.config/compton.conf
+	mkdir -p $HOME/.config/{i3,dunst,polybar}
+	ln -sf $HOME/.dotfiles/i3/config $HOME/.config/i3/config
+	ln -sf $HOME/.dotfiles/dunstrc $HOME/.config/dunst/dunstrc
+	ln -sf $HOME/.dotfiles/i3/polybar.conf $HOME/.config/polybar/config
+	ln -sf $HOME/.dotfiles/compton.conf $HOME/.config/compton.conf
+	ln -sf $HOME/.dotfiles/redshift.conf  $HOME/.config/redshift.conf
 }
 
 # zsh
 function install-zsh(){
-git clone --recursive https://github.com/changs/slimzsh.git ~/.zsh/slimzsh
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-wget https://raw.githubusercontent.com/zsh-users/zsh-history-substring-search/master/zsh-history-substring-search.zsh -O ~/.zsh/zsh-history-substring-search.zsh
-ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
+	git clone --recursive https://github.com/changs/slimzsh.git ~/.zsh/slimzsh
+	git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+	wget https://raw.githubusercontent.com/zsh-users/zsh-history-substring-search/master/zsh-history-substring-search.zsh -O ~/.zsh/zsh-history-substring-search.zsh
+	ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
 }
 
 # vim
@@ -38,6 +39,11 @@ ln -sf $HOME/.dotfiles/vimrc $HOME/.vimrc
 vim +PlugInstall
 
 # Other
-ln -sf $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
-ln -sf $HOME/.dotfiles/xinitrc $HOME/.xinitrc
-ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
+function install-other(){
+	ln -sf $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
+	ln -sf $HOME/.dotfiles/xinitrc $HOME/.xinitrc
+	ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
+	ln -sf $HOME/.dotfiles/ssh-config $HOME/.ssh/config
+}
+
+install-xdg

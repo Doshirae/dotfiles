@@ -1,6 +1,7 @@
 " Plugins ==>
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround' " Changing surround parenthesis
+Plug 'tpope/vim-ruby'
 Plug 'tomtom/tcomment_vim' " Comment quickly lines
 Plug 'itchyny/lightline.vim' " The line
 Plug 'sheerun/vim-polyglot' " Syntax highlighting
