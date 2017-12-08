@@ -30,7 +30,7 @@ set $mod Mod4
 set $Locker ~/.dotfiles/scripts/lock.sh
 set $browser firefox
 set $file thunar
-set $mail geary
+set $mail claws-mail
 
 set $WS1 1
 set $WS2 2
@@ -63,12 +63,12 @@ bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 # Applications ==>
 bindsym $mod+Return exec urxvtc; workspace $WS2
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+F1 exec firefox
+bindsym $mod+F1 exec $browser
 bindsym $mod+F2 exec urxvtc; workspace $WS2
 bindsym $mod+F3 exec thunar
 # bindsym $mod+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
 bindsym $mod+F4 exec liferea; workspace $WS4
-bindsym $mod+F5 exec geary; workspace $WS5
+bindsym $mod+F5 exec $mail; workspace $WS5
 bindsym $mod+F6 exec transmission-gtk; workspace $WS6
 # bindsym $mod+x exec xkill
 bindsym $mod+n exec passmenu
@@ -241,6 +241,7 @@ set $mouse_small_mode small | h - j - k - l | w - x - c - J - K | b
 # w, x, c, v, b are for Left click, middle click, right click, wheel up, wheel down
 # q, s are for bigger movements and smaller movements
 
+# big ==>
 mode "$mouse_big_mode" {
 	bindsym h exec xdotool mousemove_relative -- -100 0
 	bindsym j exec xdotool mousemove_relative -- 0 100
@@ -258,7 +259,10 @@ mode "$mouse_big_mode" {
 	bindsym s mode "$mouse_average_mode"
 
 	bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
 }
+# big <==
+# average ==>
 mode "$mouse_average_mode" {
 	bindsym h exec xdotool mousemove_relative -- -50 0
 	bindsym j exec xdotool mousemove_relative -- 0 50
@@ -277,7 +281,10 @@ mode "$mouse_average_mode" {
 	bindsym s mode "$mouse_small_mode"
 
 	bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
 }
+# average <==
+# small ==>
 mode "$mouse_small_mode" {
 	bindsym h exec xdotool mousemove_relative -- -10 0
 	bindsym j exec xdotool mousemove_relative -- 0 10
@@ -295,7 +302,9 @@ mode "$mouse_small_mode" {
 	bindsym b mode "$mouse_average_mode"
 
 	bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
 }
+# small <==
 # mouse <==
 # modes <==
 
