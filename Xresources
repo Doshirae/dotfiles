@@ -22,23 +22,22 @@
 ! -----------------------------------------------------------!
 !                         Rofi                               !
 ! -----------------------------------------------------------!
-rofi.color-enabled: true
-!                  bg       border  separator
-rofi.color-window: bg,      bg,     bg
+rofi.color-enabled   : true
+!                      bg       border  separator
+rofi.color-window    : bg,      bg,     bg
+!                      bg       fg      bg-alt    hl-bg     hl-fg
+rofi.color-normal    : bg,      fg,     bg,       bg,       Dred
+rofi.color-active    : Dyellow, bg,     Dyellow,  Lyellow,  bg
+rofi.color-urgent    : Dred,    bg,     Dred,     Lred,     bg
 
-!                  bg       fg      bg-alt    hl-bg     hl-fg
-rofi.color-normal: bg,      fg,     bg,       bg,       Dred
-rofi.color-active: Dyellow, bg,     Dyellow,  Lyellow,  bg
-rofi.color-urgent: Dred,    bg,     Dred,     Lred,     bg
-
-rofi.opacity: 30
-!border width
-*bw:      2
-rofi.separator-style: solid
-rofi.hide-scrollbar: true
-rofi.lines: 5
-rofi.width: 40
-rofi.location: 0
+rofi.opacity         : 30
+rofi.separator-style : solid
+rofi.hide-scrollbar  : true
+rofi.lines           : 5
+rofi.width           : 25
+rofi.padding         : 30
+rofi.location        : 0
+rofi.font            : Dina 10
 
 ! <==
 
@@ -46,10 +45,8 @@ rofi.location: 0
 ! ---------------------------------------------------!
 !                 URXVT Settings                     !
 ! ---------------------------------------------------!
-! URxvt.font                  : xft:mononoki-regular:size=11,xft:FontAwesome:pixelsize=10
 URxvt.font                  : xft:Dina:size=10,xft:FontAwesome:pixelsize=10
-URxvt.boldfont              : xft:Dina:bold:size=11
-! URxvt.letterSpace           : -1
+URxvt.boldfont              : xft:Dina:bold:size=10
 URxvt.letterSpace           : 0
 ! Xft.dpi                     : 96
 ! Xft.antialias               : true
@@ -62,16 +59,14 @@ URxvt.cursorColor           : Dcyan
 Xcursor.theme               : Chameleon-Pearl-Regular-0.5
 Xcursor.size                : 0
 URxvt.depth                 : 32
-URxvt*scrollBar             : false
-URxvt*mouseWheelScrollPage  : true
-URxvt*cursorBlink           : true
-URxvt*scrollWithBuffer: true
-!URxvt*background           : #121212
-!URxvt*foreground           : #fefefe
+URxvt.scrollBar             : false
+URxvt.mouseWheelScrollPage  : true
+URxvt.cursorBlink           : true
+URxvt.scrollWithBuffer      : true
 !URxvt*saveLines            : 5000
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
+URxvt.perl-ext-common       : default,matcher
+URxvt.url-launcher          : /usr/bin/xdg-open
+URxvt.matcher.button        : 1
 
 ! <==
 
