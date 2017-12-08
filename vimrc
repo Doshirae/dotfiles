@@ -170,6 +170,8 @@ func! Launch()
 		exec "!bash %"
 	elseif &filetype == 'ruby'
 		exec "!ruby %"
+	elseif &filetype == 'perl'
+		exec "!perl %"
 	elseif &filetype == 'python'
 		exec "!python3 %"
 	elseif &filetype == 'html'
@@ -252,9 +254,9 @@ let g:rainbow_conf = {
 " <==
 " Livedown ==>
 " should markdown preview get shown automatically upon opening markdown buffer
-let g:livedown_autorun = 1
+" let g:livedown_autorun = 1
 " should the browser window pop-up upon previewing
-let g:livedown_open = 1
+" let g:livedown_open = 1
 " the port on which Livedown server will run
 let g:livedown_port = 1337
 " the browser to use
