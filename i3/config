@@ -234,7 +234,6 @@ mode "$browser_mode" {
 # browser <==
 # mouse ==>
 set $mouse_big_mode big | h - j - k - l | w - x - c - J - K | s
-set $mouse_average_mode average | h - j - k - l | w - x - c - J - K | b - s
 set $mouse_small_mode small | h - j - k - l | w - x - c - J - K | b
 
 # h, j, k, l are for moving (Vim like)
@@ -253,37 +252,15 @@ mode "$mouse_big_mode" {
 	bindsym Shift+x exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym Shift+k exec xdotool click 4
-	bindsym Shift+j exec xdotool click 5
+	bindsym a exec xdotool click 4
+	bindsym z exec xdotool click 5
 
-	bindsym s mode "$mouse_average_mode"
-
-	bindsym Escape mode "default"
-	bindsym $mod+m mode "default"
-}
-# big <==
-# average ==>
-mode "$mouse_average_mode" {
-	bindsym h exec xdotool mousemove_relative -- -50 0
-	bindsym j exec xdotool mousemove_relative -- 0 50
-	bindsym k exec xdotool mousemove_relative -- 0 -50
-	bindsym l exec xdotool mousemove_relative -- 50 0
-
-	bindsym w exec xdotool click 1
-	bindsym Shift+w exec xdotool mousedown 1
-	bindsym Shift+x exec xdotool mouseup 1
-	bindsym x exec xdotool click 2
-	bindsym c exec xdotool click 3
-	bindsym Shift+k exec xdotool click 4
-	bindsym Shift+j exec xdotool click 5
-
-	bindsym b mode "$mouse_big_mode"
 	bindsym s mode "$mouse_small_mode"
 
 	bindsym Escape mode "default"
 	bindsym $mod+m mode "default"
 }
-# average <==
+# big <==
 # small ==>
 mode "$mouse_small_mode" {
 	bindsym h exec xdotool mousemove_relative -- -10 0
@@ -296,8 +273,8 @@ mode "$mouse_small_mode" {
 	bindsym Shift+x exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym Shift+k exec xdotool click 4
-	bindsym Shift+j exec xdotool click 5
+	bindsym a exec xdotool click 4
+	bindsym z exec xdotool click 5
 
 	bindsym b mode "$mouse_average_mode"
 

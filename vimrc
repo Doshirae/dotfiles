@@ -184,7 +184,7 @@ func! Launch()
 		exec "!gcc % -o %<"
 		exec "!./%<"
 	elseif &filetype == 'tex'
-		exec "!pdflatex % && mupdf %:r.pdf&"
+		exec '!pdflatex "%" && mupdf "%:r.pdf" &'
 	elseif &filetype == 'xdefaults'
 		exec "!xrdb %"
 	elseif &filetype == 'elixir'

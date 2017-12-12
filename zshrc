@@ -26,27 +26,43 @@ zmodload zsh/complist
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # Aliases ==>
-alias tex-clean="rm *.{aux,log,out,pdf}"
-alias tree="tree --dirsfirst"
+# file edit
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
 alias vvim="vim ~/.dotfiles/vimrc"
 alias vterm="vim ~/.dotfiles/Xresources"
 alias vbar="vim ~/.dotfiles/i3/polybar.conf"
-alias grep="grep --color=auto"
-alias la="ls -A"
-alias ll="ls -l"
-alias l="ls -AlhF"
-alias ls="ls --color=auto --group-directories-first -F"
+# ls
+alias ls='exa'
+alias ll='exa -l'
+alias lll='exa -l | less'
+alias lla='exa -la'
+alias llt='exa -T'
+alias llfu='exa -bghHliS --git'
+# ça pipe
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| most'
+alias -g NE='2> /dev/null'
+alias -g NUL='> /dev/null 2>&1'
+alias -g S='| sort'
+alias -g T='tail -f'
+alias -g W='| wc -l'
+# others
+alias cp='cp -R'
+alias mkdir='mkdir -p'
+alias ping='ping -c 3'
 alias exit='sh ~/.dotfiles/scripts/seeyouspacecowboy.sh; sleep .5; exit'
+alias tex-clean="rm *.{aux,log,out,pdf}"
+alias tree="tree --dirsfirst"
+alias grep="grep --color=auto"
 alias :wq="exit"
 alias ftpiut="sftp chaixr@ftpinfo.iutmontp.univ-montp2.fr"
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 alias flic="nmap -v -Pn -A"
 alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
-alias fucking="sudo"
-alias cleantex='rm *.{aux,log,toc}'
 alias howdoi="howdoi -c"
+alias writeinclipboard='[[ -x `which xclip 2>/dev/null` ]] && cat << EOF | xclip -selection clipboard '
 # <==
 
 # Fonctions ==>

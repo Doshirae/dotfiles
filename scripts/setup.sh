@@ -4,7 +4,7 @@
 function packages(){
 	case `uname -r` in
 		*ARCH)
-			sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick xdotool polybar-git bmenu urxvt-perls
+			sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick xdotool polybar-git bmenu urxvt-perls gvim rsync
 			;;
 		*gentoo*)
 			# TODO: figure out USE flags
@@ -45,15 +45,16 @@ function vim(){
 	mkdir -p $HOME/.vim/{undo,tmp}
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -sf $HOME/.dotfiles/vimrc $HOME/.vimrc
-	vim +PlugInstall
+	echo "You should run vim +PlugInstall"
 }
 # <==
 
 # other ==>
 function other(){
 	ln -sf $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
-	ln -sf $HOME/.dotfiles/xinitrc $HOME/.xinitrc
-	ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
+	ln -sf $HOME/.dotfiles/X/xinitrc $HOME/.xinitrc
+	ln -sf $HOME/.dotfiles/X/Xresources $HOME/.Xresources
+	ln -sf $HOME/.dotfiles/X/XCompose $HOME/.XCompose
 	ln -sf $HOME/.dotfiles/ssh-config $HOME/.ssh/config
 }
 # <==
