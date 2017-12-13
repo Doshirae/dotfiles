@@ -30,7 +30,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
 alias vvim="vim ~/.dotfiles/vimrc"
-alias vterm="vim ~/.dotfiles/Xresources"
+alias vterm="vim ~/.dotfiles/X/Xresources"
 alias vbar="vim ~/.dotfiles/i3/polybar.conf"
 # ls
 alias ls='exa'

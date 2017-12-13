@@ -100,6 +100,8 @@ imap jk <Esc>
 imap <C-c> <Esc>
 nnoremap j gj
 nnoremap k gk
+noremap n nzz
+noremap N Nzz
 nnoremap <silent> H :tabprevious <CR>
 nnoremap <silent> L :tabnext <CR>
 nnoremap <silent> <leader><space> :nohlsearch<CR>

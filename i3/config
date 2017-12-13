@@ -289,13 +289,14 @@ mode "$mouse_small_mode" {
 exec_always ~/.dotfiles/scripts/wallpaper.sh
 exec_always xrdb ~/.Xresources
 exec_always "killall polybar; polybar -r top"
+exec_always ~/.dotfiles/scripts/update.sh
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec pamac-tray
 exec mpd
 exec dunst
-exec compton
+exec compton -b
 exec urxvtd -q -o -f
 exec setxkbmap fr oss -option compose:menu
 exec yaourt -Syy

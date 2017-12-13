@@ -46,7 +46,6 @@ rofi.font            : Dina 10
 !                 URXVT Settings                     !
 ! ---------------------------------------------------!
 URxvt.font                  : xft:Dina:size=10,xft:FontAwesome:pixelsize=10
-URxvt.boldfont              : xft:Dina:bold:size=10
 URxvt.letterSpace           : 0
 ! Xft.dpi                     : 96
 ! Xft.antialias               : true
