@@ -57,23 +57,22 @@ close_all = ctrl+shift+space
 history = ctrl+twosuperior
 context = ctrl+shift+period
 
-# TODO: link colors from Xresources
 [urgency_low]
-background = "#262626"
-foreground = "#ebdbb2"
-frame_color = "#98971a"
+# background = "#262626"
+# foreground = "#ebdbb2"
+# frame_color = "#98971a"
 timeout = 5
 
 [urgency_normal]
-background = "#262626"
-foreground = "#ebdbb2"
-frame_color = "#262626"
+# background = "#262626"
+# foreground = "#ebdbb2"
+# frame_color = "#262626"
 timeout = 10
 
 [urgency_critical]
-background = "#262626"
-foreground = "#ebdbb2"
-frame_color = "#cc241d"
+# background = "#262626"
+# foreground = "#ebdbb2"
+# frame_color = "#cc241d"
 timeout = 0
 
 # vim: ft=cfg
