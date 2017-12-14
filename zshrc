@@ -52,7 +52,7 @@ alias -g W='| wc -l'
 alias cp='cp -R'
 alias mkdir='mkdir -p'
 alias ping='ping -c 3'
-alias exit='sh ~/.dotfiles/scripts/seeyouspacecowboy.sh; sleep .5; exit'
+alias exit='sh ~/.dotfiles/scripts/seeyou.sh; sleep .5; exit'
 alias tex-clean="rm *.{aux,log,out,pdf}"
 alias tree="tree --dirsfirst"
 alias grep="grep --color=auto"

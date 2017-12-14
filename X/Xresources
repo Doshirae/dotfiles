@@ -1,22 +1,22 @@
 ! Gruvbox
 #define Dblack    #262626
-#define Lblack   #928374
-#define Dred    #cc241d
-#define Lred    #fb4934
-#define Dgreen   #98971a
-#define Lgreen   #b8bb26
-#define Dyellow  #d79921
-#define Lyellow  #fabd2f
-#define Dblue   #458588
-#define Lblue   #83a598
-#define Dpurple  #b16286
-#define Lpurple  #d3869b
-#define Dcyan   #689d6a
-#define Lcyan   #8ec07c
-#define Dgrey   #a89984
-#define Lgrey   #ebdbb2
-#define bg    Dblack
-#define fg    Lgrey
+#define Lblack    #928374
+#define Dred      #cc241d
+#define Lred      #fb4934
+#define Dgreen    #98971a
+#define Lgreen    #b8bb26
+#define Dyellow   #d79921
+#define Lyellow   #fabd2f
+#define Dblue     #458588
+#define Lblue     #83a598
+#define Dpurple   #b16286
+#define Lpurple   #d3869b
+#define Dcyan     #689d6a
+#define Lcyan     #8ec07c
+#define Dgrey     #a89984
+#define Lgrey     #ebdbb2
+#define bg         Dblack
+#define fg         Lgrey
 
 ! rofi ==>
 ! -----------------------------------------------------------!
