@@ -1,4 +1,7 @@
-killall dunst
+if [ `pgrep dunst` ]; then
+	killall dunst
+fi
+
 function get_color(){
 	res=$(xrdb -q | grep "$1:" | cut -d "#" -f 2)
 	echo "#"$res
@@ -11,7 +14,8 @@ foreground=$(get_color foreground)
 
 cfr=$color1
 nfr=$background
-lfr=$color2
+lfr=$background
+# lfr=$color2
 
 cb=$background
 nb=$background

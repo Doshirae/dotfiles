@@ -16,9 +16,11 @@ end
 
 if state == "Discharging"
   if level < 10
-    `notify-send -u critical "Branche ton PC. Vite." "$level%"`
+    `xdotool key ctrl+space`
+    `notify-send -u critical "Branche ton PC. Vite." "#{level}%"`
   elsif level < 20
-    `notify-send -u normal "Batterie faible" "$level%"`
+    `xdotool key ctrl+space`
+    `notify-send -u normal "Batterie faible" "#{level}%"`
   end
 end
 

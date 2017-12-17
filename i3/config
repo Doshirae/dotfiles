@@ -48,9 +48,9 @@ set $WS0 10
 # Actions ==>
 bindsym $mod+x kill
 # Screenshots ==>
-bindsym $mod+s exec "scrot '%Y-%m-%d_%H:%M:%S[Full].png' -ze 'mv $f ~/Pictures/Screenshots/'"
-bindsym $mod+Shift+s exec "sleep 1 && scrot '%Y-%m-%d_%H:%M:%S[Area].png' -zse 'mv $f ~/Pictures/Screenshots/'"
-bindsym $mod+Mod1+s exec "scrot '%Y-%m-%d_%H:%M:%S[Window].png' -zue 'mv $f ~/Pictures/Screenshots/'"
+bindsym $mod+s exec .dotfiles/scripts/screenshot.sh full
+bindsym $mod+Shift+s exec .dotfiles/scripts/screenshot.sh area
+bindsym $mod+Mod1+s exec .dotfiles/scripts/screenshot.sh window
 # screenshots <==
 # Audio & Brightness ==>
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
@@ -126,10 +126,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # bindsym $mod+g mode "$gaps"
-bindsym $mod+i mode "$system"
-bindsym $mod+r mode "resize"
-bindsym $mod+b mode "$browser_mode"
-bindsym $mod+m mode "$mouse_big_mode"
 # i3 <==
 # bindsyms <==
 
@@ -160,6 +156,7 @@ for_window [class=".*"] title_format "     %title"
 
 # Modes ==>
 # system ==>
+bindsym $mod+i mode "$system"
 set $system Lock | Exit | Suspend | Hibernate | Reboot | Shutdown
 mode "$system" {
 	bindsym l exec --no-startup-id $Locker, mode "default"
@@ -173,6 +170,7 @@ mode "$system" {
 }
 # system <==
 # resize ==>
+bindsym $mod+r mode "resize"
 mode "resize" {
 	bindsym h resize shrink width 5 px or 5 ppt
 	bindsym j resize grow height 5 px or 5 ppt
@@ -188,40 +186,8 @@ mode "resize" {
 	bindsym $mod+r mode "default"
 }
 # resize <==
-# # gap ==>
-# set $gaps Gaps: (o) outer, (i) inner
-# set $gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-# set $gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-#
-# mode "$gaps" {
-#         bindsym o      mode "$gaps_outer"
-#         bindsym i      mode "$gaps_inner"
-#         bindsym Escape mode "default"
-# }
-# mode "$gaps_inner" {
-#         bindsym plus  gaps inner current plus 5
-#         bindsym minus gaps inner current minus 5
-#         bindsym 0     gaps inner current set 0
-#
-#         bindsym Shift+plus  gaps inner all plus 5
-#         bindsym Shift+minus gaps inner all minus 5
-#         bindsym Shift+0     gaps inner all set 0
-#
-#         bindsym Escape mode "default"
-# }
-# mode "$gaps_outer" {
-#         bindsym plus  gaps outer current plus 5
-#         bindsym minus gaps outer current minus 5
-#         bindsym 0     gaps outer current set 0
-#
-#         bindsym Shift+plus  gaps outer all plus 5
-#         bindsym Shift+minus gaps outer all minus 5
-#         bindsym Shift+0     gaps outer all set 0
-#
-#         bindsym Escape mode "default"
-# }
-# # <==
 # browser ==>
+bindsym $mod+b mode "$browser_mode"
 set $browser_mode Firefox | Chromium | Qutebrowser | Surf
 mode "$browser_mode" {
 	bindsym f exec firefox, mode "default"
@@ -233,6 +199,7 @@ mode "$browser_mode" {
 }
 # browser <==
 # mouse ==>
+bindsym $mod+m mode "$mouse_big_mode"
 set $mouse_big_mode big | h - j - k - l | w - x - c - J - K | s
 set $mouse_small_mode small | h - j - k - l | w - x - c - J - K | b
 
@@ -276,25 +243,32 @@ mode "$mouse_small_mode" {
 	bindsym a exec xdotool click 4
 	bindsym z exec xdotool click 5
 
-	bindsym b mode "$mouse_average_mode"
+	bindsym b mode "$mouse_big_mode"
 
 	bindsym Escape mode "default"
 	bindsym $mod+m mode "default"
 }
 # small <==
 # mouse <==
+# play/pause ==>
+# set $playpause Play/Pause
+# bindsym $mod+less mode "playpause"
+# mode "playpause" {
+# 	bindsym k exec "xdotool mousemove 38 663 click 1 mousemove restore", mode "default"
+#
+# 	bindsym Escape mode "default"
+# 	bindsym $mod+less mode "default"
+# }
+# <==
 # modes <==
 
 # Autostart ==>
 exec_always ~/.dotfiles/scripts/wallpaper.sh
-exec_always ~/.dotfiles/scripts/update.sh
-
 exec_always xrdb ~/.Xresources
 exec_always "killall polybar; polybar -r top"
 
-
-exec .dotfiles/scripts/dunst.sh
-
+exec sleep 2 && ~/.dotfiles/scripts/dunst.sh
+exec sleep 3 && ~/.dotfiles/scripts/update.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec pamac-tray
@@ -302,10 +276,8 @@ exec mpd
 exec compton -b
 exec urxvtd -q -o -f
 exec setxkbmap fr oss -option compose:menu
-exec yaourt -Syy
 
-# exec --no-startup-id compton -b --config ~/.config/compton.conf
-# exec --no-startup-id gnome-keyring-daemon
+exec --no-startup-id gnome-keyring-daemon
 # exec --no-startup-id xautolock -time 10 -locker $Locker
 # autostart <==
 

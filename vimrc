@@ -1,7 +1,7 @@
 " Plugins ==>
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround' " Changing surround parenthesis
-Plug 'tpope/vim-ruby'
+Plug 'vim-ruby/vim-ruby'
 Plug 'tomtom/tcomment_vim' " Comment quickly lines
 Plug 'itchyny/lightline.vim' " The line
 Plug 'sheerun/vim-polyglot' " Syntax highlighting
@@ -10,7 +10,7 @@ Plug 'godlygeek/tabular' " align things
 Plug 'tpope/vim-endwise' " Auto put end in ruby
 Plug 'flazz/vim-colorschemes'
 Plug 'qpkorr/vim-renamer' " Bulk rename files
-Plug 'jiangmiao/auto-pairs' " Auto close parentheses
+Plug 'cohama/lexima.vim' " Auto close parentheses
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'kovisoft/slimv' " Slimv for Lisp
 " Plug 'http://git.foldling.org/vim-scheme.git' " Cool for scheme

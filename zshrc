@@ -26,6 +26,8 @@ zmodload zsh/complist
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # Aliases ==>
+# alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias s="startx"
 # file edit
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
