@@ -27,7 +27,8 @@ new_float pixel $bw
 
 # Sets ==>
 set $mod Mod4
-set $Locker ~/.dotfiles/scripts/lock.sh
+set $scripts ~/.dotfiles/scripts
+set $locker ~/.dotfiles/scripts/lock.sh
 set $browser firefox
 set $file thunar
 set $mail claws-mail
@@ -48,9 +49,9 @@ set $WS0 10
 # Actions ==>
 bindsym $mod+x kill
 # Screenshots ==>
-bindsym $mod+s exec .dotfiles/scripts/screenshot.sh full
-bindsym $mod+Shift+s exec .dotfiles/scripts/screenshot.sh area
-bindsym $mod+Mod1+s exec .dotfiles/scripts/screenshot.sh window
+bindsym $mod+s exec $scripts/screenshot.sh full
+bindsym $mod+Shift+s exec $scripts/screenshot.sh area
+bindsym $mod+Mod1+s exec $scripts/screenshot.sh window
 # screenshots <==
 # Audio & Brightness ==>
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
@@ -124,8 +125,6 @@ bindsym $mod+Ctrl+Left workspace prev
 # i3 ==>
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-
-# bindsym $mod+g mode "$gaps"
 # i3 <==
 # bindsyms <==
 
@@ -159,10 +158,10 @@ for_window [class=".*"] title_format "     %title"
 bindsym $mod+i mode "$system"
 set $system Lock | Exit | Suspend | Hibernate | Reboot | Shutdown
 mode "$system" {
-	bindsym l exec --no-startup-id $Locker, mode "default"
+		bindsym l exec --no-startup-id $locker, mode "default"
 		bindsym e exec --no-startup-id i3-msg exit, mode "default"
-		bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-		bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+		bindsym s exec --no-startup-id $locker && systemctl suspend, mode "default"
+		bindsym h exec --no-startup-id $locker && systemctl hibernate, mode "default"
 		bindsym r exec --no-startup-id reboot, mode "default"
 		bindsym Shift+s exec --no-startup-id poweroff, mode "default"
 
@@ -198,6 +197,44 @@ mode "$browser_mode" {
 		bindsym Escape mode "default"
 }
 # browser <==
+# gaps ==>
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+# <==
 # mouse ==>
 bindsym $mod+m mode "$mouse_big_mode"
 set $mouse_big_mode big | h - j - k - l | w - x - c - J - K | s
@@ -263,12 +300,12 @@ mode "$mouse_small_mode" {
 # modes <==
 
 # Autostart ==>
-exec_always ~/.dotfiles/scripts/wallpaper.sh
+exec_always $scripts/wallpaper.sh
 exec_always xrdb ~/.Xresources
 exec_always "killall polybar; polybar -r top"
 
-exec sleep 2 && ~/.dotfiles/scripts/dunst.sh
-exec sleep 3 && ~/.dotfiles/scripts/update.sh
+exec sleep 2 && $scripts/dunst.sh
+exec sleep 3 && $scripts/update.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec pamac-tray
@@ -278,11 +315,11 @@ exec urxvtd -q -o -f
 exec setxkbmap fr oss -option compose:menu
 
 exec --no-startup-id gnome-keyring-daemon
-# exec --no-startup-id xautolock -time 10 -locker $Locker
+# exec --no-startup-id xautolock -time 10 -locker $locker
 # autostart <==
 
 # i3-gaps ==>
-gaps inner 0
+gaps inner 1
 smart_gaps on
 smart_borders on
 # <==

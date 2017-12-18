@@ -62,7 +62,7 @@ alias :wq="exit"
 alias ftpiut="sftp chaixr@ftpinfo.iutmontp.univ-montp2.fr"
 alias rainbow='yes "$(seq 231 -1 16)" | while read i; do printf "\x1b[48;5;${i}m\n"; sleep .02; done'
 alias flic="nmap -v -Pn -A"
-alias backup="sudo rsync -Pvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
+alias backup="sudo rsync -LPvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 alias howdoi="howdoi -c"
 alias writeinclipboard='[[ -x `which xclip 2>/dev/null` ]] && cat << EOF | xclip -selection clipboard '
 # <==
