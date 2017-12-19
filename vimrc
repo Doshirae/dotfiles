@@ -22,6 +22,8 @@ Plug 'docunext/closetag.vim'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'shime/vim-livedown'
 Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree'
+Plug 'thiagoalessio/rainbow_levels.vim'
 call plug#end()
 " <==
 
@@ -60,8 +62,8 @@ set foldmethod=marker
 set foldmarker=\=\=>,<\=\=
 set foldlevel=0
 " Tabs
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 
 let g:AutoPairsMultilineClose=0
 let g:AutoPairsMapBS=0
@@ -87,7 +89,7 @@ set ttimeoutlen=100
 " maps ==>
 " Because why not
 noremap Y y$
-nmap <leader>mt :!ctags -R .
+nmap <leader>mt :!ctags -R .<CR>
 " ↑↑↑
 "^] pour aller à la def du tag sous le curseur
 "g^] quand c'est ambigu
@@ -213,6 +215,8 @@ let g:netrw_altv=1          " open splits to the right
 
 " Plugin settings ==>
 map <silent> <Leader>c :TComment<CR>
+map <leader>n :NERDTreeToggle<CR>
+map <leader>r :RainbowLevelsToggle<CR>
 
 " Lightline ==>
 let g:lightline = {'colorscheme': 'jellybeans',}

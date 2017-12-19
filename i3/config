@@ -72,7 +72,8 @@ bindsym $mod+F4 exec liferea; workspace $WS4
 bindsym $mod+F5 exec $mail; workspace $WS5
 bindsym $mod+F6 exec transmission-gtk; workspace $WS6
 # bindsym $mod+x exec xkill
-bindsym $mod+n exec passmenu
+# bindsym $mod+n exec passmenu
+bindsym $mod+n exec rofi-pass
 bindsym $mod+w exec urxvtc -geometry 60x40 -title "nmtui" -e zsh -c "sudo nmtui"
 # <==
 # Movement ==>
@@ -149,6 +150,7 @@ for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Pavucontrol"] floating enable
 for_window [title="TK-*"] floating enable
 
+for_window [class="^.*"] border pixel 0
 for_window [urgent=latest] focus
 for_window [class=".*"] title_format "     %title"
 # for_windows <==
@@ -319,7 +321,7 @@ exec --no-startup-id gnome-keyring-daemon
 # autostart <==
 
 # i3-gaps ==>
-gaps inner 1
+gaps inner 7
 smart_gaps on
 smart_borders on
 # <==
