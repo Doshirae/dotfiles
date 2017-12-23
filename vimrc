@@ -62,8 +62,8 @@ set foldmethod=marker
 set foldmarker=\=\=>,<\=\=
 set foldlevel=0
 " Tabs
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 let g:AutoPairsMultilineClose=0
 let g:AutoPairsMapBS=0
@@ -166,6 +166,11 @@ autocmd BufWinLeave * call clearmatches()
 " call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 " <==
 " Functions ==>
+" command! XCompose call XCompose($1)
+" func! Xcompose(word)
+" 	exec :norm oword
+" endfunc
+
 func! Launch()
 	exec "w"
 	if &filetype == 'java'

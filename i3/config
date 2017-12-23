@@ -63,6 +63,7 @@ bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 # actions <==
 # Applications ==>
 bindsym $mod+Return exec urxvtc; workspace $WS2
+bindsym $mod+Shift+Return exec xfce4-terminal
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+F1 exec $browser
 bindsym $mod+F2 exec urxvtc; workspace $WS2
@@ -308,6 +309,7 @@ exec_always "killall polybar; polybar -r top"
 
 exec sleep 2 && $scripts/dunst.sh
 exec sleep 3 && $scripts/update.sh
+exec sleep 5 && notify-send "Trucs à faire" "`cat ~/TODO.md`"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec pamac-tray

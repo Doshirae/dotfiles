@@ -108,9 +108,8 @@ test_ex(){
 	esac
 }
 
-add-feed(){
-	liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$1"
-}
+add-feed(){ liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$1" }
+mcd() { mkdir $1 && cd $1 }
 # <==
 
 bindkey "^[[A" history-substring-search-up

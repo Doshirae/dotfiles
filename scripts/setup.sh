@@ -51,11 +51,13 @@ function vim(){
 
 # other ==>
 function other(){
+	mkdir ~/.ssh
 	ln -sf $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
 	ln -sf $HOME/.dotfiles/X/xinitrc $HOME/.xinitrc
 	ln -sf $HOME/.dotfiles/X/Xresources $HOME/.Xresources
 	ln -sf $HOME/.dotfiles/X/XCompose $HOME/.XCompose
 	ln -sf $HOME/.dotfiles/ssh-config $HOME/.ssh/config
+	ln -sf $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 }
 # <==
 

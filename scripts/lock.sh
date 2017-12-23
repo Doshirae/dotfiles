@@ -6,8 +6,9 @@ revert() {
 
 trap revert HUP INT TERM
 xset +dpms dpms 30 30 30
+cd ~/.dotfiles/i3/locks
 
-ICON=$HOME/.dotfiles/i3/birb-lock.png
+ICON=`ls | sort -R |tail -1`
 TMPBG=/tmp/screen.png
 scrot /tmp/screen.png
 convert $TMPBG -scale 10% -scale 1000% $TMPBG
@@ -21,6 +22,8 @@ PURPLE=`xrdb -query | grep "color5:" | cut -d : -f 2 | cut -c 3-`"FF"
 CYAN=`xrdb -query | grep "color6:" | cut -d : -f 2 | cut -c 3-`"FF"
 GREY=`xrdb -query | grep "color7:" | cut -d : -f 2 | cut -c 3-`"FF"
 
+SIZE=30
+
 i3lock -n -k -e -i $TMPBG \
 	--keyhlcolor=$BLUE --bshlcolor=$PURPLE --separatorcolor=$BLUE \
 	--insidecolor=00000000 --ringcolor=00000000 \
@@ -29,8 +32,10 @@ i3lock -n -k -e -i $TMPBG \
 	--line-uses-inside \
 	--indpos="x+w/2:y+h/2" \
 	--radius=250 --veriftext="" --wrongtext="" --ring-width=10 \
-	--timecolor=$GREY \
+	--timecolor=$PURPLE \
 	--datecolor=$GREY --datestr="%A %e %b %Y"\
-	--timepos="ix-cw/2:iy-200-ch/2"
+	--timepos="ix-cw/2:iy-300-ch/2" \
+	--bar-indicator --bar-base-width $SIZE --bar-max-height $SIZE --bar-step $SIZE --bar-periodic-step $SIZE --bar-direction 1 --bar-position h
+
 
 revert
