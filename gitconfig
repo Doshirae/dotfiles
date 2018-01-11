@@ -2,4 +2,5 @@
 	email = doshirae@doshirae.fr
 	name = Doshirae
 [alias]
-	l = log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d\n%Creset %s\n%Cgreen(%cr)%Creset by %C(bold blue)<%an>%Creset%Cred %GK\n'
+	l = log --color --decorate --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d\n%Creset %s\n%Cgreen(%cr)%Creset by %C(bold blue)<%an>%Creset%Cred %GK\n'
+	ll = log --oneline --decorate --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d\n%Creset %s\n%Cgreen(%cr)%Creset by %C(bold blue)<%an>%Creset%Cred %GK\n'
