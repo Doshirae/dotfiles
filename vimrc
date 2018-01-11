@@ -4,7 +4,7 @@ Plug 'tpope/vim-surround' " Changing surround parenthesis
 Plug 'vim-ruby/vim-ruby'
 Plug 'tomtom/tcomment_vim' " Comment quickly lines
 Plug 'itchyny/lightline.vim' " The line
-Plug 'sheerun/vim-polyglot' " Syntax highlighting
+" Plug 'sheerun/vim-polyglot' " Syntax highlighting
 Plug 'w0rp/ale' " Syntactic linting
 Plug 'godlygeek/tabular' " align things
 Plug 'tpope/vim-endwise' " Auto put end in ruby
@@ -75,7 +75,7 @@ set fenc=utf-8
 set termencoding=utf-8
 
 set showcmd
-set list " pour afficher les machins affreux qui sont cacher (les tab et les endl)
+set list " pour afficher les machins affreux qui sont cachés (les tab et les endl)
 set listchars=tab:\|·,trail:·,extends:$,nbsp:=  " pour rendre les trucs affiché par list un peu moins moche
 if has("autocmd")
     " Détection auto du format
@@ -137,9 +137,7 @@ set t_Co=256
 autocmd Filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd Filetype ruby,eruby let g:rubycomplete_classes_in_global=1
 autocmd Filetype ruby,eruby let g:rubycomplete_rails = 1
-autocmd Filetype haskell, markdown, python, ruby set expandtab
-autocmd Filetype python set expandtab
-autocmd Filetype ruby set expandtab
+autocmd Filetype haskell, markdown set expandtab
 autocmd Filetype markdown set conceallevel=2
 au Filetype html,xml,xsl source ~/.vim/plugged/closetag.vim/plugin/closetag.vim
 
@@ -186,7 +184,7 @@ func! Launch()
 	elseif &filetype == 'html'
 		exec "!surf % &"
 	elseif &filetype == 'markdown'
-		exec "!pandoc --pdf-engine=xelatex % -o %.pdf && mupdf %.pdf"
+		exec "!pandoc --pdf-engine=xelatex % -o %.pdf && mupdf %.pdf&"
 	elseif &filetype == 'scheme'
 		exec "!csi -script %"
 	elseif &filetype == 'c'

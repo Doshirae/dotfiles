@@ -17,7 +17,7 @@ client.urgent    $background   $red         $background   #000000
 
 # Other ==>
 font pango:Cantarell 9
-floating_modifier $mod
+floating_modifier $super
 workspace_auto_back_and_forth no
 # set_from_resource $bw i3wm.bw 4
 set $bw 0
@@ -26,7 +26,8 @@ new_float pixel $bw
 # <==
 
 # Sets ==>
-set $mod Mod4
+set $super Mod4
+set $Alt Mod1
 set $scripts ~/.dotfiles/scripts
 set $locker ~/.dotfiles/scripts/lock.sh
 set $browser firefox
@@ -47,11 +48,11 @@ set $WS0 10
 
 # Bindsyms ==>
 # Actions ==>
-bindsym $mod+x kill
+bindsym $super+x kill
 # Screenshots ==>
-bindsym $mod+s exec $scripts/screenshot.sh full
-bindsym $mod+Shift+s exec $scripts/screenshot.sh area
-bindsym $mod+Mod1+s exec $scripts/screenshot.sh window
+bindsym $super+s exec $scripts/screenshot.sh full
+bindsym $super+Shift+s exec $scripts/screenshot.sh area
+bindsym $super+$Alt+s exec $scripts/screenshot.sh window
 # screenshots <==
 # Audio & Brightness ==>
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
@@ -62,81 +63,82 @@ bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 # audio brightness <==
 # actions <==
 # Applications ==>
-bindsym $mod+Return exec urxvtc; workspace $WS2
-bindsym $mod+Shift+Return exec xfce4-terminal
-bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+F1 exec $browser
-bindsym $mod+F2 exec urxvtc; workspace $WS2
-bindsym $mod+F3 exec thunar
-# bindsym $mod+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
-bindsym $mod+F4 exec liferea; workspace $WS4
-bindsym $mod+F5 exec $mail; workspace $WS5
-bindsym $mod+F6 exec transmission-gtk; workspace $WS6
-# bindsym $mod+x exec xkill
-# bindsym $mod+n exec passmenu
-bindsym $mod+n exec rofi-pass
-bindsym $mod+w exec urxvtc -geometry 60x40 -title "nmtui" -e zsh -c "sudo nmtui"
+bindsym $super+Return exec urxvtc; workspace $WS2
+bindsym $super+Shift+Return exec xfce4-terminal
+bindsym $super+d exec --no-startup-id rofi -show run
+bindsym $super+F1 exec $browser
+bindsym $super+F2 exec urxvtc; workspace $WS2
+bindsym $super+F3 exec thunar
+# bindsym $super+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
+bindsym $super+F4 exec liferea; workspace $WS4
+bindsym $super+F5 exec $mail; workspace $WS5
+bindsym $super+F6 exec transmission-gtk; workspace $WS6
+# bindsym $super+x exec xkill
+# bindsym $super+n exec passmenu
+bindsym $super+n exec rofi-pass
+bindsym $super+w exec urxvtc -geometry 60x40 -title "nmtui" -e zsh -c "sudo nmtui"
 # <==
 # Movement ==>
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
 # layout <==
 # Layout ==>
-bindsym $mod+c split horizontal
-bindsym $mod+v split vertical
-bindsym $mod+f fullscreen toggle
-bindsym $mod+e layout toggle tabbed split
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-# bindsym $mod+Shift+s sticky toggle
-bindsym $mod+p focus parent
-bindsym $mod+o focus child
+bindsym $super+c split horizontal
+bindsym $super+v split vertical
+bindsym $super+f fullscreen toggle
+bindsym $super+e layout toggle tabbed split
+bindsym $super+Shift+space floating toggle
+bindsym $super+less focus mode_toggle
+# bindsym $super+Shift+s sticky toggle
+bindsym $super+p focus parent
+bindsym $super+o focus child
 # layout <==
 # Workspaces ==>
-bindsym $mod+1 workspace $WS1
-bindsym $mod+2 workspace $WS2
-bindsym $mod+3 workspace $WS3
-bindsym $mod+4 workspace $WS4
-bindsym $mod+5 workspace $WS5
-bindsym $mod+6 workspace $WS6
-bindsym $mod+7 workspace $WS7
-bindsym $mod+8 workspace $WS8
-bindsym $mod+9 workspace $WS9
-bindsym $mod+twosuperior workspace $WS0
+bindsym $super+1 workspace $WS1
+bindsym $super+2 workspace $WS2
+bindsym $super+3 workspace $WS3
+bindsym $super+4 workspace $WS4
+bindsym $super+5 workspace $WS5
+bindsym $super+6 workspace $WS6
+bindsym $super+7 workspace $WS7
+bindsym $super+8 workspace $WS8
+bindsym $super+9 workspace $WS9
+bindsym $super+twosuperior workspace $WS0
 
-bindsym $mod+Shift+1 move container to workspace $WS1
-bindsym $mod+Shift+2 move container to workspace $WS2
-bindsym $mod+Shift+3 move container to workspace $WS3
-bindsym $mod+Shift+4 move container to workspace $WS4
-bindsym $mod+Shift+5 move container to workspace $WS5
-bindsym $mod+Shift+6 move container to workspace $WS6
-bindsym $mod+Shift+7 move container to workspace $WS7
-bindsym $mod+Shift+8 move container to workspace $WS8
-bindsym $mod+Shift+9 move container to workspace $WS9
-bindsym $mod+Shift+twosuperior move container to workspace $WS0
+bindsym $super+Shift+1 move container to workspace $WS1
+bindsym $super+Shift+2 move container to workspace $WS2
+bindsym $super+Shift+3 move container to workspace $WS3
+bindsym $super+Shift+4 move container to workspace $WS4
+bindsym $super+Shift+5 move container to workspace $WS5
+bindsym $super+Shift+6 move container to workspace $WS6
+bindsym $super+Shift+7 move container to workspace $WS7
+bindsym $super+Shift+8 move container to workspace $WS8
+bindsym $super+Shift+9 move container to workspace $WS9
+bindsym $super+Shift+twosuperior move container to workspace $WS0
 
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $super+Ctrl+Right workspace next
+bindsym $super+Ctrl+Left workspace prev
 # workspaces <==
 # i3 ==>
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $super+Shift+c reload
+bindsym $super+Shift+r restart
 # i3 <==
 # bindsyms <==
 
 # Assigns ==>
 assign [class="Chromium|Firefox|qutebrowser"] → $WS1
-assign [title="urxvt|tmux"] → $WS2
+assign [title="urxvt|tmux|xfce4-terminal"] → $WS2
 assign [class="Thunar|Filezilla"] → $WS3
 assign [class="Liferea"] → $WS4
 assign [class="Geary"] → $WS5
 assign [class="Transmission"] → $WS6
+assign [class="*minecraft*"] → $WS0
 # assigns <==
 
 # For_windows ==>
@@ -158,7 +160,7 @@ for_window [class=".*"] title_format "     %title"
 
 # Modes ==>
 # system ==>
-bindsym $mod+i mode "$system"
+bindsym $super+i mode "$system"
 set $system Lock | Exit | Suspend | Hibernate | Reboot | Shutdown
 mode "$system" {
 		bindsym l exec --no-startup-id $locker, mode "default"
@@ -172,7 +174,7 @@ mode "$system" {
 }
 # system <==
 # resize ==>
-bindsym $mod+r mode "resize"
+bindsym $super+r mode "resize"
 mode "resize" {
 	bindsym h resize shrink width 5 px or 5 ppt
 	bindsym j resize grow height 5 px or 5 ppt
@@ -185,15 +187,15 @@ mode "resize" {
 	bindsym Right resize grow width 5 px or 5 ppt
 
 	bindsym Escape mode "default"
-	bindsym $mod+r mode "default"
+	bindsym $super+r mode "default"
 }
 # resize <==
 # browser ==>
-bindsym $mod+b mode "$browser_mode"
+bindsym $super+b mode "$browser_mode"
 set $browser_mode Firefox | Chromium | Qutebrowser | Surf
 mode "$browser_mode" {
 	bindsym f exec firefox, mode "default"
-		bindsym c exec chromium --incognito, mode "default"
+		bindsym c exec chromium , mode "default"
 		bindsym q exec qutebrowser, mode "default"
 		bindsym s exec surf, mode "default"
 
@@ -201,19 +203,19 @@ mode "$browser_mode" {
 }
 # browser <==
 # gaps ==>
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+set $supere_gaps Gaps: (o) outer, (i) inner
+set $supere_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $supere_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $super+Shift+g mode "$supere_gaps"
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
+mode "$supere_gaps" {
+        bindsym o      mode "$supere_gaps_outer"
+        bindsym i      mode "$supere_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-mode "$mode_gaps_inner" {
+mode "$supere_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
@@ -225,7 +227,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-mode "$mode_gaps_outer" {
+mode "$supere_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
         bindsym 0     gaps outer current set 0
@@ -239,13 +241,13 @@ mode "$mode_gaps_outer" {
 }
 # <==
 # mouse ==>
-bindsym $mod+m mode "$mouse_big_mode"
-set $mouse_big_mode big | h - j - k - l | w - x - c - J - K | s
-set $mouse_small_mode small | h - j - k - l | w - x - c - J - K | b
+bindsym $super+m mode "$mouse_big_mode"
+set $mouse_big_mode big | h - j - k - l | w - x - c - q - d | s
+set $mouse_small_mode small | h - j - k - l | w - x - c - q - d | b
 
 # h, j, k, l are for moving (Vim like)
 # w, x, c, v, b are for Left click, middle click, right click, wheel up, wheel down
-# q, s are for bigger movements and smaller movements
+# b, s are for bigger movements and smaller movements
 
 # big ==>
 mode "$mouse_big_mode" {
@@ -255,8 +257,8 @@ mode "$mouse_big_mode" {
 	bindsym l exec xdotool mousemove_relative -- 100 0
 
 	bindsym w exec xdotool click 1
-	bindsym Shift+w exec xdotool mousedown 1
-	bindsym Shift+x exec xdotool mouseup 1
+	bindsym q exec xdotool mousedown 1
+	bindsym d exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
 	bindsym a exec xdotool click 4
@@ -265,7 +267,7 @@ mode "$mouse_big_mode" {
 	bindsym s mode "$mouse_small_mode"
 
 	bindsym Escape mode "default"
-	bindsym $mod+m mode "default"
+	bindsym $super+m mode "default"
 }
 # big <==
 # small ==>
@@ -276,8 +278,8 @@ mode "$mouse_small_mode" {
 	bindsym l exec xdotool mousemove_relative -- 10 0
 
 	bindsym w exec xdotool click 1
-	bindsym Shift+w exec xdotool mousedown 1
-	bindsym Shift+x exec xdotool mouseup 1
+	bindsym q exec xdotool mousedown 1
+	bindsym d exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
 	bindsym a exec xdotool click 4
@@ -286,20 +288,10 @@ mode "$mouse_small_mode" {
 	bindsym b mode "$mouse_big_mode"
 
 	bindsym Escape mode "default"
-	bindsym $mod+m mode "default"
+	bindsym $super+m mode "default"
 }
 # small <==
 # mouse <==
-# play/pause ==>
-# set $playpause Play/Pause
-# bindsym $mod+less mode "playpause"
-# mode "playpause" {
-# 	bindsym k exec "xdotool mousemove 38 663 click 1 mousemove restore", mode "default"
-#
-# 	bindsym Escape mode "default"
-# 	bindsym $mod+less mode "default"
-# }
-# <==
 # modes <==
 
 # Autostart ==>
@@ -314,9 +306,11 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec pamac-tray
 exec mpd
+exec redshift
 exec compton -b
 exec urxvtd -q -o -f
-exec setxkbmap fr oss -option compose:menu
+exec setxkbmap -layout fr,ru -variant oss, -option compose:menu -option grp:alt_shift_toggle
+
 
 exec --no-startup-id gnome-keyring-daemon
 # exec --no-startup-id xautolock -time 10 -locker $locker

@@ -28,6 +28,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 # Aliases ==>
 # alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias s="startx"
+alias exit='source ~/.dotfiles/scripts/seeyou.sh; sleep .5; exit'
 # file edit
 alias vzsh="vim ~/.dotfiles/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
@@ -54,7 +55,6 @@ alias -g W='| wc -l'
 alias cp='cp -R'
 alias mkdir='mkdir -p'
 alias ping='ping -c 3'
-alias exit='sh ~/.dotfiles/scripts/seeyou.sh; sleep .5; exit'
 alias tex-clean="rm *.{aux,log,out,pdf}"
 alias tree="tree --dirsfirst"
 alias grep="grep --color=auto"
@@ -112,8 +112,29 @@ add-feed(){ liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_i
 mcd() { mkdir $1 && cd $1 }
 # <==
 
+# Vim ==>
+bindkey -v
+autoload -U colors && colors
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+#Pour pouvoir utiliser les flêches haut et bas pour chercher les commandes dans l'historique
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+#Pour pouvoir utiliser Orig et End sur le clavier pour aller en début/fin de ligne (plus pratique)
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+#Pour utiliser les flêches de gauche et de droite pour se déplacer normalement
+bindkey "^[[D" backward-char
+bindkey "^[[C" forward-char
+#Pour utiliser Suppr
+bindkey "^[[3~" delete-char
+# <==
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
