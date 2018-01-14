@@ -10,7 +10,7 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # User configuration
-export PATH="$PATH:.:/usr/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:.:/usr/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.bin"
 # export PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-linux"
 export KEYTIMEOUT=1
 export GTK_IM_MODULE="xim"
@@ -112,29 +112,9 @@ add-feed(){ liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_i
 mcd() { mkdir $1 && cd $1 }
 # <==
 
-# Vim ==>
-bindkey -v
-autoload -U colors && colors
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-
 #Pour pouvoir utiliser les flêches haut et bas pour chercher les commandes dans l'historique
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
-#Pour pouvoir utiliser Orig et End sur le clavier pour aller en début/fin de ligne (plus pratique)
-bindkey "^[[7~" beginning-of-line
-bindkey "^[[8~" end-of-line
-#Pour utiliser les flêches de gauche et de droite pour se déplacer normalement
-bindkey "^[[D" backward-char
-bindkey "^[[C" forward-char
-#Pour utiliser Suppr
-bindkey "^[[3~" delete-char
-# <==
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
