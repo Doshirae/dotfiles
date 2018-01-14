@@ -295,13 +295,13 @@ mode "$mouse_small_mode" {
 # modes <==
 
 # Autostart ==>
-exec_always $scripts/wallpaper.sh
 exec_always xrdb ~/.Xresources
-exec_always "killall polybar; polybar -r top"
+exec_always "killall polybar; sleep 1 && polybar -r top"
 
-exec sleep 2 && $scripts/dunst.sh
-exec sleep 3 && $scripts/update.sh
-exec sleep 5 && notify-send "Trucs à faire" "`cat ~/TODO.md`"
+exec sleep 1 && $scripts/dunst.sh
+exec sleep 2 && $scripts/update.sh
+exec ruby $scripts/master_script.rb
+
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec pamac-tray
