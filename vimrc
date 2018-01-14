@@ -1,29 +1,31 @@
 " Plugins ==>
 call plug#begin('~/.vim/plugged')
+" Utilitary
 Plug 'tpope/vim-surround' " Changing surround parenthesis
-Plug 'vim-ruby/vim-ruby'
 Plug 'tomtom/tcomment_vim' " Comment quickly lines
-Plug 'itchyny/lightline.vim' " The line
-" Plug 'sheerun/vim-polyglot' " Syntax highlighting
-Plug 'w0rp/ale' " Syntactic linting
 Plug 'godlygeek/tabular' " align things
-Plug 'tpope/vim-endwise' " Auto put end in ruby
-Plug 'flazz/vim-colorschemes'
-Plug 'qpkorr/vim-renamer' " Bulk rename files
-Plug 'cohama/lexima.vim' " Auto close parentheses
-Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
-Plug 'kovisoft/slimv' " Slimv for Lisp
-" Plug 'http://git.foldling.org/vim-scheme.git' " Cool for scheme
-Plug 'junegunn/goyo.vim' " Purify interface
+Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
-Plug 'docunext/closetag.vim'
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'shime/vim-livedown'
-Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree'
+Plug 'cohama/lexima.vim' " Auto close parentheses
+Plug 'qpkorr/vim-renamer' " Bulk rename files
+Plug 'w0rp/ale' " Syntactic linting
+" Appearance
+Plug 'itchyny/lightline.vim' " The line
+Plug 'junegunn/goyo.vim' " Purify interface
+Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
+Plug 'flazz/vim-colorschemes'
 Plug 'thiagoalessio/rainbow_levels.vim'
+Plug 'mhinz/vim-startify'
+" Languages
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise' " Auto put end in ruby
+Plug 'rhysd/vim-crystal'
+Plug 'kovisoft/slimv' " Slimv for Lisp
+Plug 'docunext/closetag.vim' " Auto close tags in HTML
+Plug 'PotatoesMaster/i3-vim-syntax'
+" Plug 'sheerun/vim-polyglot' " Syntax highlighting
+" Plug 'shime/vim-livedown' " Cool for Markdown editing
 call plug#end()
 " <==
 
@@ -31,6 +33,7 @@ call plug#end()
 " sets ==>
 syntax on
 let mapleader = ';'
+set cursorline
 set smartcase
 set ignorecase
 set ttyfast " Améliore l'affichage en disant à vim que nous utilisons un terminal rapide
@@ -76,7 +79,7 @@ set termencoding=utf-8
 
 set showcmd
 set list " pour afficher les machins affreux qui sont cachés (les tab et les endl)
-set listchars=tab:\|·,trail:·,extends:$,nbsp:=  " pour rendre les trucs affiché par list un peu moins moche
+set listchars=tab:\|\ ,trail:\ ,extends:$,nbsp:=  " pour rendre les trucs affiché par list un peu moins moche
 if has("autocmd")
     " Détection auto du format
     " + activer indent
