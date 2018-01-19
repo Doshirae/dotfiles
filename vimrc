@@ -15,7 +15,6 @@ Plug 'itchyny/lightline.vim' " The line
 Plug 'junegunn/goyo.vim' " Purify interface
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'flazz/vim-colorschemes'
-Plug 'thiagoalessio/rainbow_levels.vim'
 Plug 'mhinz/vim-startify'
 " Languages
 Plug 'vim-ruby/vim-ruby'

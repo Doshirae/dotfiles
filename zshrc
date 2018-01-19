@@ -6,6 +6,7 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 fi
 
 autoload edit-command-line
+autoload colors && colors
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 

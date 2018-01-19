@@ -87,14 +87,11 @@ def kanban_todo
 end
 # <==
 
-seconds = 0
 loop do
-	if seconds % 600 == 0  # toutes les 10 minutes
+	if %x(date +"%M%S").to_i == 0  # toutes les heures
 		kanban_todo()
-		seconds = 0
 	end
 	wallpaper()
 	battery_notify()
 	sleep(5)
-	seconds += 5
 end
