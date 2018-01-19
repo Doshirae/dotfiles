@@ -1,4 +1,6 @@
+export PURE_PROMPT_SYMBOL="%#"
 source "$HOME/.zsh/slimzsh/slim.zsh"
+source "$HOME/.dotfiles/zsh/prompt.zsh"
 source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOME/.zsh/zsh-history-substring-search.zsh"
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
@@ -31,7 +33,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 alias s="startx"
 alias exit='source ~/.dotfiles/scripts/seeyou.sh; sleep .5; exit'
 # file edit
-alias vzsh="vim ~/.dotfiles/zshrc"
+alias vzsh="vim ~/.dotfiles/zsh/zshrc"
 alias vi3="vim ~/.dotfiles/i3/config"
 alias vvim="vim ~/.dotfiles/vimrc"
 alias vterm="vim ~/.dotfiles/X/Xresources"

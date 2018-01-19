@@ -36,7 +36,8 @@ function zsh(){
 	git clone --recursive https://github.com/changs/slimzsh.git ~/.zsh/slimzsh
 	git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 	wget https://raw.githubusercontent.com/zsh-users/zsh-history-substring-search/master/zsh-history-substring-search.zsh -O ~/.zsh/zsh-history-substring-search.zsh
-	ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
+	ln -sf $HOME/.dotfiles/zsh/zshrc $HOME/.zshrc
+	ln -sf $HOME/.dotfiles/zsh/zlogin $HOME/.zlogin
 }
 # <==
 
