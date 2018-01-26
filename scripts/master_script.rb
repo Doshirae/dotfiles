@@ -55,7 +55,11 @@ def wallpaper
 	if $changed
 		files = %x(ls $HOME/.dotfiles/i3/backgrounds/*-#{$daytime}*).split "\n"
 		bg = files.shuffle.first
-		`feh --bg-scale #{bg}`
+		if rand < 0.1
+			`feh --bg-scale $HOME/.dotfiles/i3/backgrounds/hackerman.jpg`
+		else
+			`feh --bg-scale #{bg}`
+		end
 
 		$changed = false
 	end
