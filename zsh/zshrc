@@ -114,7 +114,10 @@ test_ex(){
 	esac
 }
 
-add-feed(){ liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$1" }
+add-feed(){
+	channel_id=$(echo $1 | ruby -aF/ -ne 'puts $F.last' )
+	liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$channel_id"
+}
 mcd() { mkdir $1 && cd $1 }
 # <==
 
