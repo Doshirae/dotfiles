@@ -1,6 +1,7 @@
 export PURE_PROMPT_SYMBOL="%#"
+export PURE_CMD_MAX_EXEC_TIME=3
 source "$HOME/.zsh/slimzsh/slim.zsh"
-source "$HOME/.dotfiles/zsh/prompt.zsh"
+# source "$HOME/.dotfiles/zsh/prompt.zsh"
 source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOME/.zsh/zsh-history-substring-search.zsh"
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
@@ -13,7 +14,7 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # User configuration
-export PATH="$PATH:.:/usr/bin:/usr/local/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.bin"
+export PATH="$PATH:.:/usr/bin:/usr/local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.bin"
 # export PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-linux"
 export KEYTIMEOUT=1
 export GTK_IM_MODULE="xim"
@@ -31,6 +32,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 # Aliases ==>
 # alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias s="startx"
+alias ks="kanban show TODO WATCH"
+alias beep="paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
 alias exit='source ~/.dotfiles/scripts/seeyou.sh; sleep .5; exit'
 # file edit
 alias vzsh="vim ~/.dotfiles/zsh/zshrc"

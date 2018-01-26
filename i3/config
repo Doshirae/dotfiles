@@ -31,8 +31,6 @@ set $Alt Mod1
 set $scripts ~/.dotfiles/scripts
 set $locker ~/.dotfiles/scripts/lock.sh
 set $browser firefox
-set $file thunar
-set $mail claws-mail
 
 set $WS1 1
 set $WS2 2
@@ -68,7 +66,7 @@ bindsym $super+Shift+Return exec xfce4-terminal
 bindsym $super+d exec --no-startup-id rofi -show run
 bindsym $super+F1 exec $browser
 bindsym $super+F2 exec urxvtc; workspace $WS2
-bindsym $super+F3 exec thunar
+bindsym $super+F3 exec pcmanfm
 # bindsym $super+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
 bindsym $super+F4 exec liferea; workspace $WS4
 bindsym $super+F5 exec $mail; workspace $WS5
@@ -134,7 +132,7 @@ bindsym $super+Shift+r restart
 # Assigns ==>
 assign [class="Chromium|Firefox|qutebrowser"] → $WS1
 assign [title="urxvt|tmux|xfce4-terminal"] → $WS2
-assign [class="Thunar|Filezilla"] → $WS3
+assign [class="Thunar|Pcmanfm|Filezilla"] → $WS3
 assign [class="Liferea"] → $WS4
 assign [class="Geary"] → $WS5
 assign [class="Transmission"] → $WS6

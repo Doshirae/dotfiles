@@ -88,7 +88,7 @@ end
 # <==
 
 loop do
-	if %x(date +"%M%S").to_i == 0  # toutes les heures
+	if %x(date +"%M%S").to_i == 10  # toutes les heures, à 10s (heure : Xh00m10s)
 		kanban_todo()
 	end
 	wallpaper()

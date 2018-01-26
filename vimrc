@@ -10,6 +10,7 @@ Plug 'tpope/vim-repeat'
 Plug 'cohama/lexima.vim' " Auto close parentheses
 Plug 'qpkorr/vim-renamer' " Bulk rename files
 Plug 'w0rp/ale' " Syntactic linting
+Plug 'chrisbra/Colorizer' " Show colors by their hex code
 " Appearance
 Plug 'itchyny/lightline.vim' " The line
 Plug 'junegunn/goyo.vim' " Purify interface
