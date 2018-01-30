@@ -121,15 +121,6 @@ imap <C-Space> <C-X><C-O> " Remap completion on C-Space
 nmap éé :call Launch()<CR>
 " nmap <leader>cs :%s/\s\+$//<CR>:w<CR>
 nmap <leader>cs ma:%s/\s\+$//<CR>`a
-" Go fuck yourself man
-nnoremap <Up> :echo "STAHP."<CR>
-nnoremap <Down> :echo "STAHP."<CR>
-nnoremap <Left> :echo "STAHP."<CR>
-nnoremap <Right> :echo "STAHP."<CR>
-inoremap <Up> <Esc>:echo "STAHP."<CR>
-inoremap <Down> <Esc>:echo "STAHP."<CR>
-inoremap <Left> <Esc>:echo "STAHP."<CR>
-inoremap <Right> <Esc>:echo "STAHP."<CR>
 " <==
 " Colors ==>
 colorscheme gruvbox
