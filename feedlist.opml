@@ -32,6 +32,7 @@
         <outline title="REACT" text="REACT" description="REACT" type="atom" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCHEf6T_gVq4tlW5i91ESiWg" htmlUrl="https://www.youtube.com/channel/UCHEf6T_gVq4tlW5i91ESiWg"/>
         <outline title="Slivki Show" text="Slivki Show" description="Slivki Show" type="atom" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC37D-JTE7-V-L-VIrxzzZpQ" htmlUrl="https://www.youtube.com/channel/UC37D-JTE7-V-L-VIrxzzZpQ"/>
         <outline title="SQUEEZIE" text="SQUEEZIE" description="SQUEEZIE" type="atom" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCWeg2Pkate69NFdBeuRFTAw" htmlUrl="https://www.youtube.com/channel/UCWeg2Pkate69NFdBeuRFTAw"/>
+        <outline title="YouTalks" text="YouTalks" description="YouTalks" type="atom" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCo6J0WgADU6hprytXZBQrFA" htmlUrl="https://www.youtube.com/channel/UCo6J0WgADU6hprytXZBQrFA"/>
         <outline title="Wintergatan" text="Wintergatan" description="Wintergatan" type="atom" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcXhhVwCT6_WqjkEniejRJQ" htmlUrl="https://www.youtube.com/channel/UCcXhhVwCT6_WqjkEniejRJQ"/>
       </outline>
       <outline title="Culture" text="Culture" description="Culture" type="folder">
@@ -198,42 +199,60 @@
       </outline>
     </outline>
     <outline title="Podcast" text="Podcast" description="Podcast" type="folder">
-      <outline title="src.brussels" text="src.brussels" description="src.brussels" type="atom" xmlUrl="https://src.brussels/feed.xml" htmlUrl="https://src.brussels"/>
       <outline title="FloodCast" text="FloodCast" description="FloodCast" type="rss" xmlUrl="http://feeds.soundcloud.com/users/soundcloud:users:139721529/sounds.rss" htmlUrl="http://chezflober.com"/>
+      <outline title="src.brussels" text="src.brussels" description="src.brussels" type="atom" xmlUrl="https://src.brussels/feed.xml" htmlUrl="https://src.brussels"/>
     </outline>
     <outline title="Blogs" text="Blogs" description="Blogs" type="folder">
       <outline title="(iterate think thoughts)" text="(iterate think thoughts)" description="(iterate think thoughts)" type="rss" xmlUrl="http://yogthos.net/feed.xml" htmlUrl="&#10;http://yogthos.net/"/>
       <outline title="/home/lord" text="/home/lord" description="/home/lord" type="rss" xmlUrl="https://lord.re/index.xml" htmlUrl="https://lord.re/"/>
       <outline title="8th Light Blog" text="8th Light Blog" description="8th Light Blog" type="atom" xmlUrl="https://8thlight.com/blog/feed/atom.xml" htmlUrl="https://8thlight.com/blog/"/>
+      <outline title="Aldarone.fr" text="Aldarone.fr" description="Aldarone.fr" type="rss" xmlUrl="https://aldarone.fr/index.xml" htmlUrl="https://aldarone.fr/"/>
       <outline title="Arcan" text="Arcan" description="Arcan" type="rss" xmlUrl="https://arcan-fe.com/feed/" htmlUrl="https://arcan-fe.com"/>
       <outline title="assert_not magic?" text="assert_not magic?" description="assert_not magic?" type="rss" xmlUrl="https://assertnotmagic.com/feed.xml" htmlUrl="https://assertnotmagic.com"/>
+      <outline title="Blog de Shaft" text="Blog de Shaft" description="Blog de Shaft" type="atom" xmlUrl="https://www.shaftinc.fr/feed.atom" htmlUrl="https://www.shaftinc.fr/"/>
       <outline title="bouletcorp" text="bouletcorp" description="bouletcorp" type="rss" xmlUrl="http://www.bouletcorp.com/feed/" htmlUrl="http://www.bouletcorp.com"/>
       <outline title="ceaude" text="ceaude" description="ceaude" type="atom" xmlUrl="http://ceaude.twoticketsplease.de/feed.atom" htmlUrl="http://ceaude.twoticketsplease.de/feed.atom"/>
+      <outline title="Charlycoste's Blog" text="Charlycoste's Blog" description="Charlycoste's Blog" type="rss" xmlUrl="https://charlycoste.wordpress.com/feed/" htmlUrl="https://charlycoste.wordpress.com"/>
+      <outline title="Derniers messages" text="Derniers messages" description="Derniers messages" type="rss" xmlUrl="https://katyucha.ovh/rss.xml" htmlUrl="http://katyucha.ovh"/>
       <outline title="Grafikart.fr" text="Grafikart.fr" description="Grafikart.fr" type="rss" xmlUrl="https://feeds.feedburner.com/Grafikart" htmlUrl="https://www.grafikart.fr/"/>
       <outline title="Grise Bouille" text="Grise Bouille" description="Grise Bouille" type="rss" xmlUrl="https://grisebouille.net/feed/" htmlUrl="https://grisebouille.net"/>
       <outline title="Jax Blog" text="Jax Blog" description="Jax Blog" type="rss" xmlUrl="https://adminblog.foucry.net/feed.xml" htmlUrl="https://adminblog.foucry.net/"/>
       <outline title="Josh On Design" text="Josh On Design" description="Josh On Design" type="rss" xmlUrl="https://joshondesign.com/feed" htmlUrl="http://joshondesign.com/"/>
       <outline title="Le blog de Monsieur Tino" text="Le blog de Monsieur Tino" description="Le blog de Monsieur Tino" type="rss" xmlUrl="https://mrtino.eu/rss" htmlUrl="https://mrtino.eu/"/>
+      <outline title="Le blog du Journal du hacker !" text="Le blog du Journal du hacker !" description="Le blog du Journal du hacker !" type="rss" xmlUrl="https://blog.journalduhacker.net/feed.php?rss" htmlUrl="https://blog.journalduhacker.net/"/>
+      <outline title="Le blog technique de Microlinux" text="Le blog technique de Microlinux" description="Le blog technique de Microlinux" type="rss" xmlUrl="https://blog.microlinux.fr/feed/" htmlUrl="https://blog.microlinux.fr"/>
       <outline title="Miximum" text="Miximum" description="Miximum" type="rss" xmlUrl="https://www.miximum.fr/feeds/blog/%20" htmlUrl="http://www.miximum.fr/feeds/articles.rss"/>
       <outline title="Ordinosor" text="Ordinosor" description="Ordinosor" type="rss" xmlUrl="https://ordinosor.wordpress.com/feed" htmlUrl="https://miamondo.org"/>
       <outline title="Pablo Juan Rivera" text="Pablo Juan Rivera" description="Pablo Juan Rivera" type="rss" xmlUrl="http://pablojuan.com/feed" htmlUrl="http://pablojuan.com"/>
+      <outline title="Pixellibre.net" text="Pixellibre.net" description="Pixellibre.net" type="rss" xmlUrl="http://pixellibre.net/feed/" htmlUrl="http://pixellibre.net"/>
       <outline title="The Chicken Gazette" text="The Chicken Gazette" description="The Chicken Gazette" type="atom" xmlUrl="http://gazette.call-cc.org/feed.atom" htmlUrl="http://gazette.call-cc.org/feed.atom"/>
       <outline title="The Lambda Cartel Podcast" text="The Lambda Cartel Podcast" description="The Lambda Cartel Podcast" type="rss" xmlUrl="https://feeds.soundcloud.com/users/soundcloud:users:310627157/sounds.rss" htmlUrl="https://github.com/Lambda-Cartel"/>
       <outline title="Things Of Interest" text="Things Of Interest" description="Things Of Interest" type="rss" xmlUrl="https://qntm.org/rss.php" htmlUrl="https://qntm.org/"/>
       <outline title="Vince Campanale/Blog/" text="Vince Campanale/Blog/" description="Vince Campanale/Blog/" type="atom" xmlUrl="http://www.vincecampanale.com/blog/feed.xml" htmlUrl="http://vincecampanale.com/blog/"/>
-      <outline title="Le blog du Journal du hacker !" text="Le blog du Journal du hacker !" description="Le blog du Journal du hacker !" type="rss" xmlUrl="https://blog.journalduhacker.net/feed.php?rss" htmlUrl="https://blog.journalduhacker.net/"/>
-      <outline title="Pixellibre.net" text="Pixellibre.net" description="Pixellibre.net" type="rss" xmlUrl="http://pixellibre.net/feed/" htmlUrl="http://pixellibre.net"/>
-      <outline title="Aldarone.fr" text="Aldarone.fr" description="Aldarone.fr" type="rss" xmlUrl="https://aldarone.fr/index.xml" htmlUrl="https://aldarone.fr/"/>
-      <outline title="Wxcaf&#xE9;" text="Wxcaf&#xE9;" description="Wxcaf&#xE9;" type="atom" xmlUrl="https://wxcafe.net/feeds/feed.atom.xml" htmlUrl="https://wxcafe.net/feeds/feed.atom.xml"/>
       <outline title="What If?" text="What If?" description="What If?" type="atom" xmlUrl="https://what-if.xkcd.com/feed.atom" htmlUrl="http://what-if.xkcd.com/feed.atom"/>
-      <outline title="Blog de Shaft" text="Blog de Shaft" description="Blog de Shaft" type="atom" xmlUrl="https://www.shaftinc.fr/feed.atom" htmlUrl="https://www.shaftinc.fr/"/>
-      <outline title="Derniers messages" text="Derniers messages" description="Derniers messages" type="rss" xmlUrl="https://katyucha.ovh/rss.xml" htmlUrl="http://katyucha.ovh"/>
-      <outline title="Charlycoste's Blog" text="Charlycoste's Blog" description="Charlycoste's Blog" type="rss" xmlUrl="https://charlycoste.wordpress.com/feed/" htmlUrl="https://charlycoste.wordpress.com"/>
+      <outline title="Wxcaf&#xE9;" text="Wxcaf&#xE9;" description="Wxcaf&#xE9;" type="atom" xmlUrl="https://wxcafe.net/feeds/feed.atom.xml" htmlUrl="https://wxcafe.net/feeds/feed.atom.xml"/>
     </outline>
     <outline title="Comics" text="Comics" description="Comics" type="folder">
-      <outline title="xkcd" text="xkcd" description="xkcd" type="atom" xmlUrl="http://xkcd.com/atom.xml" htmlUrl="https://xkcd.com/"/>
       <outline title="CommitStrip" text="CommitStrip" description="CommitStrip" type="rss" xmlUrl="http://www.commitstrip.com/fr/feed/" htmlUrl="http://www.commitstrip.com"/>
+      <outline title="xkcd" text="xkcd" description="xkcd" type="atom" xmlUrl="http://xkcd.com/atom.xml" htmlUrl="https://xkcd.com/"/>
+    </outline>
+    <outline title="Libre" text="Libre" description="Libre" type="folder">
+      <outline title="La Quadrature du Net" text="La Quadrature du Net" description="La Quadrature du Net" type="rss" xmlUrl="https://www.laquadrature.net/fr/rss.xml" htmlUrl="https://www.laquadrature.net"/>
+      <outline title="Framasoft - Toute l'actualit&#xE9;" text="Framasoft - Toute l'actualit&#xE9;" description="Framasoft - Toute l'actualit&#xE9;" type="rss" xmlUrl="https://rss.framasoft.org/" htmlUrl="https://framasoft.org"/>
+      <outline title="Grise Bouille" text="Grise Bouille" description="Grise Bouille" type="rss" xmlUrl="https://grisebouille.net/feed/" htmlUrl="https://grisebouille.net"/>
+      <outline title="Le blog du Journal du hacker !" text="Le blog du Journal du hacker !" description="Le blog du Journal du hacker !" type="rss" xmlUrl="https://blog.journalduhacker.net/feed.php?rss" htmlUrl="https://blog.journalduhacker.net/"/>
+      <outline title="Free/Libre Open Source Software" text="Free/Libre Open Source Software" description="Free/Libre Open Source Software" type="atom" xmlUrl="https://www.reddit.com/r/floss/.rss" htmlUrl="https://www.reddit.com/r/floss/"/>
+      <outline title="LinuxFr.org : les d&#xE9;p&#xEA;ches" text="LinuxFr.org : les d&#xE9;p&#xEA;ches" description="LinuxFr.org : les d&#xE9;p&#xEA;ches" type="atom" xmlUrl="https://linuxfr.org/news.atom" htmlUrl="https://linuxfr.org/news.atom"/>
+      <outline title="LinuxFr.org : les journaux" text="LinuxFr.org : les journaux" description="LinuxFr.org : les journaux" type="atom" xmlUrl="https://linuxfr.org/journaux.atom" htmlUrl="https://linuxfr.org/journaux.atom"/>
+      <outline title="April" text="April" description="April" type="rss" xmlUrl="https://www.april.org/fr/rss.xml" htmlUrl="https://www.april.org"/>
+      <outline title="Les derniers communiqu&#xE9;s de presse publi&#xE9;s" text="Les derniers communiqu&#xE9;s de presse publi&#xE9;s" description="Les derniers communiqu&#xE9;s de presse publi&#xE9;s" type="rss" xmlUrl="https://www.april.org/fr/communiques/feed" htmlUrl="https://www.april.org/communiques"/>
+      <outline title="D&#xE9;cryptualit&#xE9;" text="D&#xE9;cryptualit&#xE9;" description="D&#xE9;cryptualit&#xE9;" type="rss" xmlUrl="https://www.april.org/taxonomy/term/1908/all/feed" htmlUrl="https://www.april.org/taxonomy/term/1908/all"/>
+      <outline title="Revue de presse" text="Revue de presse" description="Revue de presse" type="rss" xmlUrl="https://www.april.org/revue-de-presse/feed" htmlUrl="https://www.april.org/revue-de-presse"/>
+      <outline title="L'Agenda du Libre" text="L'Agenda du Libre" description="L'Agenda du Libre" type="rss" xmlUrl="https://www.agendadulibre.org/events.rss" htmlUrl="https://www.agendadulibre.org/"/>
+      <outline title="Je Suis Libre" text="Je Suis Libre" description="Je Suis Libre" type="rss" xmlUrl="https://feeds.feedburner.com/jesuislibre" htmlUrl="http://www.jesuislibre.org"/>
+      <outline title="Veni, Vidi, Libri - Diffuseur de licences libres" text="Veni, Vidi, Libri - Diffuseur de licences libres" description="Veni, Vidi, Libri - Diffuseur de licences libres" type="rss" xmlUrl="https://vvlibri.org/fr/rss.xml" htmlUrl="https://vvlibri.org/fr/rss.xml"/>
     </outline>
     <outline title="Dans Ton Chat" text="Dans Ton Chat" description="Dans Ton Chat" type="rss" xmlUrl="https://feeds.feedburner.com/bashfr" htmlUrl="https://danstonchat.com/"/>
+    <outline title="reddit: the front page of the internet" text="reddit: the front page of the internet" description="reddit: the front page of the internet" type="atom" xmlUrl="https://www.reddit.com/.rss" htmlUrl="https://www.reddit.com/"/>
   </body>
 </opml>
