@@ -4,7 +4,7 @@
 function packages(){
 	case `uname -r` in
 		*ARCH)
-			sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick xdotool polybar-git bmenu urxvt-perls gvim rsync rofi-pass
+			sudo yaourt -S gvfs lightdm-gtk-greeter lightdm-gtk-greeter-settings evince mupdf pavucontrol pulseaudio pulseaudio-alsa libcanberra-{pulse,gstreamer} system-config-printer ttf-font-awesome ttf-mononoki nmap gnome-keyring net-tools rxvt-unicode zsh dunst feh rofi firefox chromium qutebrowser tmux liferea thunar i3lock i3-gaps network-manager-applet pass zathura lxappearance wget imagemagick xdotool polybar-git bmenu urxvt-perls gvim rsync rofi-pass mutt
 			;;
 		*gentoo*)
 			# TODO: figure out USE flags
@@ -14,7 +14,7 @@ function packages(){
 			# Build from source : polybar
 			# USE : libcanberra → pulseaudio, gstreamer
 			# USE : pulseaudio → alsa-plugin
-			sudo emerge -q gnome-base/gvfs app-admin{pass,qtpass} x11-misc/{lightdm-gtk-greeter,dunst,rofi,i3lock,pcmanfm, xdotool, urxvt-perls} app-text/{evince,mupdf,zathura{,-pdf-poppler}} media-sound/{pavucontrol,pulseaudio} media-fonts/fontawesome net-analyzer/nmap sys-apps/net-tools x11-terms/rxvt-unicode app-shells/{zsh,gentoo-zsh-completions} media-gfx/{imagemagick,feh} www-client/{firefox,qutebrowser,chromium,surf} x11-wm/i3 app-misc/tmux net-news/liferea xfce-base/thunar gnome-extra/nm-applet lxde-base/lxappearance net-misc/wget
+			sudo emerge -q gnome-base/gvfs app-admin{pass,qtpass} x11-misc/{lightdm-gtk-greeter,dunst,rofi,i3lock,pcmanfm, xdotool, urxvt-perls} app-text/{evince,mupdf,zathura{,-pdf-poppler}} media-sound/{pavucontrol,pulseaudio} media-fonts/fontawesome net-analyzer/nmap sys-apps/net-tools x11-terms/rxvt-unicode app-shells/{zsh,gentoo-zsh-completions} media-gfx/{imagemagick,feh} www-client/{firefox,qutebrowser,chromium,surf} x11-wm/i3 app-misc/tmux net-news/liferea xfce-base/thunar gnome-extra/nm-applet lxde-base/lxappearance net-misc/wget mutt
 	esac
 }
 # <==
@@ -63,6 +63,13 @@ function vim(){
 }
 # <==
 
+# mutt ==>
+function mutt(){
+	ln -sf $HOME/.dotfiles/mutt $HOME/.mutt
+	ln -sf $HOME/.dotfiles/muttrc $HOME/.muttrc
+}
+# <==
+
 # other ==>
 function other(){
 	mkdir ~/.ssh
@@ -80,6 +87,7 @@ function all(){
 	xdg
 	zsh
 	vim
+	mutt
 	other
 }
 
