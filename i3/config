@@ -74,7 +74,6 @@ bindsym $super+F6 exec transmission-gtk; workspace $WS6
 # bindsym $super+x exec xkill
 # bindsym $super+n exec passmenu
 bindsym $super+n exec rofi-pass
-bindsym $super+w exec urxvtc -geometry 60x40 -title "nmtui" -e zsh -c "sudo nmtui"
 # <==
 # Movement ==>
 bindsym $super+h focus left
@@ -92,8 +91,8 @@ bindsym $super+v split vertical
 bindsym $super+f fullscreen toggle
 bindsym $super+e layout toggle tabbed split
 bindsym $super+Shift+space floating toggle
-bindsym $super+less focus mode_toggle
-# bindsym $super+Shift+s sticky toggle
+bindsym $super+w focus mode_toggle
+bindsym $super+Shift+w sticky toggle
 bindsym $super+p focus parent
 bindsym $super+o focus child
 # layout <==
@@ -136,7 +135,7 @@ assign [class="Thunar|Pcmanfm|Filezilla"] → $WS3
 assign [class="Liferea"] → $WS4
 assign [class="Geary"] → $WS5
 assign [class="Transmission"] → $WS6
-assign [class="*minecraft*"] → $WS0
+assign [class="*minecraft*|Clone Hero.x86_64"] → $WS0
 # assigns <==
 
 # For_windows ==>

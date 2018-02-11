@@ -47,6 +47,19 @@ function vim(){
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -sf $HOME/.dotfiles/vimrc $HOME/.vimrc
 	echo "You should run vim +PlugInstall"
+
+	cd .vim/spell
+	wget http://ftp.vim.org/vim/runtime/spell/fr.latin1.spl
+	wget http://ftp.vim.org/vim/runtime/spell/fr.latin1.sug
+	wget http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl
+	wget http://ftp.vim.org/vim/runtime/spell/fr.utf-8.sug
+	wget http://ftp.vim.org/vim/runtime/spell/ru.cp1251.spl
+	wget http://ftp.vim.org/vim/runtime/spell/ru.cp1251.sug
+	wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.spl
+	wget http://ftp.vim.org/vim/runtime/spell/ru.koi8-r.sug
+	wget http://ftp.vim.org/vim/runtime/spell/ru.utf-8.spl
+	wget http://ftp.vim.org/vim/runtime/spell/ru.utf-8.sug
+
 }
 # <==
 

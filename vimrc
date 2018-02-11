@@ -5,7 +5,7 @@ Plug 'tpope/vim-surround' " Changing surround parenthesis
 Plug 'tomtom/tcomment_vim' " Comment quickly lines
 Plug 'godlygeek/tabular' " align things
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-repeat'
 Plug 'cohama/lexima.vim' " Auto close parentheses
 Plug 'qpkorr/vim-renamer' " Bulk rename files
@@ -16,16 +16,16 @@ Plug 'itchyny/lightline.vim' " The line
 Plug 'junegunn/goyo.vim' " Purify interface
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'flazz/vim-colorschemes'
-Plug 'mhinz/vim-startify'
 " Languages
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-endwise' " Auto put end in ruby
-Plug 'rhysd/vim-crystal'
-Plug 'kovisoft/slimv' " Slimv for Lisp
+" Plug 'kovisoft/slimv' " Slimv for Lisp
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc.vim'
+" Plug 'ujihisa/repl.vim'
+" Plug 'notalex/vim-run-live'
+Plug 'jpalardy/vim-slime'
 Plug 'docunext/closetag.vim' " Auto close tags in HTML
 Plug 'PotatoesMaster/i3-vim-syntax'
-" Plug 'sheerun/vim-polyglot' " Syntax highlighting
-" Plug 'shime/vim-livedown' " Cool for Markdown editing
 call plug#end()
 " <==
 
@@ -41,6 +41,9 @@ set backupdir=~/.vim/tmp/ " for the backup files
 set directory=~/.vim/tmp/ " for the swap files
 set omnifunc=syntaxcomplete#Complete
 set backspace=indent,eol,start
+
+set splitright
+" set splitbelow
 
 set nu " Print line numbers
 set incsearch " Search through the whole file
@@ -109,6 +112,10 @@ noremap n nzz
 noremap N Nzz
 nnoremap <silent> H :tabprevious <CR>
 nnoremap <silent> L :tabnext <CR>
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 nnoremap <silent> <leader><space> :nohlsearch<CR>
 " Often edit these files
 nmap <silent> <leader>ev :tabnew ~/.dotfiles/vimrc<CR>
@@ -117,9 +124,23 @@ nmap <silent> <leader>ei :tabnew ~/.dotfiles/i3/config<CR>
 nmap <silent> <leader>eb :tabnew ~/.dotfiles/i3/polybar/polybar.conf<CR>
 nmap <silent> <Leader>sv :source ~/.dotfiles/vimrc<CR>:echo 'vimrc reloaded'<CR>
 
+" Spelling
+nnoremap <leader>sf :setlocal spell! spelllang=fr<cr>
+nnoremap <leader>sr :setlocal spell! spelllang=ru<cr>
+" z= sur un mot souligné affiche une liste de corrections possibles
+" zg rajoute un mot dans le dictionnaire
+" zug pour annuler l'ajout au dictionnaire
+" ]s pour aller au prochain mot mal orthographié
+" [s pour le précédent
+
+" Navigating with guides
+noremap <Space><Tab> /<++><Enter>:nohl<Enter>cf>
+vnoremap <Space><Tab> <Esc>/<++><Enter>:nohl<Enter>cf>
+map <Space><Tab> <Esc>/<++><Enter>:nohl<Enter>cf>
+inoremap <leader>g <++>
+
 imap <C-Space> <C-X><C-O> " Remap completion on C-Space
 nmap éé :call Launch()<CR>
-" nmap <leader>cs :%s/\s\+$//<CR>:w<CR>
 nmap <leader>cs ma:%s/\s\+$//<CR>`a
 " <==
 " Colors ==>
@@ -140,6 +161,8 @@ au FileType ruby,eruby setl ofu=rubycomplete#Complete
 au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
 au FileType c setl ofu=ccomplete#CompleteCpp
 au FileType css setl ofu=csscomplete#CompleteCSS
+" autocmd BufWritePre * norm ma:%s/\s\+$//e
+au BufEnter *.gp set ft=gnuplot
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -149,13 +172,17 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-"jjjj
-" " Lexima
-" call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
-" call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
-" call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
-" call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
-" call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+" Markdown maps
+autocmd Filetype markdown inoremap <leader>n ---<Enter><Enter>
+autocmd Filetype markdown inoremap <leader>b ****<++><Esc>F*hi
+autocmd Filetype markdown inoremap <leader>e **<++><Esc>F*i
+autocmd Filetype markdown inoremap <leader>co ~~~ <++><Enter><++><Enter>~~~<Esc>2kf<ciW
+autocmd Filetype markdown inoremap <leader>i ![](<++>)<++><Esc>F[a
+autocmd Filetype markdown inoremap <leader>a [](<++>)<++><Esc>F[a
+autocmd Filetype markdown inoremap <leader>f [^](<++>)<++><Esc>F^a
+autocmd Filetype markdown inoremap <leader>1 #<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap <leader>2 ##<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap <leader>3 ###<Space><Enter><++><Esc>kA
 " <==
 " Functions ==>
 " command! XCompose call XCompose($1)
@@ -166,7 +193,7 @@ autocmd BufWinLeave * call clearmatches()
 func! Launch()
 	exec "w"
 	if &filetype == 'java'
-		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java -cp %:p:h %:t:r&"
+		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java %:t:r"
 	elseif &filetype == 'sh'
 		exec "!bash %"
 	elseif &filetype == 'ruby'
@@ -211,9 +238,8 @@ let g:netrw_altv=1          " open splits to the right
 " <==
 
 " Plugin settings ==>
-map <silent> <Leader>c :TComment<CR>
-map <leader>n :NERDTreeToggle<CR>
-map <leader>r :RainbowLevelsToggle<CR>
+" map <silent> <Leader>c :TComment<CR>
+map <leader><leader> :NERDTreeToggle<CR>
 
 " Lightline ==>
 let g:lightline = {'colorscheme': 'jellybeans',}
@@ -265,4 +291,15 @@ let g:livedown_port = 1337
 " the browser to use
 let g:livedown_browser = "surf"
 " <==
+" Lexima  ==>
+call lexima#add_rule({ 'char': "'",  'input': "'", 'filetype': ['lisp', 'scheme'] })
+call lexima#add_rule({ 'char': "`",  'input': "`", 'filetype': ['lisp', 'scheme'] })
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
 " <==
+" <==
+
+" let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-Racket "racket -f ~/.vim/plugged/slimv/slime/start-swank.lisp"'
+
+let g:slime_target = "tmux"
