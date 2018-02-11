@@ -1,0 +1,22 @@
+set my_user='doshirae@lilo.org'
+set my_pass="`pass Social/Mail/Lilo`"
+
+set imap_user="doshirae@lilo.org"
+set imap_pass="valise Framoge clochard1mon;dad"
+set smtp_url="smtp://$my_user@mail.lilo.org:587"
+set smtp_pass = "$my_pass"
+
+set from = "doshirae@lilo.org"
+set realname = "Doshirae"
+
+set folder="imaps://mail.lilo.org"
+set spoolfile ="imaps://mail.lilo.org/INBOX"
+set record ="imaps://mail.lilo.org/Sent"
+set postponed ="imaps://mail.lilo.org/Drafts"
+mailboxes =INBOX =Sent =Drafts
+# set header_cache = ~/.mutt/com.gmail.foo/cache/headers
+# set message_cachedir = ~/.mutt/com.gmail.foo/cache/bodies
+# set certificate_file = ~/.mutt/com.gmail.foo/certificates
+set signature=~/.dotfiles/signature
+
+# vim:ft=muttrc

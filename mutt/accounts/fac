@@ -1,0 +1,16 @@
+set my_user='romain.chaix@etu.umontpellier.fr'
+set my_pass="`pass IRL/ENT`"
+
+set imap_user="$my_user"
+set imap_pass="$my_pass"
+set smtp_url="smtps://$my_user@smtp.umontpellier.fr:465/"
+set smtp_pass = "$my_pass"
+
+set from = "romain.chaix@etu.umontpellier.fr"
+set realname = "Romain Chaix"
+set folder ="imaps://mail.etu.umontpellier.fr"
+set spoolfile ="imaps://mail.etu.umontpellier.fr/INBOX"
+set record = "imaps://mail.etu.umontpellier.fr/Sent"
+set postponed ="imaps://mail.etu.umontpellier.fr/Drafts"
+mailboxes =INBOX =Sent =Drafts
+# vim:ft=muttrc
