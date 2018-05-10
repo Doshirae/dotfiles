@@ -1,6 +1,8 @@
 " Plugins ==>
 call plug#begin('~/.vim/plugged')
 " Utilitary
+Plug 'TroyFletcher/vim-colors-synthwave'
+Plug 'sedm0784/vim-you-autocorrect'
 Plug 'tpope/vim-surround' " Changing surround parenthesis
 Plug 'tomtom/tcomment_vim' " Comment quickly lines
 Plug 'godlygeek/tabular' " align things
@@ -16,7 +18,9 @@ Plug 'itchyny/lightline.vim' " The line
 Plug 'junegunn/goyo.vim' " Purify interface
 Plug 'luochen1990/rainbow' " Rainbow parentheses (useful in Lisp, cool in every other language)
 Plug 'flazz/vim-colorschemes'
+" Plug 'dylanaraps/wal.vim'
 " Languages
+Plug 'vim-latex/vim-latex'
 Plug 'vim-ruby/vim-ruby'
 " Plug 'kovisoft/slimv' " Slimv for Lisp
 Plug 'Shougo/vimshell.vim'
@@ -33,7 +37,7 @@ call plug#end()
 " sets ==>
 syntax on
 let mapleader = ';'
-set cursorline
+" set cursorline
 set smartcase
 set ignorecase
 set ttyfast " Améliore l'affichage en disant à vim que nous utilisons un terminal rapide
@@ -42,8 +46,8 @@ set directory=~/.vim/tmp/ " for the swap files
 set omnifunc=syntaxcomplete#Complete
 set backspace=indent,eol,start
 
+set splitbelow
 set splitright
-" set splitbelow
 
 set nu " Print line numbers
 set incsearch " Search through the whole file
@@ -145,14 +149,15 @@ nmap <leader>cs ma:%s/\s\+$//<CR>`a
 " <==
 " Colors ==>
 colorscheme gruvbox
+" colorscheme wal
 set background=dark
-set t_Co=256
+" set t_Co=256
 " <==
 " autocmds ==>
 autocmd Filetype ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd Filetype ruby,eruby let g:rubycomplete_classes_in_global=1
 autocmd Filetype ruby,eruby let g:rubycomplete_rails = 1
-autocmd Filetype haskell, markdown set expandtab
+autocmd Filetype haskell,markdown,scheme set expandtab
 autocmd Filetype markdown set conceallevel=2
 au Filetype html,xml,xsl source ~/.vim/plugged/closetag.vim/plugin/closetag.vim
 
@@ -163,6 +168,7 @@ au FileType c setl ofu=ccomplete#CompleteCpp
 au FileType css setl ofu=csscomplete#CompleteCSS
 " autocmd BufWritePre * norm ma:%s/\s\+$//e
 au BufEnter *.gp set ft=gnuplot
+au BufEnter *.tex set ft=tex
 
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -196,29 +202,27 @@ func! Launch()
 		exec "!clear && echo '>----Compiling------>' && javac % && echo '>---->Running------->' && java %:t:r"
 	elseif &filetype == 'sh'
 		exec "!bash %"
+	elseif &filetype == 'rust'
+		exec "!cargo run"
 	elseif &filetype == 'ruby'
 		exec "!ruby %"
-	elseif &filetype == 'perl'
-		exec "!perl %"
 	elseif &filetype == 'python'
 		exec "!python3 %"
 	elseif &filetype == 'html'
 		exec "!surf % &"
 	elseif &filetype == 'markdown'
-		exec "!pandoc --pdf-engine=xelatex % -o %.pdf && mupdf %.pdf&"
-	elseif &filetype == 'scheme'
-		exec "!csi -script %"
+		exec "!pandoc --pdf-engine=lualatex % -o %.pdf && mupdf %.pdf&"
 	elseif &filetype == 'c'
 		exec "!gcc % -o %<"
 		exec "!./%<"
 	elseif &filetype == 'tex'
-		exec '!pdflatex "%" && mupdf "%:r.pdf" &'
+		exec '!lualatex "%" && mupdf "%:r.pdf" &'
 	elseif &filetype == 'xdefaults'
 		exec "!xrdb %"
 	elseif &filetype == 'elixir'
 		exec "!elixir %"
-	elseif &filetype == 'php'
-		exec "!php %"
+	elseif &filetype == 'haskell'
+		exec "!ghc % && ./%:r"
 	endif
 endfunc
 " <==
@@ -303,3 +307,5 @@ call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 
 " let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-Racket "racket -f ~/.vim/plugged/slimv/slime/start-swank.lisp"'
 
 let g:slime_target = "tmux"
+inoremap ;pr autotype: user :tab pass :enter
+nnoremap <bs> <c-^>

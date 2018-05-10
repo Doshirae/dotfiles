@@ -1,3 +1,4 @@
+# (cat ~/.cache/wal/sequences &)
 export PURE_PROMPT_SYMBOL="%#"
 export PURE_CMD_MAX_EXEC_TIME=3
 source "$HOME/.zsh/slimzsh/slim.zsh"
@@ -15,12 +16,13 @@ bindkey '^x^e' edit-command-line
 
 # User configuration
 export PATH="$PATH:.:/usr/bin:/usr/local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.bin"
-# export PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-linux"
+export PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-linux/"
 export KEYTIMEOUT=10
 # export GTK_IM_MODULE="xim"
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 # export VISUAL="/usr/bin/vim"
 export EDITOR="/usr/bin/vim"
+export BROWSER="surf"
 
 zstyle ':completion:*:rm:*' ignore-line yes
 zstyle ':completion:*:mv:*' ignore-line yes
@@ -72,7 +74,7 @@ alias flic="nmap -v -Pn -A"
 alias backup1="sudo rsync -LPvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/TOSHIBA\ EXT/"
 alias backup2="sudo rsync -LPvaz --exclude /.cache /home/doshirae/ /run/media/doshirae/Romain/"
 alias howdoi="howdoi -c"
-alias writeinclipboard='[[ -x `which xclip 2>/dev/null` ]] && cat << EOF | xclip -selection clipboard '
+alias clean-tex="rm *.aux *.log *.out"
 # <==
 
 # Fonctions ==>
@@ -117,10 +119,10 @@ test_ex(){
 }
 
 add-feed(){
-	channel_id=$(echo $1 | ruby -aF/ -ne 'puts $F.last' )
-	liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$channel_id"
+channel_id=$(echo $1 | ruby -aF/ -ne 'puts ($F.last == "\n") ? $F[-2] : $F.last')
+liferea-add-feed "https://www.youtube.com/feeds/videos.xml?channel_id=$channel_id"
 }
-mcd() { mkdir $1 && cd $1 }
+mcd() { mkdir -p $1 && cd $1 }
 # <==
 
 #Pour pouvoir utiliser les flêches haut et bas pour chercher les commandes dans l'historique
@@ -152,3 +154,34 @@ bindkey "^[[B" history-substring-search-down
 # <==
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Reset the background when out of ssh connection
+# (but also after every command, unfortunately)
+function precmd(){
+	if [[ $DISPLAY == ":0" ]]; then
+		bg=$(xrdb -query | grep background | cut -d "#" -f 2)
+		echo -e "\033]11;#$bg\007"
+	fi
+}
+
+
+function sendIUT(){
+	user_server=chaixr@ftpinfo.iutmontp.univ-montp2.fr
+	host_dir=public_html/Javascript/
+	TMPfile=/tmp/sftp_transfer
+
+	cd $HOME/IUT/Javascript/TD4/files
+
+	echo cd $host_dir > $TMPfile
+	for file in $@; do
+		echo put -r "$file" >> $TMPfile
+	done
+	echo bye >> $TMPfile
+
+	sftp $user_server < $TMPfile
+
+	rm $TMPfile
+}
+export DISCORD_TOKEN=MjYxMTYxMzQ4MTI0MTE0OTQ1.DaRATw.LOFYBj3MBcq4PTl6Rq_P_zw5W18
+alias ebi='bash ~/ebics.sh'
+alias suppr="xsel -o | cut -d : -f 1 |  xargs rm -r"

@@ -10,7 +10,7 @@ set_from_resource $cyan i3wm.color6       #669972
 set_from_resource $grey i3wm.color7       #393939
 
 #                Border        Background   Font          ???
-client.focused   $red          $background  $foreground   #000000
+client.focused   $red          $red         $background   #000000
 client.unfocused $background   $background  $foreground   #000000
 client.urgent    $background   $red         $background   #000000
 # colours <==
@@ -19,10 +19,9 @@ client.urgent    $background   $red         $background   #000000
 font pango:Cantarell 9
 floating_modifier $super
 workspace_auto_back_and_forth no
-# set_from_resource $bw i3wm.bw 4
-set $bw 0
+set $bw 1
 new_window pixel $bw
-new_float pixel $bw
+new_float pixel 0
 # <==
 
 # Sets ==>
@@ -66,14 +65,16 @@ bindsym $super+Shift+Return exec xfce4-terminal
 bindsym $super+d exec --no-startup-id rofi -show run
 bindsym $super+F1 exec $browser
 bindsym $super+F2 exec urxvtc; workspace $WS2
-bindsym $super+F3 exec pcmanfm
+bindsym $super+F3 exec thunar
 # bindsym $super+F4 exec urxvtc -title "ranger" -e zsh -c "ranger"; workspace $WS3
 bindsym $super+F4 exec liferea; workspace $WS4
 bindsym $super+F5 exec $mail; workspace $WS5
 bindsym $super+F6 exec transmission-gtk; workspace $WS6
 # bindsym $super+x exec xkill
-# bindsym $super+n exec passmenu
+bindsym $super+Shift+n exec passmenu
 bindsym $super+n exec rofi-pass
+bindsym $super+a exec urxvtc -title "tmp-shell" -geometry "80x24"
+bindsym $super+Shift+a exec $scripts/vim-clipboard.sh
 # <==
 # Movement ==>
 bindsym $super+h focus left
@@ -133,24 +134,23 @@ assign [class="Chromium|Firefox|qutebrowser"] → $WS1
 assign [title="urxvt|tmux|xfce4-terminal"] → $WS2
 assign [class="Thunar|Pcmanfm|Filezilla"] → $WS3
 assign [class="Liferea"] → $WS4
-assign [class="Geary"] → $WS5
-assign [class="Transmission"] → $WS6
+assign [class="Transmission"] → $WS5
 assign [class="*minecraft*|Clone Hero.x86_64"] → $WS0
 # assigns <==
 
 # For_windows ==>
-for_window [title="alsamixer"] floating enable border pixel 2
+for_window [title="alsamixer"] floating enable
 for_window [class="*pinentry*"] floating enable
 for_window [title="*pinentry*"] floating enable
-for_window [title="nmtui"] floating enable
+for_window [title="vim-clipboard"] floating enable
+for_window [title="tmp-shell"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="GParted"] floating enable border normal
+for_window [class="GParted"] floating enable
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Lxappearance"] floating enable sticky enable
 for_window [class="Pavucontrol"] floating enable
 for_window [title="TK-*"] floating enable
 
-for_window [class="^.*"] border pixel 0
 for_window [urgent=latest] focus
 for_window [class=".*"] title_format "     %title"
 # for_windows <==
@@ -258,8 +258,8 @@ mode "$mouse_big_mode" {
 	bindsym d exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym a exec xdotool click 4
-	bindsym z exec xdotool click 5
+	bindsym z exec xdotool click 4
+	bindsym a exec xdotool click 5
 
 	bindsym s mode "$mouse_small_mode"
 
@@ -279,8 +279,8 @@ mode "$mouse_small_mode" {
 	bindsym d exec xdotool mouseup 1
 	bindsym x exec xdotool click 2
 	bindsym c exec xdotool click 3
-	bindsym a exec xdotool click 4
-	bindsym z exec xdotool click 5
+	bindsym z exec xdotool click 4
+	bindsym a exec xdotool click 5
 
 	bindsym b mode "$mouse_big_mode"
 
@@ -289,9 +289,30 @@ mode "$mouse_small_mode" {
 }
 # small <==
 # mouse <==
+# floating focus ==>
+bindsym $super+z focus floating; mode "$floating_focus"
+set $floating_focus Move floating window
+mode "$floating_focus" {
+		bindsym h move left; move left
+		bindsym j move down; move down
+		bindsym k move up; move up
+		bindsym l move right; move right
+		# bindsym Left exec --no-startup-id move left
+		# bindsym Down exec --no-startup-id move down
+		# bindsym Up exec --no-startup-id move up
+		# bindsym Right exec --no-startup-id move right
+
+		bindsym Escape mode "default"
+		bindsym $super+z mode "default"
+}
+# <==
 # modes <==
 
 # Autostart ==>
+# Enable touchpad tapping and enable touchpad while typing
+exec $scripts/xinput.sh
+# bug fix where the tab were glitchy
+exec sleep 4 && i3-msg reload
 exec_always xrdb ~/.Xresources
 exec_always "killall polybar; sleep 1 && polybar -r top"
 
