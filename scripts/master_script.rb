@@ -53,13 +53,13 @@ def wallpaper
 	end
 
 	if $changed
-		files = %x(ls $HOME/.dotfiles/i3/backgrounds/*-#{$daytime}*).split "\n"
-		bg = files.shuffle.first
-		if rand < 0.1
-			`feh --bg-scale $HOME/.dotfiles/i3/backgrounds/hackerman.jpg`
+		files = if rand < 0.2
+			%x(ls $HOME/.dotfiles/i3/backgrounds/others/*).split "\n"
 		else
-			`feh --bg-scale #{bg}`
+			%x(ls $HOME/.dotfiles/i3/backgrounds/*-#{$daytime}*).split "\n"
 		end
+		bg = files.shuffle.first
+		`feh --bg-scale #{bg}`
 
 		$changed = false
 	end
@@ -91,11 +91,12 @@ def kanban_todo
 end
 # <==
 
+%x(feh --bg-scale /home/doshirae/.dotfiles/i3/backgrounds/others/samurai-champloo.jpg)
 loop do
 	if %x(date +"%M%S").to_i == 10  # toutes les heures, à 10s (heure : Xh00m10s)
 		kanban_todo()
 	end
-	wallpaper()
+	# wallpaper()
 	battery_notify()
 	sleep(5)
 end
