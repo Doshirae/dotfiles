@@ -60,11 +60,14 @@ color index blue black ~D #Delete
 # <==
 
 # Default account
-source ~/.mutt/accounts/personal
+source ~/.mutt/accounts/doshirae@lilo.org
+
 
 # Macros for switching accounts
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/personal<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/fac<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/doshirae@lilo.org<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/romain.chaix@etu.umontpellier.fr<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/doshirae@doshi.re<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/accounts/romain.chaix@doshi.re<enter><change-folder>!<enter>'
 
 # =============================================================================
 # === Sidebar =================================================================
@@ -75,9 +78,6 @@ set sidebar_visible=yes
 # color of folders with new mail
 color sidebar_new green default
 
-bind index,pager ^P sidebar-prev
-bind index,pager ^N sidebar-next
-bind index,pager ^O sidebar-open
 
 # === Mapping ==>==============================================================
 # =============================================================================
@@ -103,3 +103,48 @@ bind  pager G           bottom
 bind  pager K           previous-undeleted
 bind  pager J           next-undeleted
 # <==
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+set mbox_type=mbox
+set arrow_cursor
+
+set charset = "utf-8"
+set index_format="%4C %Z %D %-25.25L %s"
+set date_format="%d/%m/%y - %H:%M"
+
+# Ne pas passer au message suivant lorsqu'on atteint la fin 
+# de la lecture du mail
+# set pager_stop = yes
+
+# Lecture confortable
+set smart_wrap = yes
+
+# Nombre de ligne de contexte à conserver lors d'un saut de page
+set pager_context = 8
+
+# Symbole de citation
+set quote_regexp = "^([ \t]*[|>/])+"
+set markers = yes
+
+# Inclus le message dans la réponse
+set include
+
+# Préfixe le message récupéré via set include dans la réponse
+# %d pour la date
+# %n pour l'expéditeur
+set attribution = "Le %d, %n a écrit :"
+
+# Pour éditer les headers dans la réponse
+set edit_headers
+
+set fast_reply
+
+auto_view text/html
+alternative_order text/plain text/html
+
+set query_command= "abook --mutt-query '%s'"
+macro index,pager A "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>abook --add-email-quiet<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
+bind editor <Tab> complete-query
